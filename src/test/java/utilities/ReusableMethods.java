@@ -3,6 +3,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.User_Homepage;
+import pages.User_RestaurantUmiSakeHouse;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +18,25 @@ import java.util.function.Function;
 
 public class ReusableMethods {
     private static int timeout = 5;
+
+    // 31 ve 34. satirlarda configuration olarak kendi değerlerinizi giriniz
+    public static void userLoginMethod(){
+        User_RestaurantUmiSakeHouse userRestaurantUmiSakeHouse = new User_RestaurantUmiSakeHouse();
+        User_Homepage userHomepage = new User_Homepage();
+        //	Kullanıcı url’e gider
+        Driver.getDriver().get(ConfigReader.getProperty("mealscenterHpUrl"));
+        //	Sign in butonuna tıklar
+        userHomepage.homePageSignInButton.click();
+        //	Açılan login sayfasındaki username kutusuna değer yazdırır
+        ReusableMethods.waitFor(1);
+        userRestaurantUmiSakeHouse.accountUsername.sendKeys(ConfigReader.getProperty("userEmail") + Keys.TAB);
+        //	Password kutusuna değer yazdırır
+        ReusableMethods.waitFor(1);
+        userRestaurantUmiSakeHouse.accountPassword.sendKeys(ConfigReader.getProperty("userPassword"));
+        //	Formdaki sign in butonuna tıklar
+        userRestaurantUmiSakeHouse.accountLoginSigninButton.click();
+    }
+
 
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
