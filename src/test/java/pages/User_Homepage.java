@@ -39,6 +39,14 @@ public User_Homepage(){
     @FindBy (xpath = "(//button[@ref_key='_ref'])[1]")
     public WebElement mealscenterHpCookieAcceptButton;
 
+    // .homepage arama kutusu
+    @FindBy(xpath = "//input[@class='form-control form-control-text']")
+    public WebElement homePageSearchBox;
+
+    // .home page sign in butonu
+    @FindBy(xpath = "//*[text()='Sign in']")
+    public WebElement homePageSignInButton;
+
 
 
 }
