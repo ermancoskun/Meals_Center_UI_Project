@@ -416,19 +416,19 @@ public class ReusableMethods {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
 
-    public static void userLoginMethod(String username, String password){
-        userHomepage=new User_Homepage();
+    public static void userLoginMethod(String username, String password) {
+        userHomepage = new User_Homepage();
         userHomepage.signInButton.click();
-        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty(""+ username +"") + Keys.TAB);
-        userHomepage.passwordBox.sendKeys(ConfigReader.getProperty(""+password +""));
+        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + "") + Keys.TAB);
+        userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("" + password + ""));
         userHomepage.loginSigninButton.click();
-
-    public static void merchantLogin() {
-        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-        Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
-        merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
-        merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
-        merchant_dashboard.signInButton.click();
+    }
+    public static void merchantLogin(){
+            Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+            Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
+            merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
+            merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
+            merchant_dashboard.signInButton.click();
     }
 
     public static void adminLogin(String username,String password) {
