@@ -429,37 +429,40 @@ public class ReusableMethods {
 
     }
 
-        public static void merchantLogin () {
-            Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-            Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
-            merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
-            merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
-            merchant_dashboard.signInButton.click();
-        }
+    public static void merchantLogin() {
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
+        merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
+        merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
+        merchant_dashboard.signInButton.click();
+    }
 
-        public static void adminLogin (String username, String password){
-            Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-            Admin_Dashboard admin_dashboard = new Admin_Dashboard();
-            admin_dashboard.usernameBox.sendKeys(username);
-            admin_dashboard.passwordBox.sendKeys(password);
-            admin_dashboard.signinButton.click();
-        }
+    public static void adminLogin(String username, String password) {
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+        Admin_Dashboard admin_dashboard = new Admin_Dashboard();
+        admin_dashboard.usernameBox.sendKeys(username);
+        admin_dashboard.passwordBox.sendKeys(password);
+        admin_dashboard.signinButton.click();
+    }
 
-        //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
-        public static void goTouserHomePage () {
-            User_Homepage user_homepage = new User_Homepage();
-            Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-            user_homepage.cookieAcceptButton.click();
-        }
-        //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
-        public static void goToAdminHomePage () {
-            Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-        }
-        //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
-        public static void goToMerchantHomePage () {
-            Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-        }
-        public static void wait(double saniye) {
+    //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
+    public static void goTouserHomePage() {
+        User_Homepage user_homepage = new User_Homepage();
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        user_homepage.cookieAcceptButton.click();
+    }
+
+    //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
+    public static void goToAdminHomePage() {
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+    }
+
+    //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
+    public static void goToMerchantHomePage() {
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+    }
+
+    public static void wait(double saniye) {
         // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
         try {
             Thread.sleep((long) (saniye * 1000));
@@ -467,3 +470,4 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+}

@@ -25,4 +25,9 @@ public class US_001 extends TestBaseRapor {
         extentTest.pass("passed");
     }
 
+    @Test
+    public void test02(){
+        ReusableMethods.goTouserHomePage();
+
+    }
 }
