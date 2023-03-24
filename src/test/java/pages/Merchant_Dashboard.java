@@ -52,5 +52,34 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement assignDriverButton;
 
+    //Merchant>backoffice>orders>completed
+    @FindBy(xpath = "//li[@class='position-relative orders_completed']")
+    public WebElement completedLink;
 
+    @FindBy(xpath = "//h5[@class='head m-0']")
+    public WebElement completedText;
+
+    //merchant>backoffice/orders>completed/completedtodayCount
+    @FindBy(xpath = "(//div[text()='0'])[5]")
+    public WebElement completedtodayCount;
+
+    //merchant>backoffice/orders>completed/ordertypeddm
+    @FindBy(xpath = "(//select[@class='selectpicker'])[1]")
+    public WebElement orderTypeDdm;
+
+    //merchant>backoffice/orders>completed/paymentstatusddm
+
+    @FindBy(xpath = "//select[@title='Payment status']")
+    public WebElement paymentStatusDdm;
+
+    //merchant>backoffice/orders>completed/sortddm
+    @FindBy(xpath = "//select[@title='Sort']")
+    public WebElement sortDdm;
+    //merchant>backoffice/orders>completed/acceptingOrdersButton
+    @FindBy(xpath = "//button[@class='btn btn-green']")
+    public WebElement acceptingOrdersButton;
+
+    //merchant>backoffice/orders>completed/cancelButton
+    @FindBy(xpath = "(//span[text()='Cancel'])[1]")
+    public WebElement  cancelButton;
 }

@@ -60,7 +60,6 @@ public class ReusableMethods {
     }
 
 
-
     //==========Return a list of string given a list of Web Element====////
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
@@ -84,7 +83,6 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
-
 
 
     //===============Thread.sleep Wait==============//
@@ -121,7 +119,6 @@ public class ReusableMethods {
     }
 
 
-
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
@@ -136,15 +133,14 @@ public class ReusableMethods {
     }
 
 
-
     /**
      * Performs double click action on an element
+     *
      * @param element
      */
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
-
 
 
     /**
@@ -164,9 +160,9 @@ public class ReusableMethods {
     }
 
 
-
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
+     *
      * @param select
      * @return
      */
@@ -309,7 +305,6 @@ public class ReusableMethods {
     }
 
 
-
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -434,7 +429,6 @@ public class ReusableMethods {
 
     }
 
-
         public static void merchantLogin () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
             Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -473,5 +467,3 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
-
-}
