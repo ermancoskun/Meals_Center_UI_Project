@@ -1,4 +1,4 @@
-package tests.US_007_018_033_040;
+package tests;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,7 @@ import utilities.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class US_007 {
+public class US_007 extends TestBaseRapor{
     //1)bir browser ac
     //2)"https://qa.mealscenter.com/" url uzerinden 'mealscenter' sitesine gider
     //3) cokies kabul eder
@@ -94,7 +94,8 @@ public class US_007 {
                 .sendKeys("Bu bir test mesajidir").perform();
         user_homepage.contactPageSubmitButton.click();
         assertTrue(user_homepage.successfulMessageElementi.isDisplayed());
-        Driver.closeDriver();
+
+
 
     }
 
