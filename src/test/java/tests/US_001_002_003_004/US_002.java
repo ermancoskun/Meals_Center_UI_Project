@@ -15,7 +15,7 @@ public class US_002 {
 
         Driver.getDriver().get(ConfigReader.getProperty("mealscenterHpUrl"));
 
-        user_homepage.mealscenterHpCookieAcceptButton.click();
+        user_homepage.cookieAcceptButton.click();
 
         String expectedTitle= "Meals Center";
         String actualTitle=Driver.getDriver().getTitle();
