@@ -1,10 +1,8 @@
-package tests.US_007_018_033_040;
+package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Admin_Dashboard;
 import pages.Merchant_Dashboard;
