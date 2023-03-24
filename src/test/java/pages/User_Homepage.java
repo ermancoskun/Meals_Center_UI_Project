@@ -171,4 +171,15 @@ public User_Homepage(){
     public WebElement successfulMessageElementi;
 
 
+    //account/login user
+    // girişi başarısız olduğunda çıkan uyarı yazısı:
+    //"Unable to login. Check your login information and try again."
+    @FindBy (xpath = "//div[@class='alert alert-warning']")
+    public WebElement loginOlunamadiUyarisi;
+
+
+    //login sonrasi homepage sol üstteki simge
+    @FindBy (xpath = "//img[@class='img-30 rounded-pill lozad loaded']")
+    public WebElement loginOlunduSimgesi;
+
 }

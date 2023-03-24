@@ -452,6 +452,7 @@ public class ReusableMethods {
         user_homepage.cookieAcceptButton.click();
     }
 
+
     //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
     public static void goToAdminHomePage() {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
