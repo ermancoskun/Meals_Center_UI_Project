@@ -23,7 +23,6 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//input[@class='btn btn-green btn-full']")
     public WebElement signInButton;
 
-
     //merchant>dashboard/orders link
     @FindBy (xpath = "//li[@class='merchant_orders']")
     public WebElement ordersLink;
@@ -48,9 +47,17 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//span[text()='Reject']")
     public WebElement rejectButton;
 
-    ///backoffice/orders/scheduled>assignDriverButton
+    //backoffice/orders/scheduled>assignDriverButton
     @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement assignDriverButton;
+
+    //merchant > Dasshboard / All Orders link
+    @FindBy (xpath = "//li[@class='position-relative orders_history']")
+    public WebElement allOrdersLink;
+
+    //merchant > Dasshboard / orderHistory
+    @FindBy (xpath = "//a[@class='navbar-brand']")
+    public WebElement orderHistoryText;
 
 
 }

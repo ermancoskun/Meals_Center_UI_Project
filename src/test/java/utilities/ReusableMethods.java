@@ -457,14 +457,17 @@ public class ReusableMethods {
             Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
             user_homepage.cookieAcceptButton.click();
         }
+
         //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
         public static void goToAdminHomePage () {
             Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
         }
+
         //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
         public static void goToMerchantHomePage () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
         }
+
         public static void wait(double saniye) {
         // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
         try {
