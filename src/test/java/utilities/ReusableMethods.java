@@ -18,25 +18,7 @@ import java.util.function.Function;
 
 public class ReusableMethods {
     private static int timeout = 5;
-
-    // 31 ve 34. satirlarda configuration olarak kendi değerlerinizi giriniz
-    public static void userLoginMethod(){
-        User_RestaurantUmiSakeHouse userRestaurantUmiSakeHouse = new User_RestaurantUmiSakeHouse();
-        User_Homepage userHomepage = new User_Homepage();
-        //	Kullanıcı url’e gider
-        Driver.getDriver().get(ConfigReader.getProperty("mealscenterHpUrl"));
-        //	Sign in butonuna tıklar
-        userHomepage.homePageSignInButton.click();
-        //	Açılan login sayfasındaki username kutusuna değer yazdırır
-        ReusableMethods.waitFor(1);
-        userRestaurantUmiSakeHouse.accountUsername.sendKeys(ConfigReader.getProperty("userEmail") + Keys.TAB);
-        //	Password kutusuna değer yazdırır
-        ReusableMethods.waitFor(1);
-        userRestaurantUmiSakeHouse.accountPassword.sendKeys(ConfigReader.getProperty("userPassword"));
-        //	Formdaki sign in butonuna tıklar
-        userRestaurantUmiSakeHouse.accountLoginSigninButton.click();
-    }
-
+    public static User_Homepage userHomepage = new User_Homepage();
 
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -431,4 +413,46 @@ public class ReusableMethods {
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void userLoginMethod(String username, String password){
+        userHomepage=new User_Homepage();
+        userHomepage.signInButton.click();
+        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty(""+ username +"") + Keys.TAB);
+        userHomepage.passwordBox.sendKeys(ConfigReader.getProperty(""+password +""));
+        userHomepage.loginSigninButton.click();
+    }
+
 }
