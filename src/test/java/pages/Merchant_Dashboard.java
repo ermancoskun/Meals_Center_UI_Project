@@ -23,7 +23,6 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//input[@class='btn btn-green btn-full']")
     public WebElement signInButton;
 
-
     //merchant>dashboard/orders link
     @FindBy (xpath = "//li[@class='merchant_orders']")
     public WebElement ordersLink;
@@ -48,9 +47,49 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//span[text()='Reject']")
     public WebElement rejectButton;
 
-    ///backoffice/orders/scheduled>assignDriverButton
+    //backoffice/orders/scheduled>assignDriverButton
     @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement assignDriverButton;
 
 
+    //merchant > Dasshboard / All Orders link
+    @FindBy (xpath = "//li[@class='position-relative orders_history']")
+    public WebElement allOrdersLink;
+
+    //merchant > Dasshboard / orderHistory
+    @FindBy (xpath = "//a[@class='navbar-brand']")
+    public WebElement orderHistoryText;
+
+
+    //Merchant>backoffice>orders>completed
+    @FindBy(xpath = "//li[@class='position-relative orders_completed']")
+    public WebElement completedLink;
+
+
+    @FindBy(xpath = "//h5[@class='head m-0']")
+    public WebElement completedText;
+
+    //merchant>backoffice/orders>completed/completedtodayCount
+    @FindBy(xpath = "(//div[text()='0'])[5]")
+    public WebElement completedtodayCount;
+
+    //merchant>backoffice/orders>completed/ordertypeddm
+    @FindBy(xpath = "(//select[@class='selectpicker'])[1]")
+    public WebElement orderTypeDdm;
+
+    //merchant>backoffice/orders>completed/paymentstatusddm
+
+    @FindBy(xpath = "//select[@title='Payment status']")
+    public WebElement paymentStatusDdm;
+
+    //merchant>backoffice/orders>completed/sortddm
+    @FindBy(xpath = "//select[@title='Sort']")
+    public WebElement sortDdm;
+    //merchant>backoffice/orders>completed/acceptingOrdersButton
+    @FindBy(xpath = "//button[@class='btn btn-green']")
+    public WebElement acceptingOrdersButton;
+
+    //merchant>backoffice/orders>completed/cancelButton
+    @FindBy(xpath = "(//span[text()='Cancel'])[1]")
+    public WebElement  cancelButton;
 }
