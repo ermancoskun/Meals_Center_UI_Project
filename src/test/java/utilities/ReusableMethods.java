@@ -413,12 +413,22 @@ public class ReusableMethods {
 
     public static void userLoginMethod(String username, String password) {
         userHomepage = new User_Homepage();
+
+        // Anasayfadaki sign in butonuna tıklanır.
         userHomepage.signInButton.click();
-        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + "") + Keys.TAB);
+
+        // Acılan login sayfasına gecerli email adresi girilir
+        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + ""));
+
+        // Gecerli password girilir
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("" + password + ""));
+
+        // Sign in butonuna tıkalnır.
         userHomepage.loginSigninButton.click();
 
+
     }
+
         public static void merchantLogin () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
             Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -427,16 +437,13 @@ public class ReusableMethods {
             merchant_dashboard.signInButton.click();
         }
 
-
-    public static void adminLogin(String username, String password) {
-        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-        Admin_Dashboard admin_dashboard = new Admin_Dashboard();
-        admin_dashboard.usernameBox.sendKeys(username);
-        admin_dashboard.passwordBox.sendKeys(password);
-        admin_dashboard.signinButton.click();
-    }
-
-
+        public static void adminLogin (String username, String password){
+            Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+            Admin_Dashboard admin_dashboard = new Admin_Dashboard();
+            admin_dashboard.usernameBox.sendKeys(username);
+            admin_dashboard.passwordBox.sendKeys(password);
+            admin_dashboard.signinButton.click();
+        }
 
         //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
         public static void goTouserHomePage () {
@@ -452,5 +459,11 @@ public class ReusableMethods {
         public static void goToMerchantHomePage () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
         }
-
+        public static void wait(double saniye) {
+        // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
+        try {
+            Thread.sleep((long) (saniye * 1000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
