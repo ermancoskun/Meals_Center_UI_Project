@@ -435,7 +435,7 @@ public class ReusableMethods {
     public static void goTouserHomePage(){
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        user_homepage.mealscenterHpCookieAcceptButton.click();
+        user_homepage.cookieAcceptButton.click();
     }
     //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
     public static void goToAdminHomePage(){
