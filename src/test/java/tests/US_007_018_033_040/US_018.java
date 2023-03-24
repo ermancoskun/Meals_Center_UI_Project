@@ -1,4 +1,4 @@
-package tests;
+package tests.US_007_018_033_040;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -41,13 +41,15 @@ public class US_018 {
         //6)gecerli sifresini sifre kutusuna yazar.
         //7)Sign in butonuna basar.
         //ReusableMethods.wait(2);
-        //ReusableMethods.goTouserHomePage();
-        ReusableMethods.userLoginMethod(ConfigReader.getProperty("betulUserEmail"),ConfigReader.getProperty("betulUserPassword"));
-        WebElement userName=Driver.getDriver().findElement(By.xpath("//li/div/a"));
+        ReusableMethods.goTouserHomePage();
+        ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
+        WebElement userName=Driver.getDriver().findElement(By.xpath("//div[@class='dropdown userprofile']"));
         //8)basarili giris yapıldı yazisinin cıktıgını dogrular.
         //9)giris yapildıktan sonra kendi isminin sayfanın sag ust kosesinde yazdigini kontrol eder
+        ReusableMethods.wait(2);
         assertTrue(userName.isDisplayed());
         //9)sayfayi kapatir
+
         Driver.closeDriver();
     }
 
