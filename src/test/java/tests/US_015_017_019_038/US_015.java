@@ -1,12 +1,9 @@
 package tests.US_015_017_019_038;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.User_Homepage;
-import pages.User_RestaurantUmiSakeHouse;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtilities;
@@ -24,7 +21,7 @@ public class US_015 {
     public void myOrdersTest01(){
         userHomepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        userHomepage.mealscenterHpCookieAcceptButton.click();
+        userHomepage.cookieAcceptButton.click();
         ReusableMethods.userLoginMethod("betulEmail","betulPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
@@ -35,7 +32,7 @@ public class US_015 {
     public void myOrdersTest02(){
         userHomepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        userHomepage.mealscenterHpCookieAcceptButton.click();
+        userHomepage.cookieAcceptButton.click();
         ReusableMethods.userLoginMethod("betulEmail","betulPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
@@ -59,7 +56,7 @@ public class US_015 {
     public void myOrdersTest03(){
          userHomepage=new User_Homepage();
          Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-         userHomepage.mealscenterHpCookieAcceptButton.click();
+         userHomepage.cookieAcceptButton.click();
          ReusableMethods.userLoginMethod("betulEmail","betulPassword");
          ReusableMethods.waitFor(1);
          userHomepage.nameButton.click();
