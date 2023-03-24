@@ -129,8 +129,49 @@ public User_Homepage(){
     @FindBy(xpath = "//input[@value='Submit']")
     public WebElement contactPageSubmitButton;
 
+
+    //////////////////////////////////////////////////////////////////////
+
+    // UserHomePage >> Enter delivery address
+    // (Login olduktan sonra)
+    @FindBy(xpath = "//input[@placeholder='Enter delivery address']")
+    public WebElement adresButonu;
+
+    // UserHomePage >> Enter delivery address >> girilen adres 10001 >>
+    // (Login olduktan sonra)
+    @FindBy(xpath = "//h6[text()='10001']")
+    public WebElement adres10001;
+
+    // UserHomePage/restaurants >> Cuisines bolumundeki "Show more+" Butonu (Solda ortada)
+    // (Login olduktan sonra)
+    @FindBy(xpath = "//a[@aria-controls='collapseExample']")
+    public  WebElement cuisinesShowMoreButton;
+
+    // UserHomePage/restaurants >> Filter bolumunde
+    // (!)filtreleme yaptıktan sonra cıkan(!) "Clear all" Butonu (Solda ustte)
+    // (Login olduktan sonra)
+    @FindBy(xpath = "(//a[@href='javascript:;'])[27]")
+    public WebElement filterClearAllButton;
+
+    // UserHomePage/restaurants >> Cuisines bolumundeki Japanese checkBox Butonu (Solda ortada)
+    // (Login olduktan sonra)
+    @FindBy(xpath = "(//div[@class='custom-control custom-checkbox'])[19]")
+    public WebElement japaneseCheckBox;
+
+    // UserHomePage/restaurants >> Ilk restaurantın ait olduğu cuisine bilgisi
+    // (Login olduktan sonra)
+    @FindBy(xpath = "(//span[@class='a-12 mr-1'])[1]")
+    public WebElement ilkRestaurantCuisineBilgisi;
+
+    // UserHomePage/restaurants >> Umi Sake House Restaurant
+    // (Login olduktan sonra)
+    @FindBy(xpath = "//h5[text()='Umi Sake House']")
+    public WebElement umiSakeHouseRestaurantButton;
+
+
     //userHp>contact/submit yaptıktıksonra cıkan yazı basarılı olan
     @FindBy(xpath = "//*[@class='alert alert-success']")
     public WebElement successfulMessageElementi;
+
 
 }
