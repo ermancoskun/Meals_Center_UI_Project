@@ -430,7 +430,10 @@ public class ReusableMethods {
 
         // Sign in butonuna tıkalnır.
         userHomepage.loginSigninButton.click();
+
+
     }
+
 
         public static void merchantLogin () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));

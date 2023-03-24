@@ -129,9 +129,6 @@ public User_Homepage(){
     @FindBy(xpath = "//input[@value='Submit']")
     public WebElement contactPageSubmitButton;
 
-    //userHp>contact/submit yaptıktıksonra cıkan yazı basarılı olan
-    @FindBy(xpath = "//*[@class='alert alert-success']")
-    public WebElement successfulMessageElementi;
 
     // https://qa.mealscenter.com/ >> Adres girme butonu (Enter delivery address)
     // (Login olduktan sonra)
@@ -168,5 +165,10 @@ public User_Homepage(){
     // (Login olduktan sonra)
     @FindBy(xpath = "//h5[text()='Umi Sake House']")
     public WebElement umiSakeHouseRestaurantButton;
+
+    //userHp>contact/submit yaptıktıksonra cıkan yazı basarılı olan
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement successfulMessageElementi;
+
 
 }
