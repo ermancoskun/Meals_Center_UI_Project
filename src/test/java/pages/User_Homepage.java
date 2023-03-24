@@ -13,35 +13,35 @@ public User_Homepage(){
 }
     // homepage sol ust mealscenter butonu
     @FindBy(xpath = "//div[@class='top-logo']")
-    public WebElement mealscenterHpButton;
+    public WebElement mealscenterButton;
 
     // homepage header yazisi
     @FindBy (xpath = "//h2[@class='text-center mb-3']")
-    public WebElement mealscenterHpHeaderScript;
+    public WebElement headerScript;
 
     // homepage main banner
     @FindBy(xpath = "//div[@id='main-search-banner']")
-    public WebElement mealscenterHpMainBanner;
+    public WebElement mainBanner;
 
     // homepage American butonu
     @FindBy (xpath = "(//div[@class='col cuisineMainPage'])[1]")
-    public WebElement mealscenterHpAmericanButton;
+    public WebElement americanButton;
 
     // homepage more butonu
     @FindBy (xpath = "//a[@id='dropdownCuisine']")
-    public WebElement mealscenterHpmoreButton;
+    public WebElement moreButton;
 
     // homepage ust sol yon butonu
     @FindBy (xpath = "(//a[@class='owl-carousel-nav prev mr-4'])[1]")
-    public WebElement mealscenterHpUpperLeftNavigateButton;
+    public WebElement upperLeftNavigateButton;
 
     // homepage cookie kabul butonu
     @FindBy (xpath = "(//button[@ref_key='_ref'])[1]")
-    public WebElement mealscenterHpCookieAcceptButton;
+    public WebElement cookieAcceptButton;
 
     // .homepage arama kutusu
     @FindBy(xpath = "//input[@class='form-control form-control-text']")
-    public WebElement homePageSearchBox;
+    public WebElement searchBox;
 
     // .home page sign in butonu
     @FindBy(xpath = "//*[text()='Sign in']")
