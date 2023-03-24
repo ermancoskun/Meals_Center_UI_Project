@@ -11,7 +11,7 @@ public class US_030 {
 
     @Test
     public void baslama() {
-        ReusableMethods.merchantLogin();
+
     }
 
 

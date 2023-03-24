@@ -422,6 +422,15 @@ public class ReusableMethods {
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + "") + Keys.TAB);
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("" + password + ""));
         userHomepage.loginSigninButton.click();
+
+    }
+    public static void merchantLogin(){
+            Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+            Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
+            merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
+            merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
+            merchant_dashboard.signInButton.click();
+
     }
         public static void merchantLogin () {
             Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
