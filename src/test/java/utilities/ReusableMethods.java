@@ -434,6 +434,7 @@ public class ReusableMethods {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
 
+
     public static void merchantLogin() {
         Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
         Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -450,5 +451,21 @@ public class ReusableMethods {
         admin_dashboard.signinButton.click();
     }
 
+
+
+    //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
+    public static void goTouserHomePage(){
+        User_Homepage user_homepage=new User_Homepage();
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        user_homepage.cookieAcceptButton.click();
+    }
+    //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
+    public static void goToAdminHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+    }
+    //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
+    public static void goToMerchantHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+    }
 
 }
