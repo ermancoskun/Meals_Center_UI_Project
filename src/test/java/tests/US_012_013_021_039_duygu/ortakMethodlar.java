@@ -17,7 +17,7 @@ public class ortakMethodlar {
 
 
         // Anasayfadaki sign in butonuna tıklanır.
-        homepage.homePageSignInButton.click();
+        homepage.click();
 
         // Acılan login sayfasına gecerli email adresi girilir
         loginPage.emailBox.sendKeys(ConfigReader.getProperty("duyguUserName"));

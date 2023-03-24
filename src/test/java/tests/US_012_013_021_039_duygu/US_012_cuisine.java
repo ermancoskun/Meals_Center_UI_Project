@@ -26,7 +26,7 @@ public class US_012_cuisine {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // Cookies kabul edilir.
-        homepage.mealscenterHpCookieAcceptButton.click();
+        homepage.cookieAcceptButton.click();
 
         // Kullanıcı sayfasına login olunur.
         ortakMethodlar.loginMethodu();
@@ -65,7 +65,7 @@ public class US_012_cuisine {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
         // Cookies kabul edilir.
-        homepage.mealscenterHpCookieAcceptButton.click();
+        homepage.cookieAcceptButton.click();
 
         // Kullanıcı sayfasına login olunur.
         ortakMethodlar.loginMethodu();

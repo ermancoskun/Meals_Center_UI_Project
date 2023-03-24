@@ -43,7 +43,7 @@ public class US_018 {
         //6)gecerli sifresini sifre kutusuna yazar.
         //7)Sign in butonuna basar.
         //ReusableMethods.wait(2);
-        ReusableMethods.goTouserHomePage();
+        //ReusableMethods.goTouserHomePage();
         ReusableMethods.userLoginMethod(ConfigReader.getProperty("betulUserEmail"),ConfigReader.getProperty("betulUserPassword"));
         WebElement userName=Driver.getDriver().findElement(By.xpath("//li/div/a"));
         //8)basarili giris yapıldı yazisinin cıktıgını dogrular.
