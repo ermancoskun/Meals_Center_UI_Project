@@ -4,21 +4,19 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.User_Homepage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.ReusableMethods;
+import utilities.*;
 
 import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class US_015 {
+public class US_015 extends TestBaseRapor {
 
     User_Homepage userHomepage = new User_Homepage();
 
     @Test
     public void myOrdersTest01(){
+        extentTest = extentReports.createTest(""
         userHomepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         userHomepage.cookieAcceptButton.click();
@@ -62,13 +60,8 @@ public class US_015 {
          userHomepage.nameButton.click();
          userHomepage.myOrdersSection.click();
 
-        //TC15.03: Kullanıcının sipariş numarasıyla arama yapabilmesi
-        //	Sayfada bulunan sipariş arama kutusuna tıklar
         userHomepage.searchOrderBox.click();
-        //	Sipariş numarasını girer
         userHomepage.searchOrderBox.sendKeys("10253");
-        //	Görüntülenen siparişin sipariş numarasının,
-        //      arama kutusundaki ile aynı olduğunu doğrular
         String actualNo = "10253";
         String expectedNo = userHomepage.visibleOrderNo.getText().replaceAll("\\D","");
         assertEquals(actualNo,expectedNo);
