@@ -431,4 +431,18 @@ public class ReusableMethods {
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
+    //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
+    public static void goTouserHomePage(){
+        User_Homepage user_homepage=new User_Homepage();
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        user_homepage.mealscenterHpCookieAcceptButton.click();
+    }
+    //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
+    public static void goToAdminHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+    }
+    //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
+    public static void goToMerchantHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+    }
 }
