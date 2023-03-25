@@ -11,6 +11,10 @@ import utilities.ReusableMethods;
 
 public class US_030 {
 
+
+
+
+
     User_Homepage userHomepage = new User_Homepage();
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
@@ -25,6 +29,7 @@ public class US_030 {
     @AfterClass
     public void close() {
         Driver.closeDriver();
+
     }
 
 

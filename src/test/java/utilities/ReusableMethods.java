@@ -427,6 +427,7 @@ public class ReusableMethods {
         userHomepage.loginSigninButton.click();
 
 
+
     }
 
     public static void merchantLogin() {
@@ -470,5 +471,6 @@ public class ReusableMethods {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 }
