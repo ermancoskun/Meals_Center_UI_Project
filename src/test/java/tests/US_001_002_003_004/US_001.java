@@ -15,9 +15,9 @@ public class US_001 extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         extentTest.info("homepage gidildi");
         ReusableMethods.waitForPageToLoad(5);
-        user_homepage.mealscenterHpCookieAcceptButton.click();
+        user_homepage.cookieAcceptButton.click();
         // ReusableMethods.wait(2);
-        Assert.assertTrue(user_homepage.mealscenterHpMainBanner.isDisplayed());
+        Assert.assertTrue(user_homepage.mainBanner.isDisplayed());
 
         String expectedUrl= "https://qa.mealscenter.com/";
         String actualUrl= Driver.getDriver().getCurrentUrl();
@@ -25,4 +25,9 @@ public class US_001 extends TestBaseRapor {
         extentTest.pass("passed");
     }
 
+    @Test
+    public void test02(){
+        ReusableMethods.goTouserHomePage();
+
+    }
 }
