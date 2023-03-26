@@ -56,6 +56,11 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//li[@class='position-relative orders_history']")
     public WebElement allOrdersLink;
 
+
+    //merchant > Dasshboard / All Orders link
+    @FindBy (xpath = "//a[text()='All Orders']")
+    public WebElement allOrdersLinkText;
+
     //merchant > Dasshboard / orderHistory
     @FindBy (xpath = "//a[@class='navbar-brand']")
     public WebElement orderHistoryText;
@@ -92,4 +97,94 @@ public class Merchant_Dashboard {
     //merchant>backoffice/orders>completed/cancelButton
     @FindBy(xpath = "(//span[text()='Cancel'])[1]")
     public WebElement  cancelButton;
+
+    //merchant/dashboard>AllOrders un yanında yazan sayı
+    @FindBy(xpath = "//div[@class='badge-pill pull-right badge-notification bg-history']")
+    public WebElement allOrdersCount;
+
+    //backoffice/orders/history > header daki Orders sayısı
+    @FindBy(xpath = "(//h5[@class='m-0'])[1]")
+    public WebElement ordersCount;
+
+    //backoffice/orders/history > sayfanın en altindaki entries sayisi
+    @FindBy(xpath = "//div[@class='col-sm-12 col-md-5']")
+    public WebElement entriesCount;
+
+    //backoffice/orders/history > Start date end date
+    @FindBy(xpath = "//div[@class='input-group fixed-width-field mr-2']")
+    public WebElement startDateEndDate;
+
+
+    //backoffice/orders/history > Start date end date secim Yesterday
+    @FindBy(xpath = "//li[@data-range-key='Yesterday']")
+    public WebElement tarihSecimiYesterday;
+
+    //backoffice/orders/history > header cancel sayisi
+    @FindBy(xpath = "(//h5[@class='m-0'])[2]")
+    public WebElement cancelCount;
+
+    //backoffice/orders/history > header Total refund miktari
+    @FindBy(xpath = "(//h5[@class='m-0'])[3]")
+    public WebElement totalRefundMoney;
+
+    //backoffice/orders/history > header Total Orders miktari
+    @FindBy(xpath = "(//h5[@class='m-0'])[4]")
+    public WebElement totalOrdersMoney;
+
+
+    //backoffice/orders/history > header Filters buttonu
+    @FindBy(xpath = "//button[@class='btn btn-yellow normal']")
+    public WebElement filtersButton;
+
+
+    //backoffice/orders/history > header Filters buttonu tiklayinca çikan bolumun ikinci secenegi
+    @FindBy(xpath = "(//span[@class='select2-selection select2-selection--single'])[2]")
+    public WebElement byStatusBox;
+
+
+    //backoffice/orders/history > header Filters buttonu tıklayınca cıkan bolumdeki applyFiltersButton
+    @FindBy(xpath = "//button[@class='btn btn-green w-100']")
+    public WebElement applyFiltersButton;
+
+    //backoffice/orders/history > musteri listesinin basligi
+    @FindBy(xpath = "(//th[@class='sorting_disabled'])[2]")
+    public WebElement customerBaslik;
+
+    //backoffice/orders/history > musteri listesinin basligi
+    @FindBy(xpath = "(//th[@class='sorting_disabled'])[3]")
+    public WebElement orderInformationBaslik;
+
+    //backoffice/orders/history > musteri listesinin basligi
+    @FindBy(xpath = "(//th[@class='sorting_disabled'])[4]")
+    public WebElement actionsBaslik;
+
+    //backoffice/orders/history > musteri listesinin basligi
+    @FindBy(xpath = "//th[@class='sorting sorting_desc']")
+    public WebElement orderIDBaslik;
+
+
+    //backoffice/orders/history > musteri listesindeki ilk musteri
+    @FindBy(xpath = "(//tr[@class='odd'])[1]")
+    public WebElement musteriBilgi;
+
+
+    //backoffice/orders/history > musteri listesindeki ilk gosterButtonu
+    @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[1]")
+    public WebElement gosterButtonu;
+
+
+    //backoffice/orders/history > musteri listesindeki ilk musteri downloadButtonu
+    @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[2]")
+    public WebElement downloadButtonu;
+
+
+
+
+
+
+
+
+
+
+
 }
