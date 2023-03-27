@@ -92,7 +92,8 @@ public class US_037 extends TestBaseRapor {
 
         Admin_Dashboard admin_dashboard = new Admin_Dashboard();
 
-        extentTest = extentReports.createTest("Verified that admin can be able to see,edit and  delete information");
+        extentTest = extentReports.createTest
+                ("Verified that admin can be able to see,edit and  delete information about merchants");
 
         //adminStart
         ReusableMethods.adminLogin("huseyin.senol", "123456");
@@ -115,8 +116,7 @@ public class US_037 extends TestBaseRapor {
         extentTest.info("edit link is clicked");
 
         //Fill out the requested boxes
-        Actions actions=new Actions(Driver.getDriver());
-
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(admin_dashboard.restaurantnameBox).
                 sendKeys("jake").
                 sendKeys(Keys.TAB).
@@ -136,41 +136,63 @@ public class US_037 extends TestBaseRapor {
                 sendKeys(Keys.TAB).
                 sendKeys("Dinein").perform();
         ReusableMethods.wait(1);
-        Select select=new Select(admin_dashboard.statusboxDdm);
+        Select select = new Select(admin_dashboard.statusboxDdm);
         select.selectByVisibleText("Pending for approval");
 
-        JSUtilities.scrollToElement(Driver.getDriver(),admin_dashboard.merchantsaveBtn);
+        JSUtilities.scrollToElement(Driver.getDriver(), admin_dashboard.merchantsaveBtn);
         ReusableMethods.wait(1);
 
+        extentTest.info("updated the informations about merchants");
 
 
         //Click the save button
 
         admin_dashboard.merchantsaveBtn.click();
 
+        extentTest.info("Save button is clicked");
+
 
         //Verify that "Succesfully updated" text  is displayed
 
         Assert.assertTrue(admin_dashboard.updatedText.isDisplayed());
 
+        Driver.getDriver().navigate().back();
+
+        extentTest.info("Verified the succesfully updated text is visible and came back to previous page");
+
         // go back to previous page
 
         Driver.getDriver().navigate().back();
 
+        extentTest.info("Came back to the previous page");
 
+        //Verify that merchant's updated information is displayed in the  body part
 
-        //Verify that merchant's information is displayed in the  body part.
+        List<WebElement> merchantInfoList = admin_dashboard.updatedMerchantInfo;
 
-       /* List<WebElement>merchantInfoList=admin_dashboard.updatedMerchantInfo;
+        for (WebElement eachElement : merchantInfoList
+        ) {
 
-        for (WebElement eachElement:merchantInfoList
-             ) {
-
-            System.out.println("Merchant info list: "+eachElement.getText());
+            System.out.println("Merchant info list: " + eachElement.getText());
 
             extentTest.info("Verified the merchant information is displayed");
 
-        */
         }
 
+        //Search merchant name in the search box
+
+        admin_dashboard.searchBox.sendKeys("jake"+Keys.ENTER);
+
+        extentTest.info("merchant name is searched in the search box");
+
+        //Click the delete link
+
+        admin_dashboard.deleteButton.click();
+
+        extentTest.info("Can't click the delete button");
+
+        extentTest.fail("Delete button is not clickable");
+
     }
+}
+

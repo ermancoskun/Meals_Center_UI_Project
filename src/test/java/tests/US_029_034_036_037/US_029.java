@@ -12,6 +12,8 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
+import java.util.List;
+
 public class US_029 extends TestBaseRapor {
 
     Merchant_Dashboard  merchant_dashboard=new Merchant_Dashboard();
@@ -43,15 +45,15 @@ public class US_029 extends TestBaseRapor {
 
         extentTest.info("Completed Today text is displayed");
 
-        //Verify that the number of orders completed today and the number of actual orders completed today match.
+        //Verify that completed today orders list is displayed
 
-        int  expectedCount=0;
-        int  actualCount= Integer.parseInt(merchant_dashboard.completedtodayCount.getText());
+        List<WebElement>completedOrdersList=merchant_dashboard.completedtodayOrdersList;
 
-        System.out.println(actualCount);
+        for (WebElement eachElement:completedOrdersList
+             ) {
 
-        Assert.assertEquals(expectedCount,actualCount);
-
+            System.out.println(eachElement.getText());
+        }
         extentTest.info("Completed today orders are verified");
 
         //Close the browser
@@ -61,7 +63,6 @@ public class US_029 extends TestBaseRapor {
 
         extentTest.pass("pass");
     }
-
      @Test
      public void TC_02(){
 

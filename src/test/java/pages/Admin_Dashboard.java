@@ -78,6 +78,18 @@ public class Admin_Dashboard {
     @FindBy(xpath = "//div[@class='alert alert-success']")
     public  WebElement updatedText;
 
+    //adminUrl>backoffice>login>merchant>list>searchbox
+
+    @FindBy(xpath ="//input[@type='search']")
+    public WebElement searchBox;
+
+    //adminUrl>backoffice>login>merchant>list>deletebutton
+
+    @FindBy(xpath ="(//a[@class='btn btn-light datatables_delete tool_tips'])[1]")
+    public WebElement deleteButton;
+
+
+
 
 
 
