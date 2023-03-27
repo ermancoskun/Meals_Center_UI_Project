@@ -2,9 +2,6 @@
 /target
 *.iml
 *.xml
-<<<<<<< HEAD
-=======
-
-
->>>>>>> main
+/.raporlar
+/.test-output
 
