@@ -13,6 +13,7 @@ import utilities.TestBaseRaporClass;
 public class US_032_A_Size extends TestBaseRaporClass {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
+    Faker faker=new Faker();
 
     @BeforeClass
     public void setUp() {
@@ -107,7 +108,7 @@ public class US_032_A_Size extends TestBaseRaporClass {
     public void tc03205() {
         extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
                 "Size List sayfasinde urunleri update edebilmeli");
-        Faker faker=new Faker();
+        faker=new Faker();
         String ilkName=faker.name().name();
         String updateName=faker.name().nameWithMiddle();
         merchant_dashboard = new Merchant_Dashboard();
