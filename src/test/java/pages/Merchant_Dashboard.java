@@ -179,6 +179,129 @@ public class Merchant_Dashboard {
 
 
 
+    //=================== Size Page=======================
+
+    //merchant/dashboard > attributesLinki
+    @FindBy(xpath = "//li[@class='attributes']")
+    public WebElement attributesLinki;
+
+
+    //merchant/dashboard > attributesLinki> sizeLinki
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_size_list']")
+    public WebElement sizeLinki;
+
+
+
+    //merchant/dashboard > attributesLinki> sizeLinki sayfa aktifken
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_size_list active']")
+    public WebElement sizeLinkiActive;
+
+
+    //merchant/dashboard > attributesLinki> sizeLink > sizeSayfasiBasligi
+    @FindBy(xpath = "//a[@class='navbar-brand']")
+    public WebElement sizeSayfasiBasligi;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "(//th[@class='sorting'])[1]")
+    public WebElement noBasligi;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "(//th[@class='sorting'])[2]")
+    public WebElement nameBasligi;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "(//th[@class='sorting'])[3]")
+    public WebElement actionsBasligi;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "//input[@class='form-control rounded search w-25']")
+    public WebElement searchSizeBox;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "(//input[@type='search']")
+    public WebElement searchSizeBox2;
+
+
+    //merchant/dashboard > attributesLinki>  size list Sayfasi
+    @FindBy(xpath = "//a[@type='button']")
+    public WebElement addNewButton;
+
+
+    //================ Add Size ==============================
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "(//input[@class='form-control form-control-text'])[1]")
+    public WebElement sizeNameBox;
+
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "//input[@id='AR_size_size_name']")
+    public WebElement sizeNameBox2;
+
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "//input[@class='btn btn-green btn-full mt-3']")
+    public WebElement saveButton;
+
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "(//h6)[2]")
+    public WebElement listIlkName;
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "(//a[@class='btn btn-light datatables_delete tool_tips'])[1]")
+    public WebElement deleteButtonSizeAll;
+
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "//a[@class='btn btn-green item_delete']")
+    public WebElement deleteConfirmationButton;
+
+
+    //merchant/dashboard > attributesLinki>  size list Add Size
+    @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[1]")
+    public WebElement updateButton;
+
+
+    //merchant/dashboard > attributesLinki> Update Size/ Succesfully UpdatedYazisi
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement succesfullyUpdatedYazisi;
+
+
+
+
+
+
+
+
+
+
+    //merchant/dashboard > attributesLinki>ingredientsLinki
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_ingredients_list']")
+    public WebElement ingredientsLinki;
+
+
+    //merchant/dashboard > attributesLinki>ingredientsLinki
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_ingredients_list active']")
+    public WebElement ingredientsLinkiActive;
+
+
+    //merchant/dashboard > attributesLinki>cookingReferenceLinki
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list']")
+    public WebElement cookingReferenceLinki;
+
+
+    //merchant/dashboard > attributesLinki>cookingReferenceLinki
+    @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list active']")
+    public WebElement cookingReferenceLinkiActive;
+
+
+
 
 
 
