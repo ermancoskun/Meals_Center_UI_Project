@@ -34,6 +34,12 @@ public class User_RestaurantUmiSakeHouse {
     public WebElement ilkUrunIsimElementi;
 
     //***************/duygu/****************/
+    //userUrl>umiSakihause like butonu
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[1]")
+    public WebElement umiSakiHouseLikeButton;
+    //UmisakiHause sayfasindaki begen yaptıktan sonra
+    @FindBy(xpath = "//p[text()='Saved']")
+    public WebElement savedText;
 
 
 }
