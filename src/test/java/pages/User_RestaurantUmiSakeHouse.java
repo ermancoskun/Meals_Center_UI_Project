@@ -30,6 +30,9 @@ public class User_RestaurantUmiSakeHouse {
     @FindBy(xpath = "//li[@class='d-inline mr-3 mr-lg-0']")
     public WebElement cartLogoButonu;
 
+    @FindBy(xpath = "(//section//div/h6)[1]")
+    public WebElement ilkUrunIsimElementi;
+
     //***************/duygu/****************/
 
 

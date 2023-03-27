@@ -170,5 +170,38 @@ public User_Homepage(){
     @FindBy(xpath = "//*[@class='alert alert-success']")
     public WebElement successfulMessageElementi;
 
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonraki 'Your cart from' yazısı
+    @FindBy(xpath = "//p[@class='m-0 bold']")
+    public WebElement sepetDogrulamaYazisi;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonraki (x)kapatma butonu
+    @FindBy(xpath = "(//button[@aria-label='close drawer'])[2]")
+    public WebElement sepetCloseButonu;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonra carpının altındaki clear butonu
+    @FindBy(xpath = "(//a[@href='javascript:;'])[12]")
+    public WebElement sepetClearButonu;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonra clear'in altındaki urun silme(x) butonu
+    @FindBy(xpath = "//i[@class='zmdi zmdi-close']")
+    public WebElement sepetUrunSilmeButonu;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonra urun artırma(+) butonu
+    @FindBy(xpath = "//a[@data-id='plus']")
+    public WebElement sepettekiUrunuArttirmaButonu;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonra urun azaltma(-) butonu
+    @FindBy(xpath = "//a[@data-id='less']")
+    public WebElement sepettekiUrunuAzaltmaButonu;
+
+    //https://qa.mealscenter.com/ >> Cart'a bastiktan sonra yazan urun miktari
+    @FindBy(xpath = "//div[@class='qty']")
+    public WebElement sepettekiUrunMiktari;
+
+    //https://qa.mealscenter.com/ >> Cart (!)(Anasayfadan Cart'a bastiktan sonra gozuken checkout butonu)
+    @FindBy(xpath = "//div[text()='Go to checkout']")
+    public WebElement sepetCheckoutButonu;
+
+
 
 }

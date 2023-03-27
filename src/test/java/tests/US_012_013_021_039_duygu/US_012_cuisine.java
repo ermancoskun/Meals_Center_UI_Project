@@ -19,7 +19,7 @@ public class US_012_cuisine {
     SoftAssert softAssert=new SoftAssert();
 
     @Test
-    public void cuisineTest1() {
+    public void farkliYerelCuisineTesti() {
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
 
@@ -37,12 +37,19 @@ public class US_012_cuisine {
             }
         }
         //Birden farklı mutfakların birden fazla olması yeterli
-        softAssert.assertTrue(flag>1);
+        softAssert.assertTrue(flag>1,"Sayfada farklı yerel mutfaklara ait restauranlar mevcut degil");
+
+        //Tarayici kapatılır.
+        try {
+            softAssert.assertAll();
+        } finally {
+            Driver.closeDriver();
+        }
 
     }
 
     @Test
-    public void cuisineTest2() {
+    public void cuisineFiltrelemeCheckBoxTesti() {
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
 
@@ -52,7 +59,7 @@ public class US_012_cuisine {
         List<WebElement> cuisineElemanlariControl=Driver.getDriver().findElements(By.xpath("//div/input[@class='custom-control-input cuisine']"));
         for (int i = 12; i <cuisineElemanlariTikla.size() ; i++) {
             cuisineElemanlariTikla.get(i).click();
-            softAssert.assertTrue(cuisineElemanlariControl.get(i).isSelected(),cuisineElemanlariTikla.get(i).getText()+" checkbox'i tıklanabilir degıl");
+            softAssert.assertTrue(cuisineElemanlariControl.get(i).isSelected(),cuisineElemanlariTikla.get(i).getText()+" checkbox'i aktif değil");
         }
         //Cuisines bölümündeki yerel mutfaklardan birine tıklanır.
         homepage.filterClearAllButton.click();
@@ -62,13 +69,18 @@ public class US_012_cuisine {
         //Tıklanan mutfak ismi ile gelen restaurantların mutfak isiminin uyumlu olduğu doğrulanır.
         String expectedMutfakFiltresi= ConfigReader.getProperty("mutfakType");
         String actualMutfakFiltresi=homepage.ilkRestaurantCuisineBilgisi.getText();
-        softAssert.assertTrue(actualMutfakFiltresi.contains(expectedMutfakFiltresi),"Cuisine filtreleme boxları doğru yanıt vermiyor");
+        softAssert.assertTrue(actualMutfakFiltresi.contains(expectedMutfakFiltresi),"Cuisine filtrelemedeki "+ homepage.japaneseCheckBox.getText() +"checkbox'i doğru sonuc getirmiyor");
 
+        //Tarayici kapatılır.
+        try {
+            softAssert.assertAll();
+        } finally {
+            Driver.closeDriver();
+        }
 
     }
     @BeforeMethod
     public void beforeMethod(){
-
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
 
@@ -87,19 +99,6 @@ public class US_012_cuisine {
 
         // Ilk satırdakı 10001 posta koduna tıklanır.
         homepage.adres10001.click();
-
     }
-    @AfterMethod
-    public void afterMethod(){
-        homepage=new User_Homepage();
-        softAssert=new SoftAssert();
 
-
-        //Tarayici kapatılır.
-        try {
-            softAssert.assertAll();
-        } finally {
-            Driver.closeDriver();
-        }
-    }
 }
