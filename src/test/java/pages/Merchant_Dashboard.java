@@ -92,4 +92,15 @@ public class Merchant_Dashboard {
     //merchant>backoffice/orders>completed/cancelButton
     @FindBy(xpath = "(//span[text()='Cancel'])[1]")
     public WebElement  cancelButton;
+    //merchantUrl>login/Dashboard menusu altındaki
+    @FindBy(xpath = "//li[@class='promo']")
+    public WebElement promoLink;
+    //merchantUrl>login/Dashoard/Promo/caupon
+    @FindBy(xpath = "//a[text()='Coupon']")
+    public WebElement couponLink;
+    @FindBy(xpath = "//a/h5[text()='Coupon list']")
+    public WebElement couponListText;
+    @FindBy(xpath = "//i[@class='zmdi zmdi-plus']")
+    public WebElement plusLink;
+
 }
