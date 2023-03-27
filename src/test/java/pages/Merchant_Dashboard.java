@@ -95,7 +95,7 @@ public class Merchant_Dashboard {
 
 
 
-
+    //merchant/backoffice/food/category_create>merchantname
     @FindBy(xpath="(//a[@id=\"dropdownMenuLink\"])[1]")
     public WebElement merchantname;
 
@@ -204,6 +204,102 @@ public class Merchant_Dashboard {
 
     @FindBy(xpath="(//div[@class=\"card-body\"])[9]")
     public WebElement PopularItems;
+
+    @FindBy(xpath="//a[text()=\"Food\"]")
+    public WebElement FoodButonu;
+
+    @FindBy(xpath="//a[text()=\"Category\"]")
+    public WebElement CategoryButonu;
+
+    @FindBy(xpath="//a[@class=\"navbar-brand\"]")
+    public WebElement CategoryListYazısı;
+
+    @FindBy(xpath="(//tr[@class=\"even\"])[1]")
+    public WebElement SignatureRoll;
+
+    @FindBy(xpath="(//tr[@class=\"even\"])[2]")
+    public WebElement MakiandclassicRoll;
+
+    @FindBy(xpath="(//tr[@class=\"odd\"])[2]")
+    public WebElement Sushibox;
+
+    @FindBy(xpath="(//tr[@class=\"odd\"])[1]")
+    public WebElement PickedForYou;
+
+    @FindBy(xpath = "(//div[@class=\"p-2\"])[1]")
+    public WebElement AddNewButonu;
+
+    @FindBy(xpath="//input[@id=\"AR_category_category_name\"]")
+    public WebElement NameBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description\"]")
+    public WebElement Descriptionbox;
+
+    @FindBy(xpath="//button[@style=\"padding: 0.375rem 0.75rem;\"]")
+    public WebElement Browsebox1;
+
+    @FindBy(xpath="(//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/11eabb1f-c0e0-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"])[1]")
+    public WebElement FeaturedImage;
+
+    @FindBy(xpath="(//span[text()=\"Add Files\"])[1]")
+    public WebElement AddFilesButonu;
+
+    @FindBy(xpath="(//button[text()=\"Browse\"])[2]")
+    public WebElement Browsebox2;
+
+    @FindBy(xpath ="//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/e3ee0883-c0df-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"]")
+    public WebElement IconImage;
+
+    @FindBy(xpath="(//span[text()=\"Add Files\"])[2]")
+    public WebElement AddFiles2;
+
+    @FindBy(xpath ="//span[@class=\"select2-selection select2-selection--multiple\"]")
+    public WebElement DishBox;
+
+    @FindBy(xpath="//li[@id=\"select2-AR_category_dish_selected-result-6i3u-1\"]")
+    public WebElement MealBox;
+
+    @FindBy(xpath="//select[@id=\"AR_category_status\"]")
+    public WebElement StatusBox;
+
+    @FindBy(xpath="//input[@type=\"submit\"]")
+    public WebElement Savebox;
+
+    @FindBy(xpath = "//div[@class=\"alert alert-success\"]")
+     public WebElement SuccesfulyUpdatedYazısı;
+
+    @FindBy(xpath="//i[@class=\"zmdi zmdi-plus\"]")
+    public WebElement ItemTranslationsButton;
+
+    @FindBy(xpath="//input[@id=\"AR_category_category_translation_ja\"]")
+    public WebElement JapaneseTranslationBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description_translation_ja\"]")
+    public WebElement JapaneseDescriptionBox;
+
+    @FindBy(xpath ="//input[@id=\"AR_category_category_translation_ar\"]")
+    public WebElement ArabicTranslationBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description_translation_ar\"]")
+    public WebElement ArabicDescriptionBox;
+
+    @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
+    public WebElement UpdateButonu;
+
+    @FindBy(xpath="//a[@data-id=\"182\"]")
+    public WebElement DeleteButonu;
+
+    @FindBy(xpath="//a[@class=\"btn btn-green item_delete\"]")
+    public WebElement DeleteConfirmation;
+
+    @FindBy(xpath = "//a[@class=\"btn btn-primary btn-circle\"]")
+    public WebElement SortButton;
+
+    @FindBy(xpath="//div[@class=\"breadcrumbs\"]")
+    public WebElement CategorySortPage;
+
+
+
 
 
 }

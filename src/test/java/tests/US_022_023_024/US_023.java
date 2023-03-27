@@ -15,6 +15,7 @@ public class US_023 extends TestBaseRapor {
 
     @Test
     public void test01(){
+        merchant_dashboard=new Merchant_Dashboard();
 
         //-Tarayıcı açılır.
         //
@@ -41,6 +42,8 @@ public class US_023 extends TestBaseRapor {
 
     @Test
     public void test02(){
+
+        merchant_dashboard=new Merchant_Dashboard();
 
         //-Tarayıcı açılır.
         //
@@ -116,6 +119,8 @@ public class US_023 extends TestBaseRapor {
 
     @Test
     public void test03(){
+
+        merchant_dashboard=new Merchant_Dashboard();
         //-Tarayıcı açılır.
         //
         //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
