@@ -9,25 +9,22 @@ public class US_001 extends TestBaseRapor {
 
     @Test
     public void test01(){
-        extentTest=extentReports.createTest("deneme","deneme2");
+        extentTest=extentReports.createTest("access to the website","Url and Main Banner visibility test");
         User_Homepage user_homepage=new User_Homepage();
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        extentTest.info("homepage gidildi");
+        extentTest.info("access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cookieAcceptButton.click();
-        // ReusableMethods.wait(2);
+        extentTest.info("Cookies accepted");
+
         Assert.assertTrue(user_homepage.mainBanner.isDisplayed());
+        extentTest.info("Main Banner visibility tested");
 
         String expectedUrl= "https://qa.mealscenter.com/";
         String actualUrl= Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl);
-        extentTest.pass("passed");
+        extentTest.pass("Url test PASSED");
     }
 
-    @Test
-    public void test02(){
-        ReusableMethods.goTouserHomePage();
-
-    }
 }

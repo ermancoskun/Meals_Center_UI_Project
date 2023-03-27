@@ -363,7 +363,7 @@ public User_Homepage(){
     public WebElement solAltMealscenterButonu;
 
     // homepage > facebook butonu
-    @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
+    @FindBy (xpath = "/html/body/div[5]/div/div[1]/div[2]/div/div[1]")
     public WebElement facebookButton;
 
     // homepage > aramakutusu > sendkeys yapinca cikan ilk javascript elementi
@@ -373,4 +373,8 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+
+    // homepage > instagram button
+    @FindBy (xpath = "//a[@class='instagram']")
+    public WebElement instagramButton;
 }

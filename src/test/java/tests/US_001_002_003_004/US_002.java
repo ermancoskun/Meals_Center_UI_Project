@@ -4,16 +4,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.ReusableMethods;
+import utilities.*;
 
-public class US_002 {
+public class US_002{
 
     @Test
     public void headertest01(){
-
+        //extentTest=extentReports.createTest("","");
         User_Homepage user_homepage=new User_Homepage();
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
@@ -28,28 +27,37 @@ public class US_002 {
         Assert.assertTrue(user_homepage.mainBanner.isDisplayed());
         Assert.assertTrue(user_homepage.headerScript.isDisplayed());
 
+        Driver.closeDriver();
+        //extentTest.pass("");
     }
 
     @Test
     public void headertest02(){
+        //extentTest=extentReports.createTest("","");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cartLinki.click();
         Assert.assertTrue(user_homepage.cartScript.isDisplayed());
+        Driver.closeDriver();
+        //extentTest.pass("");
     }
 
     @Test
     public void headertest03(){
+        //extentTest=extentReports.createTest("","");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cartImage.click();
         Assert.assertTrue(user_homepage.cartScript.isDisplayed());
+        Driver.closeDriver();
+        //extentTest.pass("");
     }
 
     @Test
     public void headertest04(){
+        //extentTest=extentReports.createTest("","");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         ReusableMethods.waitForPageToLoad(5);
@@ -58,10 +66,13 @@ public class US_002 {
         String expectedUrl="https://qa.mealscenter.com/account/login";
         String actualUrl=Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl);
+        Driver.closeDriver();
+        //extentTest.pass("");
     }
 
     @Test
     public void headertest05(){
+        //extentTest=extentReports.createTest("","");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         ReusableMethods.waitForPageToLoad(5);
@@ -72,7 +83,8 @@ public class US_002 {
         String expectedZipCode="10001";
         String actualZipCode= user_homepage.restaurantsAdresSatiri.getText();
         Assert.assertTrue(actualZipCode.contains(expectedZipCode));
-
+        Driver.closeDriver();
+        //extentTest.pass("");
     }
 
 
