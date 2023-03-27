@@ -81,6 +81,19 @@ public class Admin_Dashboard {
     @FindBy(xpath = "//li[@data-range-key='Last 30 Days']")
     public WebElement last30days;
 
+    // admin login > orders > all order > siparişin yanındaki göz imgesi
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-eye'])[1]")
+    public WebElement viewOrder;
+
+    // admin login > orders > all order > siparişin yanındaki indirme imgesi
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-download'])[1]")
+    public WebElement downloadOrder;
+
+    // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
+    @FindBy(xpath = "//h5[text()='Summary']")
+    public WebElement summary;
+
+
 
 
 
