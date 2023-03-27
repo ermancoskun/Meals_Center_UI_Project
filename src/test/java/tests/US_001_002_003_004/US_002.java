@@ -23,12 +23,8 @@ public class US_002 {
         Assert.assertEquals(actualTitle,expectedTitle);
 
         Assert.assertTrue(user_homepage.mealscenterButton.isDisplayed());
-
-        user_homepage.cartLinki.click();
-        Assert.assertTrue(user_homepage.cartScript.isDisplayed());
-
-        user_homepage.cartImage.click();
-        Assert.assertTrue(user_homepage.cartScript.isDisplayed());
+        Assert.assertTrue(user_homepage.mainBanner.isDisplayed());
+        Assert.assertTrue(user_homepage.headerScript.isDisplayed());
 
     }
 
@@ -37,9 +33,41 @@ public class US_002 {
         User_Homepage user_homepage=new User_Homepage();
         ReusableMethods.goTouserHomePage();
         ReusableMethods.waitForPageToLoad(5);
-        //user_homepage.cookieAcceptButton.click();
+        user_homepage.cartLinki.click();
+        Assert.assertTrue(user_homepage.cartScript.isDisplayed());
+    }
+
+    @Test
+    public void test03(){
+        User_Homepage user_homepage=new User_Homepage();
+        ReusableMethods.goTouserHomePage();
+        ReusableMethods.waitForPageToLoad(5);
         user_homepage.cartImage.click();
         Assert.assertTrue(user_homepage.cartScript.isDisplayed());
     }
 
+    @Test
+    public void test04(){
+        User_Homepage user_homepage=new User_Homepage();
+        ReusableMethods.goTouserHomePage();
+        ReusableMethods.waitForPageToLoad(5);
+        user_homepage.signInButton.click();
+        ReusableMethods.waitForPageToLoad(5);
+        String expectedUrl="https://qa.mealscenter.com/account/login";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Test
+    public void test05(){
+        User_Homepage user_homepage=new User_Homepage();
+        ReusableMethods.goTouserHomePage();
+        ReusableMethods.waitForPageToLoad(5);
+
+
+    }
+
+
+
 }
+

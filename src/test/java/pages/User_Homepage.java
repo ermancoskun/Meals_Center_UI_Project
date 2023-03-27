@@ -199,6 +199,6 @@ public User_Homepage(){
     public WebElement solAltMealscenterButonu;
 
     // homepage > facebook butonu
-    @FindBy (xpath = "(//a[@target='_blank'])[1]")
+    @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
     public WebElement facebookButton;
 }
