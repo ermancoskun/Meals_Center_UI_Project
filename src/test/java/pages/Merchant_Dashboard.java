@@ -250,7 +250,7 @@ public class Merchant_Dashboard {
     @FindBy(xpath="(//span[text()=\"Add Files\"])[1]")
     public WebElement AddFilesButonu;
 
-    @FindBy(xpath="(//button[@style=\"padding: 0.375rem 0.75rem;\"])[2]")
+    @FindBy(xpath="(//button[text()=\"Browse\"])[2]")
     public WebElement Browsebox2;
 
     @FindBy(xpath ="(//*[@id=\"modalUploader\"]/div/div/div[2]/div[2]/ul/li[1])[2]")
@@ -296,7 +296,7 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
     public WebElement UpdateButonu;
 
-    @FindBy(xpath="//a[@data-id=\"182\"]")
+    @FindBy(xpath="//a[@data-id=\"189\"]")
     public WebElement DeleteButonu;
 
     @FindBy(xpath="//a[@class=\"btn btn-green item_delete\"]")
