@@ -250,11 +250,15 @@ public class Merchant_Dashboard {
     @FindBy(xpath="(//span[text()=\"Add Files\"])[1]")
     public WebElement AddFilesButonu;
 
-    @FindBy(xpath="(//button[text()=\"Browse\"])[2]")
+    @FindBy(xpath="(//button[@style=\"padding: 0.375rem 0.75rem;\"])[2]")
     public WebElement Browsebox2;
 
-    @FindBy(xpath ="//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/e3ee0883-c0df-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"]")
+    @FindBy(xpath ="(//*[@id=\"modalUploader\"]/div/div/div[2]/div[2]/ul/li[1])[2]")
     public WebElement IconImage;
+
+    @FindBy(xpath ="//div[@class=\"alert alert-success\"]")
+    public WebElement SuccesfullyCreatedYazısı;
+
 
     @FindBy(xpath="(//span[text()=\"Add Files\"])[2]")
     public WebElement AddFiles2;
@@ -505,6 +509,9 @@ public class Merchant_Dashboard {
     //merchant/dashboard > attributesLinki>cookingReferenceLinki
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list active']")
     public WebElement cookingReferenceLinkiActive;
+
+    @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
+    public WebElement DetailsBox;
 
 
 
