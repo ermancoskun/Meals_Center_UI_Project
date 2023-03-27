@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -68,7 +69,6 @@ public class Merchant_Dashboard {
     public WebElement orderTypeDdm;
 
     //merchant>backoffice/orders>completed/paymentstatusddm
-
     @FindBy(xpath = "//select[@title='Payment status']")
     public WebElement paymentStatusDdm;
 
@@ -82,4 +82,64 @@ public class Merchant_Dashboard {
     //merchant>backoffice/orders>completed/cancelButton
     @FindBy(xpath = "(//span[text()='Cancel'])[1]")
     public WebElement  cancelButton;
+
+    //merchant>dashboard>ordertype
+    @FindBy(xpath ="//li[@class='services_settings']")
+    public WebElement orderTypeLink;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath ="//a[@href='/backoffice/services/delivery_settings']")
+    public WebElement deliveryLink;
+
+    //merchant>dashboard>ordertype>delivery>settingtext
+    @FindBy(xpath ="(//li[@class='active'])[1]")
+    public WebElement settingText;
+
+    //merchant>dashboard>ordertype>delivery>checkbox1
+    @FindBy(xpath = "//label[@for='merchant_opt_contact_delivery']")
+    public WebElement checkbox1;
+    //merchant>dashboard>ordertype>delivery>checkbox2
+
+    @FindBy(xpath = "//label[@for='free_delivery_on_first_order']")
+    public WebElement checkbox2;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargeddm
+    @FindBy(xpath = "//select[@id='AR_option_merchant_delivery_charges_type']")
+    public WebElement fixedchargeDdm;
+
+    //merchant>dashboard>ordertype>delivery>servicefeebox
+    @FindBy(xpath ="//input[@type='text']")
+    public WebElement serviceFeeBox;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement errorMessage;
+
+    //merchant>dashboard>ordertype>delivery>savebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement saveButon;
+
+    //merchant>dashboard>ordertype>delivery>settingsSavedText
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement settingsSavedText;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargetext
+    @FindBy(xpath ="//a[@href='/backoffice/services/fixed_charge'][1]")
+    public WebElement fixedChargeText;
+
+    //merchant>dashboard>ordertype>delivery>pricebox
+    @FindBy(xpath = "(//input[@type='text'])[1]")
+    public WebElement priceBox;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargesavebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement fixedChargeSaveButon;
+
+    //merchant>dashboard>ordertype>delivery>alert
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement succesfullyupdatedalert;
+
+
+
+
 }
