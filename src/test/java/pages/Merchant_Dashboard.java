@@ -51,6 +51,67 @@ public class Merchant_Dashboard {
     @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement assignDriverButton;
 
+
+    // /backoffice/merchant/dashboard >> Dasboard menusunun tamami
+    @FindBy(xpath = "//div[@id='vue-siderbar-menu']")
+    public WebElement dasboardMenusununTamami;
+
+    // /backoffice/merchant/dashboard >> Dasboard menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[1]")
+    public WebElement dashboardMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Merchant menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[2]")
+    public WebElement merchantMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Orders menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[3]")
+    public WebElement ordersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Attributes menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[6]")
+    public WebElement attributesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Food menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[7]")
+    public WebElement foodMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Order menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[8]")
+    public WebElement orderTypeMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Payment Gateway menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[9]")
+    public WebElement paymentGatewayMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Promo menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[10]")
+    public WebElement promoMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Images menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[11]")
+    public WebElement imagesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Account menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[12]")
+    public WebElement accountMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Buyers menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[14]")
+    public WebElement buyersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Users menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[15]")
+    public WebElement usersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Reports menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[16]")
+    public WebElement reportsMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Inventory Management menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[18]")
+    public WebElement inventoryManagementMenuButonu;
+
     // merchant login > image
     @FindBy(xpath = "//div[@class='col-md-6 m-0 p-0 left-container']")
     public WebElement loginImage;
@@ -305,14 +366,6 @@ public class Merchant_Dashboard {
     public WebElement succesfullyUpdatedYazisi;
 
 
-
-
-
-
-
-
-
-
     //merchant/dashboard > attributesLinki>ingredientsLinki
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_ingredients_list']")
     public WebElement ingredientsLinki;
@@ -331,15 +384,6 @@ public class Merchant_Dashboard {
     //merchant/dashboard > attributesLinki>cookingReferenceLinki
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list active']")
     public WebElement cookingReferenceLinkiActive;
-
-
-
-
-
-
-
-
-
 
 
 }
