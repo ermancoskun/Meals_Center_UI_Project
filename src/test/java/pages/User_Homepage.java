@@ -346,4 +346,31 @@ public User_Homepage(){
     @FindBy (xpath = "//img[@class='img-30 rounded-pill lozad loaded']")
     public WebElement loginOlunduSimgesi;
 
+    // homepage > cart linkini tiklayinca cikan "cart" yazisi
+    @FindBy (xpath = "//*[@class='mt-3 mb-0']")
+    public WebElement cartScript;
+
+    // homepage > cart linki
+    @FindBy (xpath = "(//li[@class='d-none d-lg-inline'])[2]")
+    public WebElement cartLinki;
+
+    // homepage > cart resmi
+    @FindBy (xpath = "//span[@class='badge small badge-dark rounded-pill']")
+    public WebElement cartImage;
+
+    // homepage > sol alt mealscenter butonu
+    @FindBy (xpath = "(//img[@class='img-200'])[2]")
+    public WebElement solAltMealscenterButonu;
+
+    // homepage > facebook butonu
+    @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
+    public WebElement facebookButton;
+
+    // homepage > aramakutusu > sendkeys yapinca cikan ilk javascript elementi
+    @FindBy (xpath = "//*[@id=\"vue-home-search\"]/div[3]/ul/li[1]")
+    public WebElement searchBoxIlkElement;
+
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
+    public WebElement restaurantsAdresSatiri;
 }
