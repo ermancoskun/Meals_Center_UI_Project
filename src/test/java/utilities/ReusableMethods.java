@@ -1,21 +1,18 @@
 package utilities;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import pages.Admin_Dashboard;
 import pages.Merchant_Dashboard;
 import pages.User_Homepage;
-import pages.User_RestaurantUmiSakeHouse;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 public class ReusableMethods {
@@ -430,14 +427,6 @@ public class ReusableMethods {
 
     }
 
-    public static void merchantLogin() {
-        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-        Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
-        merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
-        merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
-        merchant_dashboard.signInButton.click();
-    }
-
     public static void adminLogin(String username, String password) {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
         Admin_Dashboard admin_dashboard = new Admin_Dashboard();
@@ -454,9 +443,18 @@ public class ReusableMethods {
     }
 
 
+    public static void merchantLogin() {
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
+        merchant_dashboard.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
+        merchant_dashboard.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
+        merchant_dashboard.signInButton.click();
+    }
+
     //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
     public static void goToAdminHomePage() {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+
     }
 
     //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
@@ -464,13 +462,29 @@ public class ReusableMethods {
         Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
     }
 
-    public static void wait(double saniye) {
-        // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
-        try {
-            Thread.sleep((long) (saniye * 1000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public static void wait(double saniye){
+            // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
+            try {
+                Thread.sleep((long) (saniye * 1000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
+        }
+    public static void switchToWindow2(String firstHandle){
+        Set<String> tumSayfalarWHDSeti = Driver.getDriver().getWindowHandles();
+
+        String secondHandle = "";
+
+        for (String each : tumSayfalarWHDSeti
+        ) {
+            if (!each.equals(firstHandle)) {
+                secondHandle = each;
+            }
+        }
+        Driver.getDriver().switchTo().window(secondHandle);
     }
+
+
+
 }
