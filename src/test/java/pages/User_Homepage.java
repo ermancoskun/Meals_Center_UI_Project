@@ -365,4 +365,12 @@ public User_Homepage(){
     // homepage > facebook butonu
     @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
     public WebElement facebookButton;
+
+    // homepage > aramakutusu > sendkeys yapinca cikan ilk javascript elementi
+    @FindBy (xpath = "//*[@id=\"vue-home-search\"]/div[3]/ul/li[1]")
+    public WebElement searchBoxIlkElement;
+
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
+    public WebElement restaurantsAdresSatiri;
 }
