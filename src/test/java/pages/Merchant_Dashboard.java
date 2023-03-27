@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 public class Merchant_Dashboard {
 
@@ -52,6 +55,99 @@ public class Merchant_Dashboard {
     public WebElement assignDriverButton;
 
 
+    // /backoffice/merchant/dashboard >> Dasboard menusunun tamami
+    @FindBy(xpath = "//div[@id='vue-siderbar-menu']")
+    public WebElement dasboardMenusununTamami;
+
+    // /backoffice/merchant/dashboard >> Dasboard menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[1]")
+    public WebElement dashboardMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Merchant menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[2]")
+    public WebElement merchantMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Orders menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[3]")
+    public WebElement ordersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Attributes menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[6]")
+    public WebElement attributesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Food menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[7]")
+    public WebElement foodMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Order menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[8]")
+    public WebElement orderTypeMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Payment Gateway menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[9]")
+    public WebElement paymentGatewayMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Promo menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[10]")
+    public WebElement promoMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Images menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[11]")
+    public WebElement imagesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Account menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[12]")
+    public WebElement accountMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Buyers menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[14]")
+    public WebElement buyersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Users menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[15]")
+    public WebElement usersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Reports menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[16]")
+    public WebElement reportsMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Inventory Management menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[18]")
+    public WebElement inventoryManagementMenuButonu;
+
+    // merchant login > image
+    @FindBy(xpath = "//div[@class='col-md-6 m-0 p-0 left-container']")
+    public WebElement loginImage;
+
+    // merchant login > merchant login yazısı
+    @FindBy(xpath = "//h6[@class='mb-4']")
+    public WebElement textMerchantLogin;
+
+    // merchant login > meals center amblemi
+    @FindBy(xpath = "//img[@class='img-60 rounded-circle']")
+    public WebElement amblem;
+
+    // merchant login > remember me kutucuğu
+    @FindBy(xpath = "//div[@class='custom-checkbox ml-3']")
+    public WebElement rememberMeKutucuk;
+
+    // merchant login > App store download linki
+    @FindBy(xpath = "(//div[@class='p-2'])[1]")
+    public WebElement appStoreLink;
+
+    // merchant login > Play store download linki
+    @FindBy(xpath = "(//div[@class='p-2'])[1]")
+    public WebElement playStoreLink;
+
+    // merchant login > This field is required yazısı
+    @FindBy(xpath = "(//div[@class='errorMessage'])[1]")
+    public WebElement requiredText;
+
+    // merchant login > Incorrect username or password yazısı
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement incorrectText;
+
+
     //merchant > Dasshboard / All Orders link
     @FindBy (xpath = "//li[@class='position-relative orders_history']")
     public WebElement allOrdersLink;
@@ -75,15 +171,15 @@ public class Merchant_Dashboard {
     public WebElement completedText;
 
     //merchant>backoffice/orders>completed/completedtodayCount
-    @FindBy(xpath = "(//div[text()='0'])[5]")
-    public WebElement completedtodayCount;
+
+    @FindBy(xpath = "(//div[@class='col'])[1]")
+    public List<WebElement> completedtodayOrdersList;
 
     //merchant>backoffice/orders>completed/ordertypeddm
     @FindBy(xpath = "(//select[@class='selectpicker'])[1]")
     public WebElement orderTypeDdm;
 
     //merchant>backoffice/orders>completed/paymentstatusddm
-
     @FindBy(xpath = "//select[@title='Payment status']")
     public WebElement paymentStatusDdm;
 
@@ -97,6 +193,7 @@ public class Merchant_Dashboard {
     //merchant>backoffice/orders>completed/cancelButton
     @FindBy(xpath = "(//span[text()='Cancel'])[1]")
     public WebElement  cancelButton;
+
 
 
 
@@ -308,6 +405,63 @@ public class Merchant_Dashboard {
     @FindBy(xpath="//div[@class=\"breadcrumbs\"]")
     public WebElement CategorySortPage;
 
+    //merchant>dashboard>ordertype
+    @FindBy(xpath ="//li[@class='services_settings']")
+    public WebElement orderTypeLink;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath ="//a[@href='/backoffice/services/delivery_settings']")
+    public WebElement deliveryLink;
+
+    //merchant>dashboard>ordertype>delivery>settingtext
+    @FindBy(xpath ="(//li[@class='active'])[1]")
+    public WebElement settingText;
+
+    //merchant>dashboard>ordertype>delivery>checkbox1
+    @FindBy(xpath = "//label[@for='merchant_opt_contact_delivery']")
+    public WebElement checkbox1;
+    //merchant>dashboard>ordertype>delivery>checkbox2
+
+    @FindBy(xpath = "//label[@for='free_delivery_on_first_order']")
+    public WebElement checkbox2;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargeddm
+    @FindBy(xpath = "//select[@id='AR_option_merchant_delivery_charges_type']")
+    public WebElement fixedchargeDdm;
+
+    //merchant>dashboard>ordertype>delivery>servicefeebox
+    @FindBy(xpath ="//input[@type='text']")
+    public WebElement serviceFeeBox;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement errorMessage;
+
+    //merchant>dashboard>ordertype>delivery>savebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement saveButon;
+
+    //merchant>dashboard>ordertype>delivery>settingsSavedText
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement settingsSavedText;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargetext
+    @FindBy(xpath ="//a[@href='/backoffice/services/fixed_charge'][1]")
+    public WebElement fixedChargeText;
+
+    //merchant>dashboard>ordertype>delivery>pricebox
+    @FindBy(xpath = "(//input[@type='text'])[1]")
+    public WebElement priceBox;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargesavebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement fixedChargeSaveButon;
+
+    //merchant>dashboard>ordertype>delivery>alert
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement succesfullyupdatedalert;
+
+
     //merchant/dashboard>AllOrders un yanında yazan sayı
     @FindBy(xpath = "//div[@class='badge-pill pull-right badge-notification bg-history']")
     public WebElement allOrdersCount;
@@ -386,7 +540,6 @@ public class Merchant_Dashboard {
     //backoffice/orders/history > musteri listesindeki ilk musteri downloadButtonu
     @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[2]")
     public WebElement downloadButtonu;
-
 
 
     //=================== Size Page=======================
@@ -483,14 +636,6 @@ public class Merchant_Dashboard {
     public WebElement succesfullyUpdatedYazisi;
 
 
-
-
-
-
-
-
-
-
     //merchant/dashboard > attributesLinki>ingredientsLinki
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_ingredients_list']")
     public WebElement ingredientsLinki;
@@ -512,8 +657,6 @@ public class Merchant_Dashboard {
 
     @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
     public WebElement DetailsBox;
-
-
 
 
 
