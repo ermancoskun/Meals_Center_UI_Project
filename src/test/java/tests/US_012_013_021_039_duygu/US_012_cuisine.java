@@ -2,11 +2,14 @@ package tests.US_012_013_021_039_duygu;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -17,19 +20,9 @@ public class US_012_cuisine {
 
     @Test
     public void cuisineTest1() {
-
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
 
-        //Tarayıcı açılır.
-        //Url e gidilir.
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-
-        // Cookies kabul edilir.
-        homepage.mealscenterHpCookieAcceptButton.click();
-
-        // Kullanıcı sayfasına login olunur.
-        ortakMethodlar.loginMethodu();
 
         //Sayfadaki restaurant listesi alınır.
         List<WebElement> mutfakListesi=Driver.getDriver()
@@ -46,29 +39,12 @@ public class US_012_cuisine {
         //Birden farklı mutfakların birden fazla olması yeterli
         softAssert.assertTrue(flag>1);
 
-        //Tarayici kapatılır.
-        try {
-            softAssert.assertAll();
-        } finally {
-            Driver.closeDriver();
-        }
     }
 
     @Test
     public void cuisineTest2() {
-
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
-
-        // Tarayıcı açılır.
-        // Url e gidilir.
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-
-        // Cookies kabul edilir.
-        homepage.mealscenterHpCookieAcceptButton.click();
-
-        // Kullanıcı sayfasına login olunur.
-        ortakMethodlar.loginMethodu();
 
         // Cuisines bölümünde farklı yerel mutfaklar seceneklerinin tıklanabilir oldugu dogrulanir.
         homepage.cuisinesShowMoreButton.click();
@@ -81,12 +57,43 @@ public class US_012_cuisine {
         //Cuisines bölümündeki yerel mutfaklardan birine tıklanır.
         homepage.filterClearAllButton.click();
         homepage.japaneseCheckBox.click();
-        ortakMethodlar.azBekle(0.1);
+        ReusableMethods.wait(0.1);
 
         //Tıklanan mutfak ismi ile gelen restaurantların mutfak isiminin uyumlu olduğu doğrulanır.
         String expectedMutfakFiltresi= ConfigReader.getProperty("mutfakType");
         String actualMutfakFiltresi=homepage.ilkRestaurantCuisineBilgisi.getText();
         softAssert.assertTrue(actualMutfakFiltresi.contains(expectedMutfakFiltresi),"Cuisine filtreleme boxları doğru yanıt vermiyor");
+
+
+    }
+    @BeforeMethod
+    public void beforeMethod(){
+
+        homepage=new User_Homepage();
+        softAssert=new SoftAssert();
+
+        // Tarayıcı açılır.
+        // Url e gidilir.
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+
+        // Cookies kabul edilir.
+        homepage.cookieAcceptButton.click();
+
+        // Kullanıcı sayfasına login olunur.
+        ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
+
+        // Anasayfadaki teslimat adresi kutusuna gecerli posta kodu(=10001) girilir.
+        homepage.adresButton.sendKeys(ConfigReader.getProperty("adres"));
+
+        // Ilk satırdakı 10001 posta koduna tıklanır.
+        homepage.adres10001.click();
+
+    }
+    @AfterMethod
+    public void afterMethod(){
+        homepage=new User_Homepage();
+        softAssert=new SoftAssert();
+
 
         //Tarayici kapatılır.
         try {

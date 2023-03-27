@@ -130,48 +130,216 @@ public User_Homepage(){
     public WebElement contactPageSubmitButton;
 
 
-    //////////////////////////////////////////////////////////////////////
-
-    // UserHomePage >> Enter delivery address
+    // https://qa.mealscenter.com/ >> Adres girme butonu (Enter delivery address)
     // (Login olduktan sonra)
     @FindBy(xpath = "//input[@placeholder='Enter delivery address']")
-    public WebElement adresButonu;
+    public WebElement adresButton;
 
-    // UserHomePage >> Enter delivery address >> girilen adres 10001 >>
+    // https://qa.mealscenter.com/ >> Adres girme butonu >> girilen adres 10001
     // (Login olduktan sonra)
     @FindBy(xpath = "//h6[text()='10001']")
     public WebElement adres10001;
 
-    // UserHomePage/restaurants >> Cuisines bolumundeki "Show more+" Butonu (Solda ortada)
+    // https://qa.mealscenter.com/restaurants >> Cuisines bolumundeki "Show more+" Butonu (Solda ortada)
     // (Login olduktan sonra)
     @FindBy(xpath = "//a[@aria-controls='collapseExample']")
     public  WebElement cuisinesShowMoreButton;
 
-    // UserHomePage/restaurants >> Filter bolumunde
+    // https://qa.mealscenter.com/restaurants >> Filter bolumunde
     // (!)filtreleme yaptıktan sonra cıkan(!) "Clear all" Butonu (Solda ustte)
     // (Login olduktan sonra)
     @FindBy(xpath = "(//a[@href='javascript:;'])[27]")
     public WebElement filterClearAllButton;
 
-    // UserHomePage/restaurants >> Cuisines bolumundeki Japanese checkBox Butonu (Solda ortada)
+    // https://qa.mealscenter.com/restaurants >> Cuisines bolumundeki Japanese checkBox Butonu (Solda ortada)
     // (Login olduktan sonra)
     @FindBy(xpath = "(//div[@class='custom-control custom-checkbox'])[19]")
     public WebElement japaneseCheckBox;
 
-    // UserHomePage/restaurants >> Ilk restaurantın ait olduğu cuisine bilgisi
+    // https://qa.mealscenter.com/restaurants >> Ilk restaurantın ait olduğu cuisine bilgisi
     // (Login olduktan sonra)
     @FindBy(xpath = "(//span[@class='a-12 mr-1'])[1]")
     public WebElement ilkRestaurantCuisineBilgisi;
 
-    // UserHomePage/restaurants >> Umi Sake House Restaurant
+    // https://qa.mealscenter.com/restaurants >> Umi Sake House Restaurant
     // (Login olduktan sonra)
     @FindBy(xpath = "//h5[text()='Umi Sake House']")
     public WebElement umiSakeHouseRestaurantButton;
 
-
     //userHp>contact/submit yaptıktıksonra cıkan yazı basarılı olan
     @FindBy(xpath = "//*[@class='alert alert-success']")
     public WebElement successfulMessageElementi;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-more'])[2]")
+    public WebElement ucNokta;
+
+    // My orders sayfasında new ibareli siparişin sağındaki yatay üç nokta
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-more'])[7]")
+    public WebElement ucNoktaNew;
+
+    // My orders sayfasında siparişlerden complete olanın sağındaki yatay üç nokta
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-more'])[4]" )
+    public WebElement ucNoktaCompleted;
+
+    //  My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > write a review > add review butonu
+    @FindBy(xpath = "(//button[@class='btn btn-black w-100'])[2]")
+    public WebElement addReviewButton;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > view
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-eye mr-2'])[2]")
+    public WebElement viewSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > view > order detay paneli
+    @FindBy(xpath = "//div[@class='order-details-panel section-cart open']")
+    public WebElement orderDetail;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm view > order detay paneli > çarpı
+    @FindBy(xpath = "//i[@class='zmdi zmdi-close']")
+    public WebElement closePanel;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > buy again
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-repeat mr-2'])[2]")
+    public WebElement buyAgainSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > buy again > go to checkout
+    @FindBy(xpath = "//div[text()='Go to checkout']")
+    public WebElement goToCheckout;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > track
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-car mr-2'])[2]")
+    public WebElement trackSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > track > sipariş serüveni kartı
+    @FindBy(xpath = "//ul[@id='progressbar']")
+    public WebElement orderTrack;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > download
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-collection-pdf mr-2'])[2]")
+    public WebElement downloadSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > cancel order
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-close mr-2'])[7]") //3 nokta new'in indexi ile aynı
+    public WebElement cancelSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > cancel order > cancel order butonu
+    @FindBy(xpath = "//button[@class='btn btn-green w-100']")
+    public WebElement cancelOrderButton;
+
+    //  // My orders sayfasında sipariş numarasının yanındaki ibare
+    @FindBy(xpath = "(//span[text()='cancelled'])[7]")
+    public WebElement cancelled;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > write a review
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-star-outline mr-2'])[4]")
+    public WebElement writeReviewSection;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > write a review > yorum yazılan alan
+    @FindBy(xpath = "//*[@id='review_content']")
+    public WebElement reviewArea;
+
+    // My orders sayfasında siparişlerin sağındaki yatay üç nokta > ddm > write a review > çarpı
+    @FindBy(xpath = "//i[@class='zmdi zmdi-close font20']")
+    public WebElement reviewClose;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option
+    @FindBy(xpath = " //a[text()=' Payments Options ']")
+    public WebElement paymentSection;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button
+    @FindBy(xpath = "//a[text()='Add new payment']")
+    public WebElement addPaymentButton;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > sayfadaki text ve image
+    @FindBy(xpath = "//div[@class='rounded p-3 grey-bg']")
+    public WebElement cardAndText;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > kayıtlı ödeme yöntemleri
+    @FindBy(xpath = "//div[@class='card p-3 fixed-height card-listing']")
+    public List<WebElement> paymentMethods;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > delete butonu
+    @FindBy(xpath = "//a[text()='Delete']")
+    public WebElement deletePaymentButton;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > edit butonu
+    @FindBy(xpath = "//i[@class=\"zmdi zmdi-edit\"]")
+    public WebElement editPaymentButton;
+
+    //  user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery
+    @FindBy(xpath = "//i[@class='zmdi zmdi-money-box']")
+    public WebElement cash;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery > add cash
+    @FindBy(xpath = "//span[text()='Add Cash']")
+    public WebElement addCashButton;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery > çarpı
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-close font20'])[1]")
+    public WebElement closeAddCash;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı
+    @FindBy(xpath = "(//span[@class='mr-1'])[2]")
+    public WebElement stripe;
+
+    //user login > Sağ üstteki kullanıcı adı > Payments option > nakit ödeme yöntemi
+    @FindBy(xpath = "(//h5[@class='ml-2'])[2]")
+    public WebElement cashAdded;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe
+    @FindBy(xpath = "//span[text()='Add Stripe']")
+    public WebElement addStripeButton;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > iframe
+    @FindBy(xpath = "//iframe[@frameborder='0']")
+    public WebElement iframe;
+    //iframe[@frameborder='0']
+    //div[@id='root']
+    //iframe[@name='__privateStripeFrame89128']
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart no giriş box
+    @FindBy(xpath = "(//span[@class='InputContainer'])[1]")
+    public WebElement cardNoBox;
+    // (//span[@class='CardField-number CardField-child'])[1]
+    // //span[@class='CardField-restWrapper']
+    //input[@name='cardnumber']
+    // (//span[@class='InputContainer'])[1]
+
+    // kart kullanıcısı adı
+    @FindBy(xpath = "//label[text()='Cardholder name']")
+    public WebElement cardHolder;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart SKT giriş box
+    @FindBy(xpath = "(//span[@class='InputContainer'])[2]")
+    public WebElement dateBox;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart CVC giriş box
+    @FindBy(xpath = "(//span[@class='InputContainer'])[3]")
+    public WebElement cvcBox;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > zip kodu giriş box
+    @FindBy(xpath = "(//span[@class='InputContainer'])[4]")
+    public WebElement zipCodeBox;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > çarpı
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-close font20'])[2]")
+    public WebElement closeAddStripe;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > Stripe ödeme yöntemi
+    @FindBy(xpath = "(//h5[@class='ml-2'])[1]")
+    public WebElement addedStripe;
+
+    // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment > close payment
+    @FindBy(xpath = "//a[text()='Close Payment']")
+    public WebElement closePaymentButton;
+
+
+
+
+
+
+
+
 
 
 }

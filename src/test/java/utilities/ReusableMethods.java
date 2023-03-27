@@ -1,21 +1,18 @@
 package utilities;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import pages.Admin_Dashboard;
 import pages.Merchant_Dashboard;
 import pages.User_Homepage;
-import pages.User_RestaurantUmiSakeHouse;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 public class ReusableMethods {
@@ -418,10 +415,20 @@ public class ReusableMethods {
 
     public static void userLoginMethod(String username, String password) {
         userHomepage = new User_Homepage();
+
+        // Anasayfadaki sign in butonuna tıklanır.
         userHomepage.signInButton.click();
-        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + "") + Keys.TAB);
+
+        // Acılan login sayfasına gecerli email adresi girilir
+        userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("" + username + ""));
+
+        // Gecerli password girilir
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("" + password + ""));
+
+        // Sign in butonuna tıkalnır.
         userHomepage.loginSigninButton.click();
+
+
     }
 
     public static void merchantLogin() {
@@ -432,27 +439,49 @@ public class ReusableMethods {
         merchant_dashboard.signInButton.click();
     }
 
-    public static void adminLogin(String username,String password) {
-        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-        Admin_Dashboard admin_dashboard=new Admin_Dashboard();
-        admin_dashboard.usernameBox.sendKeys(username);
-        admin_dashboard.passwordBox.sendKeys(password);
-        admin_dashboard.signinButton.click();
+        public static void adminLogin (String username, String password){
+            Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+            Admin_Dashboard admin_dashboard = new Admin_Dashboard();
+            admin_dashboard.usernameBox.sendKeys(username);
+            admin_dashboard.passwordBox.sendKeys(password);
+            admin_dashboard.signinButton.click();
+        }
+
+        //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
+        public static void goTouserHomePage () {
+            User_Homepage user_homepage = new User_Homepage();
+            Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+            user_homepage.cookieAcceptButton.click();
+        }
+        //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
+        public static void goToAdminHomePage () {
+            Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
+        }
+        //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
+        public static void goToMerchantHomePage () {
+            Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        }
+        public static void wait(double saniye) {
+        // Not >> bu method, 1 saniyeden daha kısa bekleyebilmek icindir.
+        try {
+            Thread.sleep((long) (saniye * 1000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    //Login olmadan kullanici sifre ve password  kutularina erişim saglamak ve cokies kabul icin
-    public static void goTouserHomePage(){
-        User_Homepage user_homepage=new User_Homepage();
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        user_homepage.cookieAcceptButton.click();
-    }
-    //Login olmadan admin sifre ve password  kutularina erişim saglamak  icin
-    public static void goToAdminHomePage(){
-        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-    }
-    //Login olmadan merchant sifre ve password  kutularina erişim saglamak icin
-    public static void goToMerchantHomePage(){
-        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+    public static void switchToWindow2(String firstHandle){
+        Set<String> tumSayfalarWHDSeti = Driver.getDriver().getWindowHandles();
+
+        String secondHandle = "";
+
+        for (String each : tumSayfalarWHDSeti
+        ) {
+            if (!each.equals(firstHandle)) {
+                secondHandle = each;
+            }
+        }
+        Driver.getDriver().switchTo().window(secondHandle);
     }
 
 }
