@@ -1,7 +1,6 @@
 package tests.US_015_017_019_038;
 
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
@@ -12,6 +11,7 @@ import utilities.TestBaseRapor;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -66,17 +66,25 @@ public class US_038 extends TestBaseRapor {
     public void adminOrdersTest03(){
         admin = new Admin_Dashboard();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Test for admin to filter by a certain date range");
+        // extentTest=extentReports.createTest("Test for admin to filter by a certain date range");
         ReusableMethods.adminLogin(ConfigReader.getProperty("betulAdminName"),(ConfigReader.getProperty("betulAdminPassword")));
         admin.ordersSection.click();
-        extentTest.info("Clicked on the orders text in the panel");
+        // extentTest.info("Clicked on the orders text in the panel");
         admin.allOrderSection.click();
-        extentTest.info("Clicked on all orders");
+        // extentTest.info("Clicked on all orders");
         admin.dateSearchBox.click();
-        extentTest.info("Clicked on the date box");
+        // extentTest.info("Clicked on the date box");
+        admin.yesterday.click();
+        // extentTest.info("Clicked on yesterday from the drop-down menu");
+        // ReusableMethods.wait(1);
+        String dateStringYday = admin.yesterdayDate.getText().replaceAll("\\D","");
+        String ilkIkiRakam = dateStringYday.substring(0, 2);
+        LocalDate todaysDate = LocalDate.now();
+        int day = todaysDate.getDayOfMonth();
+        softAssert.assertEquals(day-1,Integer.parseInt(ilkIkiRakam));
+        extentTest.info("Confirmed that the date of the ordered products is yesterday's date");
 
-        //-  Clicked on yesterday from the drop-down menu
-        //- Confirmed that the date of the ordered products is yesterday's date
+
         //- Clicked on today from the drop-down menu
         //- Confirmed that the date of the ordered products is today's date
         //- Came in the date box
@@ -93,7 +101,7 @@ public class US_038 extends TestBaseRapor {
     }
 
     @Test
-    public void adminOrdersTest04(){
+    public void adminOrdersTest04(){  //*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
         admin = new Admin_Dashboard();
         softAssert = new SoftAssert();
         extentTest=extentReports.createTest("Test for admin to sort orders by order id");

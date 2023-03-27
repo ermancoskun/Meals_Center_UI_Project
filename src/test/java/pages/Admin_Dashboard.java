@@ -69,6 +69,10 @@ public class Admin_Dashboard {
     @FindBy(xpath = "//li[@data-range-key='Yesterday']")
     public WebElement yesterday;
 
+    // admin login > orders > all order > tarih filtreleme kutusu > yesterday > siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
+    public WebElement yesterdayDate;
+
     // admin login > orders > all order > tarih filtreleme kutusu > today
     @FindBy(xpath = "//li[@data-range-key='Today']")
     public WebElement today;
@@ -92,6 +96,8 @@ public class Admin_Dashboard {
     // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
+
+
 
 
 
