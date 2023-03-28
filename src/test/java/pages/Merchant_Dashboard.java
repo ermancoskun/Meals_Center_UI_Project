@@ -670,5 +670,44 @@ public class Merchant_Dashboard {
     @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
     public WebElement DetailsBox;
 
+//=================== scheduled sayfası locater ================
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//div[@class='filter-option'])[3]")
+    public WebElement shedueledSort;
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//li[@class='chevron selected']")
+    public WebElement eklenenSonSiparis;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//a[@role='option'])[10]")
+    public WebElement orderIDDescending;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//span[@class='ml-2 badge']")
+    public WebElement acceptedText;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//a[@class='text-center list-group-item list-group-item-action'])[1]")
+    public WebElement outOfItemButton;
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//button[@class='btn btn-green pl-4 pr-4'])[5]")
+    public WebElement rejectOrderButton;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//h5[@class='m-0'])[3]")
+    public WebElement orderNoText;
+
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//*[@id='vue-order-management']/div[8]//div/ul//div[2]/div")
+    public WebElement orderNoTamami;
+
 
 }
