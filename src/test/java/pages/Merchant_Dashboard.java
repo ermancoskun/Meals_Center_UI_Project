@@ -218,7 +218,7 @@ public class Merchant_Dashboard {
     @FindBy(xpath="(//a[@class=\"dropdown-item\"])[1]")
     public WebElement profil;
 
-    @FindBy(xpath="//label[@for=\"AR_merchant_user_first_name\"]")
+    @FindBy(xpath="//input[@name=\"AR_merchant_user[first_name]\"]")
     public WebElement firstnamebox;
 
     @FindBy(xpath = "(//li[@class=\"active\"])[1]")
@@ -239,10 +239,10 @@ public class Merchant_Dashboard {
     @FindBy(xpath="//button[@style=\"padding: 0.375rem 0.75rem;\"]")
     public WebElement browseboxı;
 
-    @FindBy(xpath="//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/44f575b2-c0dd-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"]")
+    @FindBy(xpath="//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/11eabb1f-c0e0-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"]")
     public WebElement browseboxpicture;
 
-    @FindBy(xpath="//span[@class=\"label\"]")
+    @FindBy(xpath="//span[text()=\"Add Files\"]")
     public WebElement AddFilesbuton;
 
     @FindBy(xpath="//span[@style=\"font-size: 1.5rem;\"]")
@@ -405,10 +405,10 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
     public WebElement UpdateButonu;
 
-    @FindBy(xpath="//a[@data-id=\"189\"]")
+    @FindBy(xpath="(//a[@class=\"btn btn-light datatables_delete tool_tips\"])[1]")
     public WebElement DeleteButonu;
 
-    @FindBy(xpath="//a[@class=\"btn btn-green item_delete\"]")
+    @FindBy(xpath="/html/body/div[1]/div[3]/div/div/div/div/div/div[3]/a")
     public WebElement DeleteConfirmation;
 
     @FindBy(xpath = "//a[@class=\"btn btn-primary btn-circle\"]")
@@ -416,6 +416,9 @@ public class Merchant_Dashboard {
 
     @FindBy(xpath="//div[@class=\"breadcrumbs\"]")
     public WebElement CategorySortPage;
+
+    @FindBy(xpath="//input[@id=\"AR_category_category_name\"]")
+    public WebElement UpdateName;
 
     //merchant>dashboard>ordertype
     @FindBy(xpath ="//li[@class='services_settings']")
@@ -667,8 +670,18 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list active']")
     public WebElement cookingReferenceLinkiActive;
 
-    @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
+    @FindBy(xpath="(//i[@class=\"zmdi zmdi-info-outline\"])[1]")
     public WebElement DetailsBox;
+
+
+    @FindBy(xpath="(//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/e3ee0883-c0df-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"])[1]")
+     public WebElement UpdateFeaturedImage;
+
+   @FindBy(xpath="//div[@class=\"alert alert-success\"]")
+    public WebElement UpdatedYazısı;
+
+   @FindBy(xpath = "//div[@id=\"DataTables_Table_0_info\"]")
+    public WebElement EntryYazısı;
 
 //=================== scheduled sayfası locater ================
     //merchant/backoffice/orders/scheduled
@@ -702,6 +715,7 @@ public class Merchant_Dashboard {
     //merchant/backoffice/orders/scheduled
     @FindBy(xpath="(//h5[@class='m-0'])[3]")
     public WebElement orderNoText;
+
 
 
 
