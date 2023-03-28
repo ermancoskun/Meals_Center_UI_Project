@@ -141,4 +141,16 @@ public class User_CheckoutPage {
     public WebElement gecerliOdemeBilgileriGirYazisi;
 
 
+    @FindBy(xpath = "(//*[@class='btn'])[1]")
+    public WebElement  scheduleForLaterButton;
+
+
+    @FindBy(xpath = "//div[@class='schedule-section']")
+    public WebElement  scheduleDayDdm;
+
+
+    @FindBy(xpath = "//select[@id='delivery_time']")
+    public WebElement  scheduleDayTime;
+
+
 }

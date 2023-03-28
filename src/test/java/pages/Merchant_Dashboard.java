@@ -670,7 +670,46 @@ public class Merchant_Dashboard {
     @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
     public WebElement DetailsBox;
 
-    //===mmeral===
+//=================== scheduled sayfası locater ================
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//div[@class='filter-option'])[3]")
+    public WebElement shedueledSort;
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//li[@class='chevron selected']")
+    public WebElement eklenenSonSiparis;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//a[@role='option'])[10]")
+    public WebElement orderIDDescending;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//span[@class='ml-2 badge']")
+    public WebElement acceptedText;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//a[@class='text-center list-group-item list-group-item-action'])[1]")
+    public WebElement outOfItemButton;
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//button[@class='btn btn-green pl-4 pr-4'])[5]")
+    public WebElement rejectOrderButton;
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="(//h5[@class='m-0'])[3]")
+    public WebElement orderNoText;
+
+
+
+    //merchant/backoffice/orders/scheduled
+    @FindBy(xpath="//*[@id='vue-order-management']/div[8]//div/ul//div[2]/div")
+    public WebElement orderNoTamami;
+
+        //===mmeral===
     //Merchant > Login > Dashboard/Food
     @FindBy(xpath = "//*[text()='Food']")
     public WebElement foodelement;
@@ -678,7 +717,6 @@ public class Merchant_Dashboard {
     //Merchant > Login > Dashboard/Food/Items
     @FindBy(xpath = "//*[text()='Items']")
     public WebElement itemsElement;
-
 
     //Merchant > Login > Dashboard/Food/Items
     @FindBy(xpath = "(//*[text()='Item list'])[2]")
@@ -716,7 +754,6 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//*[@class='zmdi zmdi-border-color']")
     public WebElement updatebutton;
 
-
     //Merchant > Login > Dashboard/Food/Items/Update
     @FindBy(xpath = "//input[@id='AR_item_item_name']")
     public WebElement updateicerik;
@@ -724,7 +761,6 @@ public class Merchant_Dashboard {
     //Merchant > Login > Dashboard/Food/Items/Update
     @FindBy(xpath = "//input[@value='Save']")
     public WebElement updateSavebutton;
-
 
     //Merchant > Login > Dashboard/Food/Items/Update
     @FindBy(xpath = "//div[@class='alert alert-success']")
@@ -738,12 +774,9 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//*[text()='New Orders']")
     public WebElement newordersbutton;
 
-
     //Merchant > Login > Dashboard/Orders/neworders
     @FindBy(xpath = "//div[@class='ronded-green']")
     public WebElement newordersdogrulama;
-
-
 
     //Merchant > Login > Dashboard/Orders/neworders
     @FindBy(xpath = "//*[text()='Accepted']")
@@ -752,7 +785,6 @@ public class Merchant_Dashboard {
     //Merchant > Login > Dashboard/Orders/neworders
     @FindBy(xpath = "(//h5[@class='m-0'])[3]")
     public WebElement succesaccepted;
-
 
     //Merchant > Login > Dashboard/Orders/neworders
     @FindBy(xpath = "//*[text()='Reject']")
@@ -766,9 +798,6 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//*[text()='Reject order']")
     public WebElement rejectOrder;
 
-
-
-
     //Merchant > Login > Dashboard/Orders/ordersprocessing
     @FindBy(xpath = "(//*[text()='Orders Processing'])[2]")
     public WebElement orderProcessing;
@@ -780,8 +809,5 @@ public class Merchant_Dashboard {
     //Merchant > Login > Dashboard/Orders/ordersprocessing
     @FindBy(xpath = "//*[text()='Ready for pickup']")
     public WebElement readyforpickupbutton;
-
-
-
 
 }
