@@ -7,7 +7,7 @@ import utilities.*;
 
 import static utilities.ReusableMethods.waitForClickablility;
 
-public class US_030 extends TestBaseRaporClass {
+public class US_030 extends TestBaseRapor {
 
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 

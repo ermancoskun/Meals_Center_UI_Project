@@ -8,9 +8,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 import utilities.TestBaseRaporClass;
 
-public class US_032_B_Ingredients extends TestBaseRaporClass {
+public class US_032_B_Ingredients extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
 

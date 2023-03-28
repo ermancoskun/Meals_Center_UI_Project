@@ -8,15 +8,16 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 import utilities.TestBaseRaporClass;
 
-public class US_032_A_Size extends TestBaseRaporClass {
+public class US_032_A_Size extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
     Faker faker=new Faker();
 
     @BeforeClass
-    public void setUp() {
+    public void setUp()  {
         extentTest = extentReports.createTest("Merchant sayfasının acilmasi",
                 "Merchant sayfasi acilmali");
         merchant_dashboard = new Merchant_Dashboard();
@@ -75,8 +76,40 @@ public class US_032_A_Size extends TestBaseRaporClass {
  */
     }
 
+
     @Test
     public void tc03204() {
+        extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
+                "Size List sayfasinde urunleri update edebilmeli");
+        faker=new Faker();
+        String ilkName=faker.name().name();
+        ReusableMethods.wait(1);
+        String updateName=faker.name().nameWithMiddle();
+        merchant_dashboard = new Merchant_Dashboard();
+        merchant_dashboard.addNewButton.click();
+        ReusableMethods.wait(1);
+        merchant_dashboard.sizeNameBox.sendKeys(ilkName);
+        merchant_dashboard.saveButton.click();
+        ReusableMethods.wait(1);
+        merchant_dashboard.updateButton.click();
+        merchant_dashboard.sizeNameBox.clear();
+        merchant_dashboard.sizeNameBox.sendKeys(updateName);
+        merchant_dashboard.saveButton.click();
+        ReusableMethods.wait(1);
+        softAssert.assertTrue(merchant_dashboard.succesfullyUpdatedYazisi.isDisplayed(), "update basarisiz");
+        merchant_dashboard.sizeLinkiActive.click();
+        String eklenenName=merchant_dashboard.listIlkName.getText();
+        softAssert.assertEquals(updateName+" Publish",eklenenName);
+        merchant_dashboard.deleteButtonSizeAll.click();
+        ReusableMethods.wait(1);
+        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
+        merchant_dashboard.deleteConfirmationButton.click();
+        softAssert.assertAll();
+        extentTest.pass("Size List sayfasinde urun basariyla update edildi.");
+    }
+
+    @Test
+    public void tc03205() {
         extentTest = extentReports.createTest("Size Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
                 "Size Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
         merchant_dashboard = new Merchant_Dashboard();
@@ -102,33 +135,6 @@ public class US_032_A_Size extends TestBaseRaporClass {
         softAssert.assertAll();
 
         extentTest.pass("Size Liste sadece ozel karekter ya da rakamlardan olusan isim girilmedi");
-    }
-
-    @Test
-    public void tc03205() {
-        extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
-                "Size List sayfasinde urunleri update edebilmeli");
-        faker=new Faker();
-        String ilkName=faker.name().name();
-        String updateName=faker.name().nameWithMiddle();
-        merchant_dashboard = new Merchant_Dashboard();
-        merchant_dashboard.addNewButton.click();
-        merchant_dashboard.sizeNameBox.sendKeys(ilkName);
-        merchant_dashboard.saveButton.click();
-
-        merchant_dashboard.updateButton.click();
-        merchant_dashboard.sizeNameBox.clear();
-        merchant_dashboard.sizeNameBox.sendKeys(updateName);
-        merchant_dashboard.saveButton.click();
-        softAssert.assertTrue(merchant_dashboard.succesfullyUpdatedYazisi.isDisplayed(), "update basarisiz");
-        merchant_dashboard.sizeLinkiActive.click();
-        String eklenenName=merchant_dashboard.listIlkName.getText();
-        softAssert.assertEquals(updateName+" Publish",eklenenName);
-        merchant_dashboard.deleteButtonSizeAll.click();
-        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
-        merchant_dashboard.deleteConfirmationButton.click();
-        softAssert.assertAll();
-        extentTest.pass("Size List sayfasinde urun basariyla update edildi.");
     }
 
 
