@@ -709,5 +709,105 @@ public class Merchant_Dashboard {
     @FindBy(xpath="//*[@id='vue-order-management']/div[8]//div/ul//div[2]/div")
     public WebElement orderNoTamami;
 
+        //===mmeral===
+    //Merchant > Login > Dashboard/Food
+    @FindBy(xpath = "//*[text()='Food']")
+    public WebElement foodelement;
+
+    //Merchant > Login > Dashboard/Food/Items
+    @FindBy(xpath = "//*[text()='Items']")
+    public WebElement itemsElement;
+
+    //Merchant > Login > Dashboard/Food/Items
+    @FindBy(xpath = "(//*[text()='Item list'])[2]")
+    public WebElement itemdogrulama;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew
+    @FindBy(xpath = "(//a[@type='button'])[1]")
+    public WebElement addnewButton;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew>Addnewıtems
+    @FindBy(xpath = "//span[text()='Add Item']")
+    public WebElement addnewdogrulama;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname
+    @FindBy(xpath = "//input[@placeholder='<label for=\"AR_item_item_name\">Item Name</label>']")
+    public WebElement itemname;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname/categoryddm
+    @FindBy(xpath = "(//span[@class='select2-selection select2-selection--multiple'])[1]")
+    public WebElement addnewcatagory;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname/categoryddm
+    @FindBy(xpath = "(//*[text()='Maki and classic Roll'])[2]")
+    public WebElement categoryddm;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname/categoryddm
+    @FindBy(xpath = "//*[@value='Save']")
+    public WebElement categorySavebutton;
+
+    //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname/categoryddm
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement categorysuccesscreated;
+
+    //Merchant > Login > Dashboard/Food/Items/Update
+    @FindBy(xpath = "//*[@class='zmdi zmdi-border-color']")
+    public WebElement updatebutton;
+
+    //Merchant > Login > Dashboard/Food/Items/Update
+    @FindBy(xpath = "//input[@id='AR_item_item_name']")
+    public WebElement updateicerik;
+
+    //Merchant > Login > Dashboard/Food/Items/Update
+    @FindBy(xpath = "//input[@value='Save']")
+    public WebElement updateSavebutton;
+
+    //Merchant > Login > Dashboard/Food/Items/Update
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement updatesuccescreated;
+
+    //Merchant > Login > Dashboard/Orders
+    @FindBy(xpath = "(//*[text()='Orders'])[1]")
+    public WebElement ordersbutton;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//*[text()='New Orders']")
+    public WebElement newordersbutton;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//div[@class='ronded-green']")
+    public WebElement newordersdogrulama;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//*[text()='Accepted']")
+    public WebElement acceptedbutton;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "(//h5[@class='m-0'])[3]")
+    public WebElement succesaccepted;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//*[text()='Reject']")
+    public WebElement rejectbutton;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//*[@id='reason']")
+    public WebElement rejectReason;
+
+    //Merchant > Login > Dashboard/Orders/neworders
+    @FindBy(xpath = "//*[text()='Reject order']")
+    public WebElement rejectOrder;
+
+    //Merchant > Login > Dashboard/Orders/ordersprocessing
+    @FindBy(xpath = "(//*[text()='Orders Processing'])[2]")
+    public WebElement orderProcessing;
+
+    //Merchant > Login > Dashboard/Orders/ordersprocessing
+    @FindBy(xpath = "//div[@class='ronded-green']")
+    public WebElement orderprocessindogrulama;
+
+    //Merchant > Login > Dashboard/Orders/ordersprocessing
+    @FindBy(xpath = "//*[text()='Ready for pickup']")
+    public WebElement readyforpickupbutton;
 
 }
