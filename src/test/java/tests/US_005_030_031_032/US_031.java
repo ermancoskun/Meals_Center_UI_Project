@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.*;
 
-public class US_031 extends TestBaseRaporClass {
+public class US_031 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
 
