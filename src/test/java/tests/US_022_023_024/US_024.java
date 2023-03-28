@@ -350,7 +350,7 @@ public class US_024 extends TestBaseRapor {
         merchant_dashboard.DeleteConfirmation.click();
 
         extentTest.info("Delete işlemi Doğrulandı.");
-
+///asdfghj
 
 
 
