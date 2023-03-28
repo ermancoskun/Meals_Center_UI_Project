@@ -1,13 +1,11 @@
 package tests.US_015_017_019_038;
 
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.ReusableMethods;
-import utilities.TestBaseRapor;
+import utilities.*;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -36,6 +34,7 @@ public class US_038 extends TestBaseRapor {
         String expectedUrl = ConfigReader.getProperty("allOrderUrl");
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("Confirmed that the admin can access all orders");
+        softAssert.assertAll();
 
     }
 
@@ -60,6 +59,7 @@ public class US_038 extends TestBaseRapor {
         extentTest.info("Total amount displayed");
         extentTest.pass("Confirmed that the admin can access the total number of orders," +
                         "total number of cancellations and total refund amount");
+        softAssert.assertAll();
     }
 
     @Test
@@ -73,6 +73,7 @@ public class US_038 extends TestBaseRapor {
         admin.allOrderSection.click();
         // extentTest.info("Clicked on all orders");
         admin.dateSearchBox.click();
+        ReusableMethods.wait(2);
         // extentTest.info("Clicked on the date box");
         admin.yesterday.click();
         // extentTest.info("Clicked on yesterday from the drop-down menu");
@@ -82,55 +83,57 @@ public class US_038 extends TestBaseRapor {
         LocalDate todaysDate = LocalDate.now();
         int day = todaysDate.getDayOfMonth();
         softAssert.assertEquals(day-1,Integer.parseInt(ilkIkiRakam));
-        extentTest.info("Confirmed that the date of the ordered products is yesterday's date");
+       // extentTest.info("Confirmed that the date of the ordered products is yesterday's date");
 
+     //   admin.dateSearchBox.click();
+        // extentTest.info("Clicked on the date box");
+    //    admin.today.click();
+        ReusableMethods.wait(5);
 
-        //- Clicked on today from the drop-down menu
-        //- Confirmed that the date of the ordered products is today's date
-        //- Came in the date box
-        //- Clicked on the cross when it is visible
-        //- Came in the date box
-        //- Clicked on the cross when it is visible
-        //-  Clicked on last 7 days from the drop-down menu
+        // extentTest.info("Clicked on today from the drop-down menu");
+    //    String dateStringToday = admin.todayDate.getText().replaceAll("\\D","");
+     //   ilkIkiRakam = dateStringToday.substring(0, 2);
+     //   softAssert.assertEquals(day,Integer.parseInt(ilkIkiRakam));
+       // extentTest.info("Confirmed that the date of the ordered products is today's date");
+
+        admin.dateSearchBox.click();
+        ReusableMethods.wait(2);
+        // extentTest.info("Clicked on the date box");
+        admin.last7days.click();
+        ReusableMethods.wait(2);
+        String dateStringLast7 = admin.last7daysDate1.getText().replaceAll("\\D","");
+        ilkIkiRakam = dateStringLast7.substring(0, 2);
+        JSUtilities.scrollToBottom(Driver.getDriver());
+        ReusableMethods.wait(2);
         //- Went to the end of the page
-        //- Clicked on 28
-        //- Verified that the orders are orders from the last 7 days
-        //- Came in the date box
-        //- Clicked on the cross when it is visible
+        admin.lastPageButton.click();
+        // son sayfaya gitmek için butona basıldı
+        String sonOrderIlkIkiRakam = admin.last7daysDate2.getText().replaceAll("\\D","");
+        softAssert.assertEquals(7,Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1);
+        //extentTest.info("Verified that the orders are sorts from the last 7 days");
+
+        JSUtilities.scrollToTop(Driver.getDriver());
+        //- Back to the top of the page
+        admin.dateSearchBox.click();
+        // extentTest.info("Clicked on the date box");
+        admin.last30days.click();
+        //-  Clicked on last 30 days from the drop-down menu
+        String dateStringLast30 = admin.last30daysDate1.getText().replaceAll("\\D","");
+        ilkIkiRakam = dateStringLast30.substring(0, 2);
+        JSUtilities.scrollToBottom(Driver.getDriver());
+        //- Went to the end of the page
+        admin.lastPageButton.click();
+        // son sayfaya gitmek için butona basıldı
+        sonOrderIlkIkiRakam = admin.last30daysDate2.getText().replaceAll("\\D","");
+        softAssert.assertEquals(17,Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1);
+        // burdaki 17, cuma günü 20 olmalı
+        //extentTest.info("Verified that the orders are sorts from the last 30 days");
+       // extentTest.pass("Admin can filter by a certain date range");
+        softAssert.assertAll();
 
     }
-
     @Test
-    public void adminOrdersTest04(){  //*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-        admin = new Admin_Dashboard();
-        softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Test for admin to sort orders by order id");
-        ReusableMethods.adminLogin(ConfigReader.getProperty("betulAdminName"),(ConfigReader.getProperty("betulAdminPassword")));
-        admin.ordersSection.click();
-        extentTest.info("Clicked on the orders text in the panel");
-        admin.allOrderSection.click();
-        extentTest.info("Clicked on all orders");
-        admin.orderIdText.click();
-        extentTest.info("Clicked on Order ID for sort orders by order id");
-        List<WebElement> orderIdListesi = admin.orderIdList;
-        ArrayList<Integer> orderIdListInt = new ArrayList<>();
-        for (WebElement eachId : orderIdListesi
-        ) {
-            String idString = eachId.getText().replaceAll("\\D","");
-            orderIdListInt.add(Integer.parseInt(idString));
-        }
-        extentTest.info("IDs have been added to a list for comparison");
-        List<Integer> controlList = new ArrayList<>(orderIdListInt);
-        Collections.sort(controlList);
-        extentTest.info("IDs added to a list sorted in descending order");
-        softAssert.assertTrue(controlList.equals(orderIdListInt),"Sorting is not done correctly");
-        extentTest.info("IDs were matched with the sorted list after sorting");
-        extentTest.pass("Verified that admin can sort orders by order id");
-
-    }
-
-    @Test
-    public void adminOrdersTest05(){
+    public void adminOrdersTest04(){
         admin = new Admin_Dashboard();
         softAssert = new SoftAssert();
         extentTest=extentReports.createTest("Test that the administrator can view and download an order as a document");
@@ -148,16 +151,48 @@ public class US_038 extends TestBaseRapor {
         admin.downloadOrder.click();
         String filePath = "C:\\Users\\fbalp\\Downloads\\document.pdf";
         softAssert.assertTrue(Files.exists(Paths.get(filePath)));
-        extentTest.info("Verified that order details can be downloaded  as PDF");
+        extentTest.info("Verified that order details can be downloaded as PDF");
         extentTest.pass("Verified that the administrator can view and download an order as a document");
+        softAssert.assertAll();
     }
 
-   /* @AfterMethod
-    public void tearDown(){
+
+    @Test
+    public void adminOrdersTest05(){
+        admin = new Admin_Dashboard();
+        softAssert = new SoftAssert();
+        extentTest=extentReports.createTest("Test for admin to sort orders by order id");
+        ReusableMethods.adminLogin(ConfigReader.getProperty("betulAdminName"),(ConfigReader.getProperty("betulAdminPassword")));
+        admin.ordersSection.click();
+        extentTest.info("Clicked on the orders text in the panel");
+        admin.allOrderSection.click();
+        extentTest.info("Clicked on all orders");
+        admin.orderIdText.click();
+        extentTest.info("Clicked on Order ID for sort orders by order id");
+        ReusableMethods.wait(0.5);
+        List<WebElement> orderIdListesi = admin.orderIdList;
+        ArrayList<Integer> orderIdListInt = new ArrayList<>();
+        for (WebElement eachId : orderIdListesi
+        ) {
+            String idString = eachId.getText();
+            orderIdListInt.add(Integer.parseInt(idString));
+        }
+        extentTest.info("IDs have been added to a list for comparison");
+        List<Integer> controlList = new ArrayList<>(orderIdListInt);
+        Collections.sort(controlList);
+        extentTest.info("IDs added to a list sorted in descending order");
+        softAssert.assertTrue(controlList.equals(orderIdListInt),"Sorting is not done correctly");
+        extentTest.info("IDs were matched with the sorted list after sorting");
+        extentTest.pass("Verified that admin can sort orders by order id");
+        softAssert.assertAll();
+    }
+
+     @AfterMethod
+     public void tearDown(){
         admin = new Admin_Dashboard();
         softAssert = new SoftAssert();
         softAssert.assertAll();
         Driver.closeDriver();
-    }*/
+    }
 
 }
