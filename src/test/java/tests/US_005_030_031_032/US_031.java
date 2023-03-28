@@ -29,11 +29,6 @@ public class US_031 extends TestBaseRapor {
         extentTest.pass("All Orders sayfası acildi.");
     }
 
-    @AfterClass
-    public void tearDown() {
-        Driver.closeDriver();
-    }
-
     @Test
     public void tc03101allOrdersGorunurlugu() {
         extentTest = extentReports.createTest("All Orders linki gorunurlugu testi", "All Orders linki gorulmeli");

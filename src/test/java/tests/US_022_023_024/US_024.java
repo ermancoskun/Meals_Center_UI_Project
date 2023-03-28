@@ -299,11 +299,15 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Delete işlemi Doğrulandı.");
 
+///asdfghj
+
+
         String SilindiktenSonra=merchant_dashboard.EntryYazısı.getText();
 
         System.out.println(SilinmedenÖnce);
 
         System.out.println(SilindiktenSonra);
+
 
 
 
