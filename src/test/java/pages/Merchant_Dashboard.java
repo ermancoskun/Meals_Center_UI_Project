@@ -205,11 +205,6 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//i[@class='zmdi zmdi-plus']")
     public WebElement plusLink;
 
-
-
-
-
-
     //merchant/backoffice/food/category_create>merchantname
     @FindBy(xpath="(//a[@id=\"dropdownMenuLink\"])[1]")
     public WebElement merchantname;
