@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 public class Merchant_Dashboard {
 
@@ -52,6 +55,99 @@ public class Merchant_Dashboard {
     public WebElement assignDriverButton;
 
 
+    // /backoffice/merchant/dashboard >> Dasboard menusunun tamami
+    @FindBy(xpath = "//div[@id='vue-siderbar-menu']")
+    public WebElement dasboardMenusununTamami;
+
+    // /backoffice/merchant/dashboard >> Dasboard menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[1]")
+    public WebElement dashboardMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Merchant menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[2]")
+    public WebElement merchantMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Orders menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[3]")
+    public WebElement ordersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Attributes menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[6]")
+    public WebElement attributesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Food menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[7]")
+    public WebElement foodMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Order menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[8]")
+    public WebElement orderTypeMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Payment Gateway menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[9]")
+    public WebElement paymentGatewayMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Promo menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[10]")
+    public WebElement promoMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Images menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[11]")
+    public WebElement imagesMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Account menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[12]")
+    public WebElement accountMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Buyers menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[14]")
+    public WebElement buyersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Users menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[15]")
+    public WebElement usersMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Reports menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[16]")
+    public WebElement reportsMenuButonu;
+
+    // /backoffice/merchant/dashboard >> Inventory Management menusu butonu
+    @FindBy(xpath = "(//ul[@class='sidebar-nav']/li)[18]")
+    public WebElement inventoryManagementMenuButonu;
+
+    // merchant login > image
+    @FindBy(xpath = "//div[@class='col-md-6 m-0 p-0 left-container']")
+    public WebElement loginImage;
+
+    // merchant login > merchant login yazısı
+    @FindBy(xpath = "//h6[@class='mb-4']")
+    public WebElement textMerchantLogin;
+
+    // merchant login > meals center amblemi
+    @FindBy(xpath = "//img[@class='img-60 rounded-circle']")
+    public WebElement amblem;
+
+    // merchant login > remember me kutucuğu
+    @FindBy(xpath = "//div[@class='custom-checkbox ml-3']")
+    public WebElement rememberMeKutucuk;
+
+    // merchant login > App store download linki
+    @FindBy(xpath = "(//div[@class='p-2'])[1]")
+    public WebElement appStoreLink;
+
+    // merchant login > Play store download linki
+    @FindBy(xpath = "(//div[@class='p-2'])[1]")
+    public WebElement playStoreLink;
+
+    // merchant login > This field is required yazısı
+    @FindBy(xpath = "(//div[@class='errorMessage'])[1]")
+    public WebElement requiredText;
+
+    // merchant login > Incorrect username or password yazısı
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement incorrectText;
+
+
     //merchant > Dasshboard / All Orders link
     @FindBy (xpath = "//li[@class='position-relative orders_history']")
     public WebElement allOrdersLink;
@@ -75,15 +171,15 @@ public class Merchant_Dashboard {
     public WebElement completedText;
 
     //merchant>backoffice/orders>completed/completedtodayCount
-    @FindBy(xpath = "(//div[text()='0'])[5]")
-    public WebElement completedtodayCount;
+
+    @FindBy(xpath = "(//div[@class='col'])[1]")
+    public List<WebElement> completedtodayOrdersList;
 
     //merchant>backoffice/orders>completed/ordertypeddm
     @FindBy(xpath = "(//select[@class='selectpicker'])[1]")
     public WebElement orderTypeDdm;
 
     //merchant>backoffice/orders>completed/paymentstatusddm
-
     @FindBy(xpath = "//select[@title='Payment status']")
     public WebElement paymentStatusDdm;
 
@@ -97,6 +193,286 @@ public class Merchant_Dashboard {
     //merchant>backoffice/orders>completed/cancelButton
     @FindBy(xpath = "(//span[text()='Cancel'])[1]")
     public WebElement  cancelButton;
+
+    //merchantUrl>login/Dashboard menusu altındaki
+    @FindBy(xpath = "//li[@class='promo']")
+    public WebElement promoLink;
+    //merchantUrl>login/Dashoard/Promo/caupon
+    @FindBy(xpath = "//a[text()='Coupon']")
+    public WebElement couponLink;
+    @FindBy(xpath = "//a/h5[text()='Coupon list']")
+    public WebElement couponListText;
+    @FindBy(xpath = "//i[@class='zmdi zmdi-plus']")
+    public WebElement plusLink;
+
+
+
+
+
+
+    //merchant/backoffice/food/category_create>merchantname
+    @FindBy(xpath="(//a[@id=\"dropdownMenuLink\"])[1]")
+    public WebElement merchantname;
+
+
+    @FindBy(xpath="(//a[@class=\"dropdown-item\"])[1]")
+    public WebElement profil;
+
+    @FindBy(xpath="//label[@for=\"AR_merchant_user_first_name\"]")
+    public WebElement firstnamebox;
+
+    @FindBy(xpath = "(//li[@class=\"active\"])[1]")
+    public WebElement BasicDetailsbox;
+
+    @FindBy(xpath ="//input[@id=\"AR_merchant_user_last_name\"]" )
+    public WebElement Lastnamebox;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_contact_email\"]")
+    public WebElement Emailbox;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_contact_number\"]")
+    public WebElement Contactnumber;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_username\"]")
+    public WebElement Username;
+
+    @FindBy(xpath="//button[@style=\"padding: 0.375rem 0.75rem;\"]")
+    public WebElement browseboxı;
+
+    @FindBy(xpath="//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/44f575b2-c0dd-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"]")
+    public WebElement browseboxpicture;
+
+    @FindBy(xpath="//span[@class=\"label\"]")
+    public WebElement AddFilesbuton;
+
+    @FindBy(xpath="//span[@style=\"font-size: 1.5rem;\"]")
+    public WebElement browseçıkış;
+
+    @FindBy(xpath="//input[@type=\"submit\"]")
+    public WebElement Savebox1;
+
+    @FindBy(xpath="(//i[@class=\"zmdi zmdi-lock-outline\"])[1]")
+    public WebElement ChangePasswordlinki;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_old_password\"]")
+    public WebElement Oldpasswordbox;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_new_password\"]")
+    public WebElement Newpasswordbox;
+
+    @FindBy(xpath="//input[@id=\"AR_merchant_user_repeat_password\"]")
+    public WebElement Confirmpasswordbox;
+
+    @FindBy(xpath="//input[@class=\"btn btn-green btn-full mt-3 changepassButton\"]")
+    public WebElement Savebox2;
+
+    @FindBy(xpath="//div[@class=\"alert alert-success\"]")
+    public WebElement Updateyazısı;
+
+    @FindBy(xpath="//a[text()=\"Dashboard\"]")
+    public WebElement Dashboardyazısı;
+
+    @FindBy(xpath="//div[@class=\"rounded-status-report rounded r1\"]")
+    public WebElement TotalOrders;
+
+    @FindBy(xpath="//div[@class=\"rounded-status-report rounded r2\"]")
+    public WebElement TotalCancel;
+
+    @FindBy(xpath="//div[@class=\"rounded-status-report rounded r3\"]")
+    public WebElement TotalRefund;
+
+    @FindBy(xpath="//div[@class=\"rounded-status-report rounded r4\"]")
+    public WebElement TotalSales;
+
+    @FindBy(xpath="(//div[@style=\"padding: 10px;\"])[1]")
+    public WebElement SalesThisWeek;
+
+    @FindBy(xpath="(//div[@style=\"padding: 10px;\"])[2]")
+    public WebElement EarningThisWeek;
+
+    @FindBy(xpath="(//div[@style=\"padding: 10px;\"])[3]")
+    public WebElement YourBalance;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[4]")
+    public WebElement OrderReceived;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[5]")
+    public WebElement TodayDelivered;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[6]")
+    public WebElement TodaySales;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[7]")
+    public WebElement TodayRefund;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[10]")
+    public WebElement SalesOverview;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[12]")
+    public WebElement OverviewOfReview;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[11]")
+    public WebElement TopCustomers;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[8]")
+    public WebElement LastOrders;
+
+    @FindBy(xpath="(//div[@class=\"card-body\"])[9]")
+    public WebElement PopularItems;
+
+    @FindBy(xpath="//a[text()=\"Food\"]")
+    public WebElement FoodButonu;
+
+    @FindBy(xpath="//a[text()=\"Category\"]")
+    public WebElement CategoryButonu;
+
+    @FindBy(xpath="//a[@class=\"navbar-brand\"]")
+    public WebElement CategoryListYazısı;
+
+    @FindBy(xpath="(//tr[@class=\"even\"])[1]")
+    public WebElement SignatureRoll;
+
+    @FindBy(xpath="(//tr[@class=\"even\"])[2]")
+    public WebElement MakiandclassicRoll;
+
+    @FindBy(xpath="(//tr[@class=\"odd\"])[2]")
+    public WebElement Sushibox;
+
+    @FindBy(xpath="(//tr[@class=\"odd\"])[1]")
+    public WebElement PickedForYou;
+
+    @FindBy(xpath = "(//div[@class=\"p-2\"])[1]")
+    public WebElement AddNewButonu;
+
+    @FindBy(xpath="//input[@id=\"AR_category_category_name\"]")
+    public WebElement NameBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description\"]")
+    public WebElement Descriptionbox;
+
+    @FindBy(xpath="//button[@style=\"padding: 0.375rem 0.75rem;\"]")
+    public WebElement Browsebox1;
+
+    @FindBy(xpath="(//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/11eabb1f-c0e0-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"])[1]")
+    public WebElement FeaturedImage;
+
+    @FindBy(xpath="(//span[text()=\"Add Files\"])[1]")
+    public WebElement AddFilesButonu;
+
+    @FindBy(xpath="(//button[text()=\"Browse\"])[2]")
+    public WebElement Browsebox2;
+
+    @FindBy(xpath ="(//*[@id=\"modalUploader\"]/div/div/div[2]/div[2]/ul/li[1])[2]")
+    public WebElement IconImage;
+
+    @FindBy(xpath ="//div[@class=\"alert alert-success\"]")
+    public WebElement SuccesfullyCreatedYazısı;
+
+
+    @FindBy(xpath="(//span[text()=\"Add Files\"])[2]")
+    public WebElement AddFiles2;
+
+    @FindBy(xpath ="//span[@class=\"select2-selection select2-selection--multiple\"]")
+    public WebElement DishBox;
+
+    @FindBy(xpath="//li[@id=\"select2-AR_category_dish_selected-result-6i3u-1\"]")
+    public WebElement MealBox;
+
+    @FindBy(xpath="//select[@id=\"AR_category_status\"]")
+    public WebElement StatusBox;
+
+    @FindBy(xpath="//input[@type=\"submit\"]")
+    public WebElement Savebox;
+
+    @FindBy(xpath = "//div[@class=\"alert alert-success\"]")
+     public WebElement SuccesfulyUpdatedYazısı;
+
+    @FindBy(xpath="//i[@class=\"zmdi zmdi-plus\"]")
+    public WebElement ItemTranslationsButton;
+
+    @FindBy(xpath="//input[@id=\"AR_category_category_translation_ja\"]")
+    public WebElement JapaneseTranslationBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description_translation_ja\"]")
+    public WebElement JapaneseDescriptionBox;
+
+    @FindBy(xpath ="//input[@id=\"AR_category_category_translation_ar\"]")
+    public WebElement ArabicTranslationBox;
+
+    @FindBy(xpath="//textarea[@id=\"AR_category_category_description_translation_ar\"]")
+    public WebElement ArabicDescriptionBox;
+
+    @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
+    public WebElement UpdateButonu;
+
+    @FindBy(xpath="//a[@data-id=\"189\"]")
+    public WebElement DeleteButonu;
+
+    @FindBy(xpath="//a[@class=\"btn btn-green item_delete\"]")
+    public WebElement DeleteConfirmation;
+
+    @FindBy(xpath = "//a[@class=\"btn btn-primary btn-circle\"]")
+    public WebElement SortButton;
+
+    @FindBy(xpath="//div[@class=\"breadcrumbs\"]")
+    public WebElement CategorySortPage;
+
+    //merchant>dashboard>ordertype
+    @FindBy(xpath ="//li[@class='services_settings']")
+    public WebElement orderTypeLink;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath ="//a[@href='/backoffice/services/delivery_settings']")
+    public WebElement deliveryLink;
+
+    //merchant>dashboard>ordertype>delivery>settingtext
+    @FindBy(xpath ="(//li[@class='active'])[1]")
+    public WebElement settingText;
+
+    //merchant>dashboard>ordertype>delivery>checkbox1
+    @FindBy(xpath = "//label[@for='merchant_opt_contact_delivery']")
+    public WebElement checkbox1;
+    //merchant>dashboard>ordertype>delivery>checkbox2
+
+    @FindBy(xpath = "//label[@for='free_delivery_on_first_order']")
+    public WebElement checkbox2;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargeddm
+    @FindBy(xpath = "//select[@id='AR_option_merchant_delivery_charges_type']")
+    public WebElement fixedchargeDdm;
+
+    //merchant>dashboard>ordertype>delivery>servicefeebox
+    @FindBy(xpath ="//input[@type='text']")
+    public WebElement serviceFeeBox;
+
+    //merchant>dashboard>ordertype>delivery
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement errorMessage;
+
+    //merchant>dashboard>ordertype>delivery>savebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement saveButon;
+
+    //merchant>dashboard>ordertype>delivery>settingsSavedText
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement settingsSavedText;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargetext
+    @FindBy(xpath ="//a[@href='/backoffice/services/fixed_charge'][1]")
+    public WebElement fixedChargeText;
+
+    //merchant>dashboard>ordertype>delivery>pricebox
+    @FindBy(xpath = "(//input[@type='text'])[1]")
+    public WebElement priceBox;
+
+    //merchant>dashboard>ordertype>delivery>fixedchargesavebutton
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement fixedChargeSaveButon;
+
+    //merchant>dashboard>ordertype>delivery>alert
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement succesfullyupdatedalert;
+
 
     //merchant/dashboard>AllOrders un yanında yazan sayı
     @FindBy(xpath = "//div[@class='badge-pill pull-right badge-notification bg-history']")
@@ -176,7 +552,6 @@ public class Merchant_Dashboard {
     //backoffice/orders/history > musteri listesindeki ilk musteri downloadButtonu
     @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[2]")
     public WebElement downloadButtonu;
-
 
 
     //=================== Size Page=======================
@@ -273,14 +648,6 @@ public class Merchant_Dashboard {
     public WebElement succesfullyUpdatedYazisi;
 
 
-
-
-
-
-
-
-
-
     //merchant/dashboard > attributesLinki>ingredientsLinki
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_ingredients_list']")
     public WebElement ingredientsLinki;
@@ -300,14 +667,8 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//li[@class='position-relative attrmerchant_cookingref_list active']")
     public WebElement cookingReferenceLinkiActive;
 
-
-
-
-
-
-
-
-
+    @FindBy(xpath="(//a[@href=\"/backoffice/food/category_update/id/24\"])[1]")
+    public WebElement DetailsBox;
 
 
 }

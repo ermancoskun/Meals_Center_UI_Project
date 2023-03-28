@@ -30,7 +30,16 @@ public class User_RestaurantUmiSakeHouse {
     @FindBy(xpath = "//li[@class='d-inline mr-3 mr-lg-0']")
     public WebElement cartLogoButonu;
 
+    @FindBy(xpath = "(//section//div/h6)[1]")
+    public WebElement ilkUrunIsimElementi;
+
     //***************/duygu/****************/
+    //userUrl>umiSakihause like butonu
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[1]")
+    public WebElement umiSakiHouseLikeButton;
+    //UmisakiHause sayfasindaki begen yaptıktan sonra
+    @FindBy(xpath = "//p[text()='Saved']")
+    public WebElement savedText;
 
 
 }
