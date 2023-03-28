@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
 import utilities.*;
 
-public class US_002{
+public class US_002 extends TestBaseRapor{
 
     @Test
     public void headertest01(){
