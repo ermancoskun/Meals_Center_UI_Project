@@ -233,17 +233,16 @@ public class US_022 extends TestBaseRapor {
         softAssert.assertAll();
 
 
+        merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
 
-       merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
+        merchant_dashboard.Savebox2.click();
 
-       merchant_dashboard.Savebox2.click();
+        extentTest.info("Change Password sayfasının çalıştığı test edildi");
 
-       extentTest.info("Change Password sayfasının çalıştığı test edildi");
-
-       //Save boxında bug var çalışmıyor.
-
-///asdfghj
+        //Save boxında bug var çalışmıyor.
 
 
 
+
+    }
 }
