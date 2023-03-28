@@ -380,6 +380,33 @@ public User_Homepage(){
     @FindBy (xpath = "//img[@class='img-30 rounded-pill lozad loaded']")
     public WebElement loginOlunduSimgesi;
 
+    //userUrl>login/isim yazan DropdownMenu
+    @FindBy(xpath = "//a[@id='dropdownMenuLink']")
+    public WebElement nameDropDownMenu;
+    //userUrl>login>isimDropDownMunu/saveAdStore
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-savedstore']")
+    public WebElement saveAdStoreLink;
+    //userUrl>favourites/ordernow uzerindeki Saved Stores yazisi
+    @FindBy(xpath = "(//h5[text()='Saved Stores'])[1]")
+    public WebElement userFavouritesSavedStores;
+    //userUrl>restaurant/restoranisimlerini iceren liste
+    @FindBy(xpath = "//h5[@class='m-0 text-truncate']")
+    public List<WebElement> restaurantsNameList;
+    //adminUrl>accaunt>favaurities
+    @FindBy(xpath = "//h5[text()=\"You don't have any save stores here!\"]")
+    public WebElement dontHaveAnyStores;
+    //saved store sayfasindaki orderButton
+    @FindBy(xpath = "(//a[@class='btn btn-green'])[1]")
+    public WebElement orderNowButton;
+    @FindBy(xpath = "(//h4[@class='m-0'])[1]")
+        public WebElement numberOfRestaurants;
+    //userUrl>restaurants like buttonlariListesi
+    @FindBy(xpath = "//i[@class='zmdi zmdi-favorite-outline']")
+    public List<WebElement> likeButtonList;
+    @FindBy(xpath = "//a/h5")
+    public WebElement favoritesRestourantName;
+
+
     // homepage > cart linkini tiklayinca cikan "cart" yazisi
     @FindBy (xpath = "//*[@class='mt-3 mb-0']")
     public WebElement cartScript;
@@ -407,4 +434,5 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+
 }

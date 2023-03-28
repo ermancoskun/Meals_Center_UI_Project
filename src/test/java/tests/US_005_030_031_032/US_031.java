@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.*;
 
-public class US_031 extends TestBaseRaporClass {
+public class US_031 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
 
@@ -27,11 +27,6 @@ public class US_031 extends TestBaseRaporClass {
         extentTest.info("Orders linkine tiklandi.");
         merchant_dashboard.allOrdersLink.click();
         extentTest.pass("All Orders sayfası acildi.");
-    }
-
-    @AfterClass
-    public void tearDown() {
-        Driver.closeDriver();
     }
 
     @Test

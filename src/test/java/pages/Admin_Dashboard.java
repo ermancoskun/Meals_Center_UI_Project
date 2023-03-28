@@ -186,6 +186,26 @@ public class Admin_Dashboard {
     // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
+    @FindBy(xpath = "//li[@class='promo']")
+    public WebElement promoMenu;
+    @FindBy(xpath = "//li/a[text()='Coupon']")
+    public WebElement couponLink;
+    @FindBy(xpath = "//h5[text()='Add new']")
+    public WebElement addNewText;
+    @FindBy(xpath = "//i[@class='zmdi zmdi-plus']")
+    public WebElement plusLink;
+    @FindBy(xpath = "//label[@for='AR_voucher_voucher_name']")
+    public WebElement couponNameTextBox;
+    @FindBy(xpath = "//input[@readonly='readonly']")
+    public WebElement expirationTextBox;
+    @FindBy(xpath = "(//tr/td)[32]")
+    public WebElement selectedDay;
+    @FindBy(id = "AR_voucher_used_once")
+    public WebElement adminCouponOptionsDDM;
+    @FindBy(id = "AR_voucher_status")
+    public WebElement adminCouponStatus;
+    @FindBy(xpath = "//input[@value='Save']")
+    public WebElement createCouponSaveButton;
 
 
 }
