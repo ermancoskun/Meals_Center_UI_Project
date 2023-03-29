@@ -12,7 +12,6 @@ import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-import utilities.TestBaseRaporClass;
 
 public class US_032_A_Size extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -20,7 +19,7 @@ public class US_032_A_Size extends TestBaseRapor {
     Faker faker=new Faker();
 
     @Test
-    public void tc03201() {
+    public void tc03201_sizeListSayfasi() {
         extentTest = extentReports.createTest("Size List sayfasi testi", "Size List sayfasi acilmali");
         merchant_dashboard = new Merchant_Dashboard();
         ReusableMethods.merchantLogin();
@@ -34,7 +33,7 @@ public class US_032_A_Size extends TestBaseRapor {
     }
 
     @Test
-    public void tc03202() {
+    public void tc03202_baslik() {
         extentTest = extentReports.createTest("noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton baslıkları ve simgeleri gorunurlugu testi",
                 "noBasligi, nameBasligi, actionsBasligi, searchBox, addNewButton baslıkları ve simgeleri gorunur olmali");
         merchant_dashboard = new Merchant_Dashboard();
@@ -55,7 +54,7 @@ public class US_032_A_Size extends TestBaseRapor {
     }
 
     @Test
-    public void tc03203() {
+    public void tc03203_yeniUrunEklemeSilme() {
         extentTest = extentReports.createTest("Size List yeni urun ekleme ve silme testi",
                 "Size List yeni urun eklenebilmeli ve urun silinebilmeli");
         merchant_dashboard = new Merchant_Dashboard();
@@ -86,7 +85,7 @@ public class US_032_A_Size extends TestBaseRapor {
 
 
     @Test
-    public void tc03204() {
+    public void tc03204_update() {
         extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
                 "Size List sayfasinde urunleri update edebilmeli");
         faker=new Faker();
@@ -132,7 +131,7 @@ public class US_032_A_Size extends TestBaseRapor {
     }
 
     @Test
-    public void tc03205() {
+    public void tc03205_ozelKarakterRakamlaUrunIsimGirme() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Size Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
                 "Size Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
@@ -178,7 +177,7 @@ public class US_032_A_Size extends TestBaseRapor {
 
 
     @Test
-    public void tc03206() {
+    public void tc03206_tekrarliIsim() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Size Add bolumunde aynı isimli urunun tekrarlı kayıt yapılamama testi",
                 "Size Add bolumunde aynı isimli urun tekrarli kayit yapilamamali");
@@ -222,7 +221,7 @@ public class US_032_A_Size extends TestBaseRapor {
 
 
     @Test
-    public void tc03207() {
+    public void tc03207_searchBox() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Size List sayfasinda search box testi",
                 "Size List sayfasinda search box ta arama yapilmali");

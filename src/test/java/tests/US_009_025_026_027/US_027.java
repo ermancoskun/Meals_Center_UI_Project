@@ -7,46 +7,44 @@ import org.testng.annotations.Test;
 import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US_027 {
+public class US_027 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard=new Merchant_Dashboard();
-    @BeforeClass
-    public void setUp() {
-        ReusableMethods.merchantLogin();
-    }
 
-    /*@AfterClass
-    public void tearDown() {
-
-        Driver.closeDriver();
-    }*/
 
     @Test
     public void tc2701ordersprocessing(){
+        extentTest = extentReports.createTest("orderprocessing  sayfası gorunurlugu testi",
+                "orderprocessing sayfasi gorunmeli");
+        ReusableMethods.merchantLogin();
         merchant_dashboard=new Merchant_Dashboard();
         merchant_dashboard.ordersLink.click();
+        extentTest.info("orders linki tıklandı");
         merchant_dashboard.orderProcessing.click();
+        extentTest.info("orderprocessing linki tıklandı");
         Assert.assertTrue( merchant_dashboard.orderprocessindogrulama.isDisplayed());
+        extentTest.pass("orderprocessing linki tıklanabildiği dogrulandı");
 
     }
     @Test
     public void tc2702readyforPickup(){
+        extentTest = extentReports.createTest("readyforPickup  butonu gorunurlugu testi",
+                "readyforPickup butonu gorunmeli");
+        ReusableMethods.merchantLogin();
         merchant_dashboard=new Merchant_Dashboard();
         merchant_dashboard.ordersLink.click();
         merchant_dashboard.orderProcessing.click();
        Assert.assertTrue( merchant_dashboard.readyforpickupbutton.isDisplayed());
+       extentTest.pass("readyforPickup  butonu gorunurlugu dogrulandı");
        ReusableMethods.wait(3);
        merchant_dashboard.readyforpickupbutton.click();
+       extentTest.info("readyforPickup  butonu");
 
 
-    }
-    @Test
-    public void deney(){
-        merchant_dashboard=new Merchant_Dashboard();
-        merchant_dashboard.ordersLink.click();
-        merchant_dashboard.newordersbutton.click();
-       // String deney=merchant_dashboard.deney.getText();
-       // System.out.println(deney);
 
     }
+
+
+
 }
