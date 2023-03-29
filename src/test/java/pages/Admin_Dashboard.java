@@ -162,8 +162,17 @@ public class Admin_Dashboard {
     public WebElement dasboardMerchantEarningsMenusu;
     @FindBy(xpath = "(//th[@class='sorting'])[1]")
     public WebElement earningsMerchantSiralamaButonu;
-    @FindBy(xpath = "(//th[@class=\"sorting\"])[1]")
+    @FindBy(xpath = "(//th[@class='sorting'])[1]")
     public WebElement earningsBalanceSiralamaButonu;
+    @FindBy(xpath = "(//div[@class='d-flex'])[32]")
+    public WebElement earningsTotalBalanceBoxi;
+    @FindBy(xpath = "//i[@class=\"zmdi zmdi-eye\"][1]")
+    public WebElement merchantDetayBilgisiButonu;
+    @FindBy(xpath = "//h6[text()='Merchant Info']")
+    public WebElement merchantDetayBilgisiYazisi;
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement merchantEarningsSearchbox;
+
 
 
 
