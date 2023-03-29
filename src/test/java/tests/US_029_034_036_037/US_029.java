@@ -61,7 +61,7 @@ public class US_029 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
     }
      @Test
      public void TC_02(){
@@ -113,7 +113,7 @@ public class US_029 extends TestBaseRapor {
 
          extentTest.info("Closed the page");
 
-         extentTest.pass("pass");
+         extentTest.pass("passed");
      }
     @Test
     public void TC_03(){
@@ -153,7 +153,7 @@ public class US_029 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
 
     }
     }

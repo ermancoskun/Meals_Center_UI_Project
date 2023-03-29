@@ -449,7 +449,7 @@ public class Merchant_Dashboard {
 
     //merchant>dashboard>ordertype>delivery>savebutton
     @FindBy(xpath = "//input[@type='submit']")
-    public WebElement saveButon;
+    public WebElement saveButon1;
 
     //merchant>dashboard>ordertype>delivery>settingsSavedText
     @FindBy(xpath = "//div[@class='alert alert-success']")
