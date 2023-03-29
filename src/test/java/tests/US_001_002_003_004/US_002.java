@@ -34,8 +34,9 @@ public class US_002 extends TestBaseRapor{
         extentTest.info("Header Script Visibility Tested");
         String headerTest="US_002_ScreenShot";
         ReusableMethods.getScreenshot(headerTest);
-        extentTest.pass("PASSED");
         softAssert.assertAll();
+        extentTest.pass("PASSED");
+
     }
 
     @Test
