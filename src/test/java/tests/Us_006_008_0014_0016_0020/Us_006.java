@@ -25,7 +25,8 @@ public class Us_006 extends TestBaseRapor {
     SoftAssert softAssert = new SoftAssert();
     @Test (groups = "smoke")
     public void test() throws IOException {
-
+        User_Homepage user_homepage=new User_Homepage();
+        SoftAssert softAssert = new SoftAssert();
         extentTest=extentReports.createTest("Us_006","terms-and-conditions");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul
