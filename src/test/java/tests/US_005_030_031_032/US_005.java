@@ -29,7 +29,7 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void tc00502_loginTestDogruMailYanlisPassword(){
         extentTest=extentReports.createTest("Dogru Mail, Yanlis Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
@@ -67,7 +67,7 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void tc00504_loginTestDogruMailDogruPassword(){
         extentTest=extentReports.createTest("Dogru Mail, Dogru Password testi","Login olunmali");
         userHomepage=new User_Homepage();
