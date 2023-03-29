@@ -2,7 +2,6 @@ package tests.US_012_013_021_039_duygu;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;

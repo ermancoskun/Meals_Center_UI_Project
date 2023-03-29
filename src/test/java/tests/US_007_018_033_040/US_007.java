@@ -2,7 +2,6 @@ package tests.US_007_018_033_040;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.User_Homepage;
 import utilities.*;
@@ -10,7 +9,7 @@ import utilities.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class US_007 extends TestBaseRapor{
+public class US_007 extends TestBaseRapor {
     //1)bir browser ac
     //2)"https://qa.mealscenter.com/" url uzerinden 'mealscenter' sitesine gider
     //3) cokies kabul eder

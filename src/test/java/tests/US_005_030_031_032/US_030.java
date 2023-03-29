@@ -168,7 +168,7 @@ public class US_030 extends TestBaseRapor {
         extentTest.pass("Reject buttonunun çalışması başarılı bir şekilde test edildi");
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void tc03007_assignDriverButton() {
         extentTest = extentReports.createTest("Reject buttonu testi",
                 "Eklenen urun merchant tarfından reject edilmeli");
@@ -185,7 +185,13 @@ public class US_030 extends TestBaseRapor {
         extentTest.info("Scheduled linkine tiklanir.");
         merchant_dashboard.assignDriverButton.click();
         extentTest.info("assignDriverButton tiklanir.");
-        softAssert.assertTrue(merchant_dashboard.assignDriverMaps.isDisplayed());
+
+        try {
+            softAssert.assertTrue(merchant_dashboard.assignDriverMaps.isDisplayed());
+        } catch (Exception e) {
+            softAssert.assertTrue(false,"Assign Driver butonu çalışmıyor.");
+        }
+
         softAssert.assertAll();
         extentTest.pass("haritanın açıldığı doğrulanır.");
     }
