@@ -172,7 +172,7 @@ public class US_017 extends TestBaseRapor {
         userHomepage=new User_Homepage();
         softAssert = new SoftAssert();
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
 
 }

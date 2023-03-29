@@ -57,7 +57,7 @@ public class Admin_Dashboard {
     public  List<WebElement> updatedMerchantInfo;
 
     //adminUrl>backoffice>login>merchant>list>editlink
-    @FindBy(xpath = "//a[@href='/backoffice/vendor/edit/id/126']")
+    @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
     public WebElement editLink;
 
     //adminUrl>backoffice>login>merchant>list>editlink>restaurantbox
@@ -85,7 +85,7 @@ public class Admin_Dashboard {
 
     //adminUrl>backoffice>login>merchant>list>deletebutton
 
-    @FindBy(xpath ="(//a[@class='btn btn-light datatables_delete tool_tips'])[1]")
+    @FindBy(xpath ="(//i[@class=\"zmdi zmdi-delete\"])[1]")
     public WebElement deleteButton;
 
     // admin login > orders
@@ -156,10 +156,20 @@ public class Admin_Dashboard {
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
 
+    @FindBy(xpath = "//a[text()='Earnings']")
+    public WebElement dasboardEarningsMenusu;
+    @FindBy(xpath = "//a[text()='Merchant Earnings']")
+    public WebElement dasboardMerchantEarningsMenusu;
+    @FindBy(xpath = "(//th[@class='sorting'])[1]")
+    public WebElement earningsMerchantSiralamaButonu;
+    @FindBy(xpath = "(//th[@class=\"sorting\"])[1]")
+    public WebElement earningsBalanceSiralamaButonu;
 
 
 
 
+
+//a[text()='Merchant Earnings']
 
 
 
