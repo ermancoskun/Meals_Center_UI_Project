@@ -10,7 +10,6 @@ import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-import utilities.TestBaseRaporClass;
 
 public class US_032_C_Cooking extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -18,7 +17,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
     Faker faker=new Faker();
 
     @Test
-    public void tc03215() {
+    public void tc03215_cookingReferenceListSayfasi() {
         extentTest = extentReports.createTest("Cooking Reference List sayfasi testi", "Cooking Reference List sayfasi acilmali");
         merchant_dashboard = new Merchant_Dashboard();
         ReusableMethods.merchantLogin();
@@ -32,7 +31,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
     }
 
     @Test
-    public void tc03216() {
+    public void tc03216_baslik() {
         extentTest = extentReports.createTest("noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton baslıkları ve simgeleri gorunurlugu testi",
                 "noBasligi, nameBasligi, actionsBasligi, searchBox, addNewButton baslıkları ve simgeleri gorunur olmali");
         merchant_dashboard = new Merchant_Dashboard();
@@ -53,7 +52,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
     }
 
     @Test
-    public void tc03217() {
+    public void tc03217_yeniUrunEklemeSilme() {
         extentTest = extentReports.createTest("Cooking Referenc List yeni urun ekleme ve silme testi",
                 "Cooking Referenc List yeni urun eklenebilmeli ve urun silinebilmeli");
         merchant_dashboard = new Merchant_Dashboard();
@@ -84,7 +83,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
 
 
     @Test
-    public void tc03218() {
+    public void tc03218_update() {
         extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
                 "Size List sayfasinde urunleri update edebilmeli");
         faker=new Faker();
@@ -130,7 +129,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
     }
 
     @Test
-    public void tc03219() {
+    public void tc03219_urunIsimGirme() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Cooking Referenc Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
                 "Cooking Referenc Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
@@ -176,7 +175,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
 
 
     @Test
-    public void tc03220() {
+    public void tc03220_tekrarliIsim() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Cooking Referenc Add bolumunde aynı isimli urunun tekrarlı kayıt yapılamama testi",
                 "Cooking Referenc Add bolumunde aynı isimli urun tekrarli kayit yapilamamali");
@@ -220,7 +219,7 @@ public class US_032_C_Cooking extends TestBaseRapor {
 
 
     @Test
-    public void tc03221() {
+    public void tc03221_searchBox() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Cooking Referenc List sayfasinda search box testi",
                 "Cooking Referenc List sayfasinda search box ta arama yapilmali");

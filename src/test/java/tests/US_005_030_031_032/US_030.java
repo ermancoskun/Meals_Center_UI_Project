@@ -130,6 +130,7 @@ public class US_030 extends TestBaseRapor {
         extentTest = extentReports.createTest("Reject buttonu testi",
                 "Eklenen urun merchant tarfından reject edilmeli");
         merchant_dashboard = new Merchant_Dashboard();
+        softAssert=new SoftAssert();
         actions = new Actions(Driver.getDriver());
         scheuldedSiparisMethod();
         extentTest.info("Test yapmak için yeni sipariş oluşturuldu.");
@@ -162,7 +163,8 @@ public class US_030 extends TestBaseRapor {
             if (silinenOrderNoText.equals(each.getText()))
                 sayi++;
         }
-        Assert.assertEquals(sayi, 0);
+        softAssert.assertEquals(sayi, 0);
+        softAssert.assertAll();
         extentTest.pass("Reject buttonunun çalışması başarılı bir şekilde test edildi");
     }
 
@@ -171,6 +173,7 @@ public class US_030 extends TestBaseRapor {
         extentTest = extentReports.createTest("Reject buttonu testi",
                 "Eklenen urun merchant tarfından reject edilmeli");
         merchant_dashboard = new Merchant_Dashboard();
+        softAssert=new SoftAssert();
         actions = new Actions(Driver.getDriver());
         scheuldedSiparisMethod();
         extentTest.info("Test yapmak için yeni sipariş oluşturuldu.");
@@ -181,8 +184,10 @@ public class US_030 extends TestBaseRapor {
         merchant_dashboard.scheduledLink.click();
         extentTest.info("Scheduled linkine tiklanir.");
         merchant_dashboard.assignDriverButton.click();
-        extentTest.pass("assignDriverButton linkine tiklanir.");
-
+        extentTest.info("assignDriverButton tiklanir.");
+        softAssert.assertTrue(merchant_dashboard.assignDriverMaps.isDisplayed());
+        softAssert.assertAll();
+        extentTest.pass("haritanın açıldığı doğrulanır.");
     }
 
     private void scheuldedSiparisMethod() {
@@ -199,7 +204,6 @@ public class US_030 extends TestBaseRapor {
         homepage.adres10001.click();
         // Sepete restauranttaki ilk urun eklenir.
         //sepeteUrunEklemeMethodu();
-
         //Umi Sake Hause restaurant tıklanır.
         homepage.umiSakeHouseRestaurantButton.click();
         // Ilk ürün 'add to cart' butonu ile sepete eklenir.

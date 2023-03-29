@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -19,11 +20,16 @@ import static org.testng.AssertJUnit.assertTrue;
 public class US_024 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
+    SoftAssert softAssert=new SoftAssert();
+
     Actions actions;
 
     @Test
 
     public void test01() {
+
+        softAssert=new SoftAssert();
+
         merchant_dashboard = new Merchant_Dashboard();
 
         actions = new Actions(Driver.getDriver());
@@ -43,15 +49,20 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Category Butonuna basıldı.");
 
-        assertTrue(merchant_dashboard.CategoryListYazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.CategoryListYazısı.isDisplayed());
 
         extentTest.pass("Category Sayfasına gittiğim doğrulanır.");
+
+        softAssert.assertAll();
 
 
     }
 
     @Test
     public void test02() {
+
+
+        softAssert=new SoftAssert();
         merchant_dashboard = new Merchant_Dashboard();
 
         actions = new Actions(Driver.getDriver());
@@ -71,31 +82,34 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Category Butonuna basıldı.");
 
-        assertTrue(merchant_dashboard.CategoryListYazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.CategoryListYazısı.isDisplayed());
 
         extentTest.pass("Category Sayfasına gittiğim doğrulanır.");
 
-        assertTrue(merchant_dashboard.SignatureRoll.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.SignatureRoll.isEnabled());
 
         extentTest.pass("Signature Roll kategorisinin erişilebilirliği test edildi");
 
-        assertTrue(merchant_dashboard.MakiandclassicRoll.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.MakiandclassicRoll.isEnabled());
 
         extentTest.pass("MakiandclassicRoll kategorisinin erişilebilirliği test edildi");
 
-        assertTrue(merchant_dashboard.Sushibox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Sushibox.isEnabled());
 
         extentTest.pass("Sushibox kategorisinin erişilebilirliği test edildi");
 
-        assertTrue(merchant_dashboard.PickedForYou.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.PickedForYou.isEnabled());
 
         extentTest.pass("PickedForYou kategorisinin erişilebilirliği test edildi");
+
+        softAssert.assertAll();
 
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void test03() {
+        softAssert=new SoftAssert();
         merchant_dashboard = new Merchant_Dashboard();
 
         actions = new Actions(Driver.getDriver());
@@ -187,9 +201,11 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Yapılan değişiklikler kaydedildi.");
 
-        assertTrue(merchant_dashboard.SuccesfullyCreatedYazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.SuccesfullyCreatedYazısı.isDisplayed());
 
         extentTest.pass("Değişikliklerin başarıyla yapıldığı test edildi.");
+
+        softAssert.assertAll();
 
 
     }
@@ -197,7 +213,7 @@ public class US_024 extends TestBaseRapor {
     @Test
     public void test04() {
         merchant_dashboard = new Merchant_Dashboard();
-
+        softAssert=new SoftAssert();
 
         actions = new Actions(Driver.getDriver());
 
@@ -220,7 +236,7 @@ public class US_024 extends TestBaseRapor {
         extentTest.info("Update butonuna basıldı.");
 
 
-        assertTrue(merchant_dashboard.DetailsBox.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.DetailsBox.isDisplayed());
 
         extentTest.pass("Update sayfasında olduğum doğrulandı.");
 
@@ -261,9 +277,11 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Yapılan değişiklikler kaydedildi.");
 
-        assertTrue(merchant_dashboard.UpdatedYazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.UpdatedYazısı.isDisplayed());
 
         extentTest.pass("Değişikliklerin başarıyla yapıldığı test edildi.");
+
+        softAssert.assertAll();
 
 
     }
@@ -271,6 +289,8 @@ public class US_024 extends TestBaseRapor {
 
     @Test
     public void test05() {
+
+        softAssert=new SoftAssert();
 
         merchant_dashboard = new Merchant_Dashboard();
 
@@ -299,6 +319,9 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Delete işlemi Doğrulandı.");
 
+
+
+
         String SilindiktenSonra=merchant_dashboard.EntryYazısı.getText();
 
         System.out.println(SilinmedenÖnce);
@@ -306,6 +329,7 @@ public class US_024 extends TestBaseRapor {
         System.out.println(SilindiktenSonra);
 
 
+softAssert.assertAll();
 
 
 

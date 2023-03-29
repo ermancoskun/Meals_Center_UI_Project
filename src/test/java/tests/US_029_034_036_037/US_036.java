@@ -15,7 +15,7 @@ import java.util.List;
 
 public class US_036 extends TestBaseRapor {
 
-    @Test
+    @Test (groups = "smoke")
     public void TC_01() {
 
         extentTest = extentReports.createTest("Verified the page is logged in correct page.");
@@ -72,7 +72,7 @@ public class US_036 extends TestBaseRapor {
         extentTest.pass("pass");
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void TC_03() {
 
         Admin_Dashboard admin_dashboard = new Admin_Dashboard();

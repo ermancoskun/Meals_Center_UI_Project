@@ -1,3 +1,4 @@
+
 package tests.US_022_023_024;
 
 import org.openqa.selenium.By;
@@ -22,9 +23,12 @@ public class US_022 extends TestBaseRapor {
 
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
+    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01() {
+        softAssert=new SoftAssert();
 
         merchant_dashboard = new Merchant_Dashboard();
 
@@ -37,9 +41,11 @@ public class US_022 extends TestBaseRapor {
 
         extentTest.info("Merchant_Dashboard sınıfından obje olusturuldu");
 
-        assertTrue(merchant_dashboard.merchantname.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.merchantname.isDisplayed());
 
         extentTest.pass("ismin görünür olduğu test edildi.");
+
+        softAssert.assertAll();
 
 
     }
@@ -47,17 +53,19 @@ public class US_022 extends TestBaseRapor {
     @Test
     public void test02() {
 
+        softAssert=new SoftAssert();
 
         merchant_dashboard = new Merchant_Dashboard();
 
         extentTest = extentReports.createTest("nameclickable", "nameclickable2");
 
         ReusableMethods.merchantLogin();
+
         extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
         ReusableMethods.waitForPageToLoad(5);
 
-        assertTrue(merchant_dashboard.merchantname.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.merchantname.isEnabled());
 
         extentTest.pass("ismin erişebilirliği test edildi.");
 
@@ -65,9 +73,11 @@ public class US_022 extends TestBaseRapor {
 
         extentTest.info("İsme tıklanır");
 
-        assertTrue(merchant_dashboard.profil.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.profil.isDisplayed());
 
         extentTest.pass("profilin görünürlüğü test edildi.");
+
+        softAssert.assertAll();
 
 
     }
@@ -83,6 +93,8 @@ public class US_022 extends TestBaseRapor {
         //-Kendi profilime gittiğim doğrulanır.
         //- Tarayıcı kapatılır.
         merchant_dashboard = new Merchant_Dashboard();
+
+        softAssert=new SoftAssert();
 
         extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
@@ -101,9 +113,11 @@ public class US_022 extends TestBaseRapor {
         ReusableMethods.waitForPageToLoad(5);
 
 
-        assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
 
         extentTest.pass("profil menüsüne gittiğim doğrulanır");
+
+        softAssert.assertAll();
 
 
     }
@@ -128,7 +142,7 @@ public class US_022 extends TestBaseRapor {
 
         extentTest.info("profile tıklanır");
 
-        assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
 
         extentTest.info("BasicDetails boxının görünür olduğu doğrulanır");
 
@@ -158,9 +172,11 @@ public class US_022 extends TestBaseRapor {
 
         extentTest.info("Save boxına tıklanır.");
 
-        assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
 
         extentTest.pass("profilimdeki değişikliğin başarıyla yapıldığı test edildi.");
+
+        softAssert.assertAll();
 
 
     }
@@ -197,19 +213,19 @@ public class US_022 extends TestBaseRapor {
 
         extentTest.info("Click the Change Password link");
 
-        assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
 
         extentTest.pass("Verify that the oldpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
 
         extentTest.pass("Verify that the Newpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
 
         extentTest.pass("Verify that the Confirmpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Savebox2.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Savebox2.isEnabled());
 
         extentTest.pass("Verify that the save box is accessible");
 
@@ -237,3 +253,7 @@ public class US_022 extends TestBaseRapor {
 
 
 }
+
+
+
+
