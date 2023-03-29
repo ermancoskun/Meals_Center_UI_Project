@@ -50,5 +50,6 @@ public abstract class TestBaseRapor {
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
         extentReports.flush();
+        Driver.quitDriver();
     }
 }
