@@ -121,28 +121,59 @@ public class Admin_Dashboard {
     public WebElement orderIdText;
 
     // admin login > orders > all order > order ID listesi
-    @FindBy(xpath = "//td[@class='sorting_1']")
+    @FindBy(xpath = "//tbody/tr/td[3]")
     public List<WebElement> orderIdList;
+    //td[@class='sorting_1']
 
     // admin login > orders > all order > tarih filtreleme kutusu
     @FindBy(xpath = "//input[@type='search']")
     public WebElement dateSearchBox;
 
+
     // admin login > orders > all order > tarih filtreleme kutusu > yesterday
-    @FindBy(xpath = "//li[@data-range-key='Yesterday']")
+    @FindBy(xpath = "//li[@class='active']")
     public WebElement yesterday;
+
+    // admin login > orders > all order > tarih filtreleme kutusu > yesterday > siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
+    public WebElement yesterdayDate;
 
     // admin login > orders > all order > tarih filtreleme kutusu > today
     @FindBy(xpath = "//li[@data-range-key='Today']")
     public WebElement today;
 
+    // admin login > orders > all order > tarih filtreleme kutusu > today > siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
+    public WebElement todayDate;
+
     // admin login > orders > all order > tarih filtreleme kutusu > Last 7 days
-    @FindBy(xpath = "//li[@data-range-key='Last 7 days']")
+    @FindBy(xpath = "//li[@class='active']")
     public WebElement last7days;
+    //li[@class='active']
+
+    // admin login > orders > all order > tarih filtreleme kutusu > last 7 days > ilk siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
+    public WebElement last7daysDate1;
+
+    // admin login > orders > all order > tarih filtreleme kutusu > last 7 days > son siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[40]")
+    public WebElement last7daysDate2;
+
+    //  admin login > orders > all order > tarih filtreleme kutusu > last 30 days > son sayfa linki
+    @FindBy(xpath = "(//a[@class='page-link docs-creator'])[8]")
+    public WebElement lastPageButton;
 
     // admin login > orders > all order > tarih filtreleme kutusu > Last 30 days
     @FindBy(xpath = "//li[@data-range-key='Last 30 Days']")
     public WebElement last30days;
+
+    // admin login > orders > all order > tarih filtreleme kutusu > last 30 days > ilk siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
+    public WebElement last30daysDate1;
+
+    // admin login > orders > all order > tarih filtreleme kutusu > last 30 days > son siparişin tarihi
+    @FindBy(xpath = "(//p[@class='dim m-0'])[20]")
+    public WebElement last30daysDate2;
 
     // admin login > orders > all order > siparişin yanındaki göz imgesi
     @FindBy(xpath = "(//i[@class='zmdi zmdi-eye'])[1]")
@@ -175,13 +206,6 @@ public class Admin_Dashboard {
     public WebElement adminCouponStatus;
     @FindBy(xpath = "//input[@value='Save']")
     public WebElement createCouponSaveButton;
-
-
-
-
-
-
-
 
 
 }

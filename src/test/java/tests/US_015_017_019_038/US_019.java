@@ -52,6 +52,7 @@ public class US_019 extends TestBaseRapor {
         softAssert.assertTrue(merchant.appStoreLink.isDisplayed());
         extentTest.info("Application download (app store) butonunun görünürlüğü doğrulandı");
         extentTest.pass("Restoran sahibinin Merchant panele erişebildiği doğrulandı");
+        softAssert.assertAll();
     }
 
     @Test (dataProvider = "users")
@@ -72,6 +73,7 @@ public class US_019 extends TestBaseRapor {
         String expectedUrl = Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("Geçersiz bilgilerle giriş yapılamadığı doğrulandı");
+        softAssert.assertAll();
 
     }
 
@@ -91,6 +93,7 @@ public class US_019 extends TestBaseRapor {
         String expectedUrl = "https://qa.mealscenter.com/backoffice/merchant/dashboard";
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("Geçerli bilgilerle giriş yapıldığı doğrulandı");
+        softAssert.assertAll();
     }
 
     @BeforeMethod
