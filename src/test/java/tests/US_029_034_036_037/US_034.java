@@ -11,9 +11,9 @@ import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-import utilities.TestBaseRaporClass;
 
-public class US_034 extends TestBaseRaporClass {
+
+public class US_034 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
     @Test

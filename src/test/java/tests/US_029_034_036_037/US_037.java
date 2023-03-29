@@ -108,14 +108,12 @@ public class US_037 extends TestBaseRapor {
 
         admin_dashboard.listLink.click();
 
-
         extentTest.info("List link is clicked");
 
         //Click the edit link in the body part
 
-
         admin_dashboard.editLink.click();
-
+        //ReusableMethods.wait(0.1);
 
         extentTest.info("edit link is clicked");
 
@@ -131,6 +129,15 @@ public class US_037 extends TestBaseRapor {
                 sendKeys("567890").
                 sendKeys(Keys.TAB).
                 sendKeys("reesd@gmail.com").
+                sendKeys("jake1vgfgu").
+                sendKeys(Keys.TAB).
+                sendKeys("jake02ghnbdfgy").
+                sendKeys(Keys.TAB).
+                sendKeys("abcd2ghbndfg8uıyh").
+                sendKeys(Keys.TAB).
+                sendKeys("345676456465445").
+                sendKeys(Keys.TAB).
+                sendKeys("janedoe@gmail.com").
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
@@ -192,8 +199,13 @@ public class US_037 extends TestBaseRapor {
         //Click the delete link
 
         SoftAssert softAssert=new SoftAssert();
+
         softAssert.assertTrue(admin_dashboard.deleteButton.isEnabled());
         softAssert.assertAll();
+
+
+        extentTest.info("Can't click the delete button");
+
 
         extentTest.fail("Delete button is not clickable");
 
