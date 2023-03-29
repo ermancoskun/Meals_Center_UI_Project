@@ -2,8 +2,10 @@
 /target
 *.iml
 *.xml
-/test-output
 /raporlar
+/test-output
+
+
 
 
 
