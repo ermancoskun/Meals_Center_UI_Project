@@ -439,4 +439,9 @@ public User_Homepage(){
     @FindBy (xpath = "//a[@class='instagram']")
     public WebElement instagramButton;
 
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
+    public WebElement passworgGosterButton;
+
+
 }
