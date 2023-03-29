@@ -77,11 +77,13 @@ public class US_019 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void merchantTest03(){
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
         extentTest=extentReports.createTest("Restoran sahibinin Merchant panele geçerli bilgilerle giriş yapabilmesi testi");
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        extentTest.info("Merchant giriş sayfasına gidildi");
         ReusableMethods.wait(0.1);
         merchant.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
         extentTest.info("Username kutusuna geçerli username yazıldı");
