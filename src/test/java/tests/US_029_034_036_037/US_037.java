@@ -8,6 +8,7 @@ import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
 import utilities.Driver;
 import utilities.JSUtilities;
@@ -107,34 +108,37 @@ public class US_037 extends TestBaseRapor {
 
         admin_dashboard.listLink.click();
 
+
         extentTest.info("List link is clicked");
 
         //Click the edit link in the body part
 
+
         admin_dashboard.editLink.click();
+
 
         extentTest.info("edit link is clicked");
 
         //Fill out the requested boxes
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(admin_dashboard.restaurantnameBox).
-                sendKeys("jake").
+                sendKeys("mike").
                 sendKeys(Keys.TAB).
-                sendKeys("jake01").
+                sendKeys("mary").
                 sendKeys(Keys.TAB).
-                sendKeys("abcd").
+                sendKeys("sos").
                 sendKeys(Keys.TAB).
-                sendKeys("3456767676").
+                sendKeys("567890").
                 sendKeys(Keys.TAB).
-                sendKeys("ersnerm@gmail.com").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
+                sendKeys("reesd@gmail.com").
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
-                sendKeys("American").
                 sendKeys(Keys.TAB).
-                sendKeys("Dinein").perform();
+                sendKeys(Keys.TAB).
+                sendKeys("American").sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys("Dinein").sendKeys(Keys.ENTER).perform();
         ReusableMethods.wait(1);
         Select select = new Select(admin_dashboard.statusboxDdm);
         select.selectByVisibleText("Pending for approval");
@@ -187,9 +191,9 @@ public class US_037 extends TestBaseRapor {
 
         //Click the delete link
 
-        admin_dashboard.deleteButton.click();
-
-        extentTest.info("Can't click the delete button");
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(admin_dashboard.deleteButton.isEnabled());
+        softAssert.assertAll();
 
         extentTest.fail("Delete button is not clickable");
 
