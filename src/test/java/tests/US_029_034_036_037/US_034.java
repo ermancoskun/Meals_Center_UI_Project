@@ -5,10 +5,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
+
 
 public class US_034 extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
@@ -43,7 +45,7 @@ public class US_034 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
 
 
     }
@@ -95,9 +97,15 @@ public class US_034 extends TestBaseRapor {
         ReusableMethods.wait(1);
         merchant_dashboard.serviceFeeBox.sendKeys("15.00");
 
-        merchant_dashboard.saveButon.click();
+        merchant_dashboard.saveButon1.click();
 
-        Assert.assertTrue(merchant_dashboard.settingsSavedText.isDisplayed());
+        SoftAssert softAssert=new SoftAssert();
+
+        softAssert.assertTrue(merchant_dashboard.settingsSavedText.isDisplayed());
+
+        softAssert.assertAll();
+
+        //Assert.assertTrue(merchant_dashboard.settingsSavedText.isDisplayed());
 
         extentTest.info("Service fee is written in the box");
 
@@ -106,9 +114,11 @@ public class US_034 extends TestBaseRapor {
         ReusableMethods.wait(1);
         merchant_dashboard.serviceFeeBox.sendKeys("abca");
 
-        merchant_dashboard.saveButon.click();
+        merchant_dashboard.saveButon1.click();
+        softAssert.assertTrue(merchant_dashboard.errorMessage.isDisplayed());
+        softAssert.assertAll();
 
-        Assert.assertTrue(merchant_dashboard.errorMessage.isDisplayed());
+        //Assert.assertTrue(merchant_dashboard.errorMessage.isDisplayed());
 
         extentTest.info("negative service fee is written");
 
@@ -118,7 +128,7 @@ public class US_034 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
     }
 
     @Test
@@ -154,7 +164,7 @@ public class US_034 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
     }
 
     @Test
@@ -167,6 +177,7 @@ public class US_034 extends TestBaseRapor {
         extentTest.info("Logged in merchant page");
 
         //Click the order type in the dashboard menu
+
         merchant_dashboard.orderTypeLink.click();
 
         extentTest.info("order type link is clicked");
@@ -205,7 +216,7 @@ public class US_034 extends TestBaseRapor {
 
         extentTest.info("Closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
 
 
     }
