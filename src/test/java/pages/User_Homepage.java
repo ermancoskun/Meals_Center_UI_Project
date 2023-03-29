@@ -299,9 +299,9 @@ public User_Homepage(){
     public WebElement deletePaymentButton;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > edit butonu
-    @FindBy(xpath = "(//a[text()='Edit '])[1]")
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-edit'])[2]")
     public WebElement editPaymentButton;
-    // (//i[@class='zmdi zmdi-edit'])[1]
+    // //i[@class='zmdi zmdi-edit']
 
     //  user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery
     @FindBy(xpath = "//i[@class='zmdi zmdi-money-box']")

@@ -159,7 +159,7 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
         userHomepage.paymentSection.click();
         extentTest.info("Açılan menüden “Payments option” yazısına tıklandı");
-        softAssert.assertTrue(userHomepage.editPaymentButton.isEnabled()); ///***********
+        softAssert.assertTrue(userHomepage.editPaymentButton.isDisplayed()); ///***********
         extentTest.info("Kayıtlı ödeme yönteminin üzerindeki edit butonuna tıklanamadı");
         extentTest.fail("Ödeme yönteminin düzenlenemediği doğrulandı");
         softAssert.assertAll();
