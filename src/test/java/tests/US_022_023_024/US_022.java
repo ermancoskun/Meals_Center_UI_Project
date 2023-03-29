@@ -177,41 +177,41 @@ public class US_022 extends TestBaseRapor {
         SoftAssert softAssert = new SoftAssert();
         merchant_dashboard = new Merchant_Dashboard();
 
-        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
+        extentTest = extentReports.createTest("change Password", "change Password 2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
         merchant_dashboard.merchantname.click();
 
-        extentTest.info("İsme tıklanır");
+        extentTest.info("Click on name");
 
         merchant_dashboard.profil.click();
 
 
-        extentTest.info("profile tıklanır");
+        extentTest.info("click on profile");
 
 
         merchant_dashboard.ChangePasswordlinki.click();
 
-        extentTest.info("Change Password linkine tıklanır");
+        extentTest.info("Click the Change Password link");
 
         assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
 
-        extentTest.pass("Oldpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the oldpassword box is accessible");
 
         assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
 
-        extentTest.pass("Newpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the Newpassword box is accessible");
 
         assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
 
-        extentTest.pass("Confirmpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the Confirmpassword box is accessible");
 
         assertTrue(merchant_dashboard.Savebox2.isEnabled());
 
-        extentTest.pass("Save boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the save box is accessible");
 
         merchant_dashboard.Oldpasswordbox.sendKeys("1234567");
 
@@ -224,7 +224,7 @@ public class US_022 extends TestBaseRapor {
         try {
             merchant_dashboard.Savebox2.click();
         } catch (Exception e) {
-            softAssert.assertTrue(false, "SaveBox butonu çalışmıyor.");
+            softAssert.assertTrue(false, "SaveBox button is not working.");
         }
 
 
