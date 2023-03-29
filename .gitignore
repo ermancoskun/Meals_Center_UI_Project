@@ -3,5 +3,6 @@
 *.iml
 *.xml
 /raporlar
+/test-output
 
 
