@@ -66,7 +66,7 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test (priority = 4)
+    @Test
     public void tc00504_loginTestDogruMailDogruPassword(){
         extentTest=extentReports.createTest("Dogru Mail, Dogru Password testi","Login olunmali");
         userHomepage=new User_Homepage();

@@ -8,7 +8,7 @@ import utilities.*;
 public class US_001 extends TestBaseRapor {
 
     @Test
-    public void test01(){
+    public void homepageTest(){
         extentTest=extentReports.createTest("access to the website","Url and Main Banner visibility test");
         User_Homepage user_homepage=new User_Homepage();
 
