@@ -317,7 +317,7 @@ public class US_013_account_checkout extends TestBaseRapor {
     }
     ////////////***********   TEST 6 ************////////////////////////////////////////////////////////
 
-    @Test
+    @Test (groups = "smoke")
     public void gecerliAdresGecerliOdemeBilgisiIleSiparisTesti(){
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
@@ -370,7 +370,7 @@ public class US_013_account_checkout extends TestBaseRapor {
                 checkoutPage.stripeButton.click();
             }
         }
-        ReusableMethods.wait(0.1);
+        ReusableMethods.wait(1);
         Driver.getDriver().switchTo().frame(checkoutPage.krediKartiIframe);
         checkoutPage.krediKartiNumberTextBox.sendKeys(ConfigReader.getProperty("GecerliKKNumaraBilgileri"));
         checkoutPage.krediKartiDateTextBox.sendKeys(ConfigReader.getProperty("GecerliKKTarihBilgileri"));

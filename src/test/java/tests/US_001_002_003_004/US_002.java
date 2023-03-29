@@ -14,7 +14,7 @@ public class US_002 extends TestBaseRapor{
     User_Homepage user_homepage=new User_Homepage();
     SoftAssert softAssert = new SoftAssert();
     @Test
-    public void headertest01() throws IOException {
+    public void headerTest01() throws IOException {
         extentTest=extentReports.createTest("Homepage Header Test");
         user_homepage=new User_Homepage();
         softAssert = new SoftAssert();
@@ -32,14 +32,14 @@ public class US_002 extends TestBaseRapor{
         extentTest.info("Main Banner Visibility Tested");
         softAssert.assertTrue(user_homepage.headerScript.isDisplayed());
         extentTest.info("Header Script Visibility Tested");
-        String urlTest="US_002_ScreenShot";
-        ReusableMethods.getScreenshot(urlTest);
+        String headerTest="US_002_ScreenShot";
+        ReusableMethods.getScreenshot(headerTest);
         extentTest.pass("PASSED");
         softAssert.assertAll();
     }
 
     @Test
-    public void headertest02(){
+    public void headerTest02(){
         extentTest=extentReports.createTest("Cart Button Test");
         user_homepage=new User_Homepage();
         softAssert = new SoftAssert();
@@ -54,7 +54,7 @@ public class US_002 extends TestBaseRapor{
     }
 
     @Test
-    public void headertest03(){
+    public void headerTest03(){
         extentTest=extentReports.createTest("Cart Image Test");
         user_homepage=new User_Homepage();
         softAssert = new SoftAssert();
@@ -69,7 +69,7 @@ public class US_002 extends TestBaseRapor{
     }
 
     @Test
-    public void headertest04(){
+    public void headerTest04(){
         extentTest=extentReports.createTest("Sigin Button Test");
         user_homepage=new User_Homepage();
         softAssert = new SoftAssert();
@@ -87,7 +87,7 @@ public class US_002 extends TestBaseRapor{
     }
 
     @Test
-    public void headertest05(){
+    public void headerTest05(){
         extentTest=extentReports.createTest("Seachbox Test");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));

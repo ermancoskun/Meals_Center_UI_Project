@@ -551,4 +551,16 @@ public User_Homepage(){
     // homepage > New Restaurant
     @FindBy (xpath = "(//h5[@class='m-0 section-title'])[2]")
     public WebElement newRestaurant;
+
+    // homepage > join butonu
+    @FindBy (xpath = "//div[@class='btn-white-parent non-trasparent']")
+    public WebElement joinButton;
+
+    // homepage > mobileapp image
+    @FindBy (xpath = "(//img[@class='mobileapp'])[1]")
+    public WebElement mobileAppImage;
+
+    // homepage > first read button
+    @FindBy (xpath = "(//a[@class='btn btn-link readButton'])[1]")
+    public WebElement firstReadButton;
 }
