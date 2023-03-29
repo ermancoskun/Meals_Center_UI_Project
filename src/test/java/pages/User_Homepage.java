@@ -544,5 +544,11 @@ public User_Homepage(){
     @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
     public WebElement passworgGosterButton;
 
+    // homepage > popularnearby
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[1]")
+    public WebElement popularNearBy;
 
+    // homepage > New Restaurant
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[2]")
+    public WebElement newRestaurant;
 }

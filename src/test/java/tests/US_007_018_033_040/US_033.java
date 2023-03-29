@@ -60,7 +60,7 @@ public class US_033 {
         Driver.closeDriver();
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void createCouponAndDeleteTest(){
         //1)bir browser ac.
         //2)"https://qa.mealscenter.com/backoffice/auth/login"

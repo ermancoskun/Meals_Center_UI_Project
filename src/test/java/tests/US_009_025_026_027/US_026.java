@@ -17,7 +17,7 @@ public class US_026 extends TestBaseRapor {
 
     Merchant_Dashboard merchant_dashboard=new Merchant_Dashboard();
 
-    @Test
+    @Test (groups = "smoke")
     public void tc2601NewordersGorunur(){
         ReusableMethods.merchantLogin();
         merchant_dashboard = new Merchant_Dashboard();

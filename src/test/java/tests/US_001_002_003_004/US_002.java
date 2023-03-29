@@ -8,83 +8,103 @@ import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
 import utilities.*;
 
+import java.io.IOException;
+
 public class US_002 extends TestBaseRapor{
-
+    User_Homepage user_homepage=new User_Homepage();
+    SoftAssert softAssert = new SoftAssert();
     @Test
-    public void headertest01(){
-        //extentTest=extentReports.createTest("","");
-        User_Homepage user_homepage=new User_Homepage();
-
+    public void headertest01() throws IOException {
+        extentTest=extentReports.createTest("Homepage Header Test");
+        user_homepage=new User_Homepage();
+        softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-
+        extentTest.info("Access to the homepage");
         user_homepage.cookieAcceptButton.click();
-
+        extentTest.info("Cookies accepted");
         String expectedTitle= "Meals Center";
         String actualTitle=Driver.getDriver().getTitle();
-        Assert.assertEquals(actualTitle,expectedTitle);
-
-        Assert.assertTrue(user_homepage.mealscenterButton.isDisplayed());
-        Assert.assertTrue(user_homepage.mainBanner.isDisplayed());
-        Assert.assertTrue(user_homepage.headerScript.isDisplayed());
-
-        Driver.closeDriver();
-        //extentTest.pass("");
+        softAssert.assertEquals(actualTitle,expectedTitle);
+        extentTest.info("Title Visibility Tested");
+        softAssert.assertTrue(user_homepage.mealscenterButton.isDisplayed());
+        extentTest.info("Meals Center Button Visibility Tested");
+        softAssert.assertTrue(user_homepage.mainBanner.isDisplayed());
+        extentTest.info("Main Banner Visibility Tested");
+        softAssert.assertTrue(user_homepage.headerScript.isDisplayed());
+        extentTest.info("Header Script Visibility Tested");
+        String urlTest="US_002_ScreenShot";
+        ReusableMethods.getScreenshot(urlTest);
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
 
     @Test
     public void headertest02(){
-        //extentTest=extentReports.createTest("","");
-        User_Homepage user_homepage=new User_Homepage();
+        extentTest=extentReports.createTest("Cart Button Test");
+        user_homepage=new User_Homepage();
+        softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        extentTest.info("Access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cartLinki.click();
-        Assert.assertTrue(user_homepage.cartScript.isDisplayed());
-        Driver.closeDriver();
-        //extentTest.pass("");
+        extentTest.info("Cart Button Clicked");
+        softAssert.assertTrue(user_homepage.cartScript.isDisplayed());
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
 
     @Test
     public void headertest03(){
-        //extentTest=extentReports.createTest("","");
-        User_Homepage user_homepage=new User_Homepage();
+        extentTest=extentReports.createTest("Cart Image Test");
+        user_homepage=new User_Homepage();
+        softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        extentTest.info("Access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cartImage.click();
-        Assert.assertTrue(user_homepage.cartScript.isDisplayed());
-        Driver.closeDriver();
-        //extentTest.pass("");
+        extentTest.info("Cart Image Clicked");
+        softAssert.assertTrue(user_homepage.cartScript.isDisplayed());
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
 
     @Test
     public void headertest04(){
-        //extentTest=extentReports.createTest("","");
-        User_Homepage user_homepage=new User_Homepage();
+        extentTest=extentReports.createTest("Sigin Button Test");
+        user_homepage=new User_Homepage();
+        softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        extentTest.info("Access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.signInButton.click();
+        extentTest.info("Signin Button Clicked");
         ReusableMethods.waitForPageToLoad(5);
         String expectedUrl="https://qa.mealscenter.com/account/login";
         String actualUrl=Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(actualUrl,expectedUrl);
-        Driver.closeDriver();
-        //extentTest.pass("");
+        softAssert.assertEquals(actualUrl,expectedUrl);
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
 
     @Test
     public void headertest05(){
-        //extentTest=extentReports.createTest("","");
+        extentTest=extentReports.createTest("Seachbox Test");
         User_Homepage user_homepage=new User_Homepage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        extentTest.info("Access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cookieAcceptButton.click();
+        extentTest.info("Cookies accepted");
         user_homepage.searchBox.sendKeys("10001");
+        extentTest.info("SendKeys to the Searchbox");
         user_homepage.searchBoxIlkElement.click();
+        extentTest.info("First Webelement Clicked");
         ReusableMethods.wait(3);
         String expectedZipCode="10001";
         String actualZipCode= user_homepage.restaurantsAdresSatiri.getText();
         Assert.assertTrue(actualZipCode.contains(expectedZipCode));
-        Driver.closeDriver();
-        //extentTest.pass("");
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
 
 
