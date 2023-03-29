@@ -819,4 +819,16 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//*[text()='Ready for pickup']")
     public WebElement readyforpickupbutton;
 
+
+
+    //Merchant > Login > Dashboard/orders/history
+    @FindBy(xpath = "//h5[text()='Summary']")
+    public WebElement summaryText;
+
+    //Merchant > Login > Dashboard/orders/history
+    @FindBy(xpath = "(//span[@class='el-radio-button__inner'])[1]")
+    public WebElement assignDriverMaps;
+
+
+
 }
