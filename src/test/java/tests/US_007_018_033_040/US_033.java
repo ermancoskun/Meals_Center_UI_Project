@@ -1,13 +1,17 @@
 package tests.US_007_018_033_040;
 
+import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
 public class US_033 {
@@ -57,7 +61,7 @@ public class US_033 {
     }
 
     @Test
-    public void test01(){
+    public void createCouponAndDeleteTest(){
         //1)bir browser ac.
         //2)"https://qa.mealscenter.com/backoffice/auth/login"
         //url uzerinden 'mealscenter tuccar giris sayfasina gider' sitesine gider.
@@ -97,12 +101,44 @@ public class US_033 {
         md.couponLink.click();
         md.plusLink.click();
         WebElement nameTextBox=Driver.getDriver().findElement(By.xpath("//label[@for='AR_voucher_voucher_name']"));
+        actions.sendKeys(nameTextBox,"coupontest")
+                .sendKeys(Keys.TAB)
+                .sendKeys("percentage").sendKeys(Keys.TAB)
+                .sendKeys("25").sendKeys(Keys.TAB)
+                .sendKeys("20").sendKeys(Keys.TAB)
+                .sendKeys("Monday").sendKeys(Keys.ENTER).sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        WebElement expiration=Driver.getDriver().findElement(By.xpath("//input[@readonly='readonly']"));
+               JSUtilities.clickWithJS(Driver.getDriver(),expiration);
+        JSUtilities.scrollToBottom(Driver.getDriver());
+                ReusableMethods.wait(0.1);
+                WebElement selectedDay=Driver.getDriver().findElement(By.xpath("(//tr/td)[30]"));
+                selectedDay.click();
 
-        actions.sendKeys(nameTextBox,"ramazan")
-                .sendKeys(Keys.TAB)
-                .click()
-                .click(Driver.getDriver().findElement(By.xpath("//option[@value='fixed amount']")))
-                .sendKeys(Keys.TAB)
-                .sendKeys().perform();
+        WebElement couponOptionsDDM=Driver.getDriver().findElement(By.id("AR_voucher_used_once"));
+
+        Select select=new Select(couponOptionsDDM);
+            select.selectByVisibleText("Unlimited for all user");
+        JSUtilities.scrollToBottom(Driver.getDriver());
+        WebElement status=Driver.getDriver().findElement(By.id("AR_voucher_status"));
+        select=new Select(status);
+        select.selectByVisibleText("Draft");
+        md.saveButton.click();
+        WebElement newCoupon=Driver.getDriver().findElement(By.xpath("(//tr/td)[2]"));
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(newCoupon.isDisplayed(),"olusturulan coupon goruntulenemedi");
+        softAssert.assertTrue(md.updateButton.isDisplayed(),"update button goruntulenemedi");
+
+        WebElement couponDeleteButton=Driver.getDriver().findElement(By.xpath("//a[@data-original-title='Delete']"));
+        couponDeleteButton.click();
+        //Driver.getDriver().switchTo().alert();
+        //WebElement alertDeleteButton=Driver.getDriver().findElement(By.xpath("//a[@class='btn btn-green item_delete']"));
+        ReusableMethods.wait(2);
+       JSUtilities.clickWithJS(Driver.getDriver(),md.deleteConfirmationButton);
+       // md.deleteConfirmationButton.click();
+       WebElement noDataAveableText=Driver.getDriver().findElement(By.xpath("//td[@class='dataTables_empty']"));
+       softAssert.assertTrue(noDataAveableText.isDisplayed());
+        softAssert.assertAll();
+        Driver.closeDriver();
     }
 }

@@ -72,6 +72,7 @@ public class US_015 extends TestBaseRapor {
         }
         extentTest.info("Sipariş listesindeki bilgilerin görünür olduğu doğrulandı");
         extentTest.pass("My orders sayfasındaki elemanların görünürlüğü doğrulandı");
+        softAssert.assertAll();
     }
 
     @Test
@@ -98,6 +99,7 @@ public class US_015 extends TestBaseRapor {
         String expectedNo = userHomepage.visibleOrderNo.getText().replaceAll("\\D","");
         softAssert.assertEquals(actualNo,expectedNo);
         extentTest.info("Görüntülenen siparişin sipariş numarasının arama kutusundaki ile aynı olduğu doğrulandı");
+        softAssert.assertAll();
     }
 
     @Test
@@ -200,6 +202,7 @@ public class US_015 extends TestBaseRapor {
         softAssert.assertTrue(userHomepage.orderTrack.isDisplayed());
         extentTest.info("Açılan sayfanın sipariş durumu sayfası olduğu doğrulandı");
         extentTest.pass("Siparişler üzerinde işlem yapılabildiği dogrulandı");
+        softAssert.assertAll();
     }
 
     @AfterMethod

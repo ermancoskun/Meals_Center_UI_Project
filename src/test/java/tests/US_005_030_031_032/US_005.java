@@ -9,19 +9,15 @@ import utilities.*;
 
 public class US_005 extends TestBaseRapor {
     User_Homepage userHomepage=new User_Homepage();
-    @BeforeMethod
-    public void setUp(){
-        userHomepage=new User_Homepage();
-        ReusableMethods.goTouserHomePage();
-        userHomepage.signInButton.click();
-    }
 
-
-    @Test(priority = 1)
+    @Test
     public void tc00501_loginTestYanlisMailYanlisPassword(){
         extentTest=extentReports.createTest("Yanlis Mail, Yanlis Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("yanlisUsernameEmailVht"));
         extentTest.info("Yanlis mail girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("yanlisPasswordUserVht"));
@@ -33,12 +29,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-
-    @Test(priority = 2)
+    @Test
     public void tc00502_loginTestDogruMailYanlisPassword(){
         extentTest=extentReports.createTest("Dogru Mail, Yanlis Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameEmailVht"));
         extentTest.info("Dogru mail girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("yanlisPasswordUserVht"));
@@ -50,11 +48,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test(priority = 3)
+    @Test
     public void tc00503_loginTestYanlisMailDogruPassword(){
         extentTest=extentReports.createTest("Yanlis Mail, Dogru Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("yanlisUsernameEmailVht"));
         extentTest.info("Yanlis mail girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
@@ -66,11 +67,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test (priority = 4)
+    @Test
     public void tc00504_loginTestDogruMailDogruPassword(){
         extentTest=extentReports.createTest("Dogru Mail, Dogru Password testi","Login olunmali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameEmailVht"));
         extentTest.info("Dogru mail girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
@@ -82,11 +86,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olundu.");
     }
 
-    @Test (priority = 5)
+    @Test
     public void tc00505_loginTestYanlisTelNoYanlisPassword(){
         extentTest=extentReports.createTest("Yanlis telNo, Yanlis Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.signInButton.click();
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("yanlisUsernameTelNoVht"));
         extentTest.info("Yanlis telNo girildi.");
@@ -99,11 +106,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test(priority = 6)
+    @Test
     public void tc00506_loginTestDogruTelNoYanlisPassword(){
         extentTest=extentReports.createTest("Dogru telNo, Yanlis Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameTelNoVht"));
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("yanlisPasswordUserVht"));
         extentTest.info("Yanlis password girildi.");
@@ -114,11 +124,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test(priority = 7)
+    @Test
     public void tc00507_loginTestYanlisTelNoDogruPassword(){
         extentTest=extentReports.createTest("Yanlis telNo, Dogru Password testi","Login olunmamali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("yanlisUsernameTelNoVht"));
         extentTest.info("Yanlis telNo girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
@@ -130,11 +143,14 @@ public class US_005 extends TestBaseRapor {
         extentTest.pass("Test basarili, login olunmadi.");
     }
 
-    @Test (priority = 8)
+    @Test
     public void tc00508_loginTestDogruTelNoDogruPassword(){
         extentTest=extentReports.createTest("Dogru telNo, Dogru Password testi","Login olunmali");
         userHomepage=new User_Homepage();
-        extentTest.info("Login sayfasi acildi");
+        ReusableMethods.goTouserHomePage();
+        extentTest.info("Homepage acildi");
+        userHomepage.signInButton.click();
+        extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameTelNoVht"));
         extentTest.info("Dogru telNo girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
