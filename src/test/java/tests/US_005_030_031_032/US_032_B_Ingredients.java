@@ -17,7 +17,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
     Faker faker=new Faker();
 
     @Test
-    public void tc03208() {
+    public void tc03208_ingredientsListSayfasi() {
         extentTest = extentReports.createTest("Ingredients List sayfasi testi", "Ingredients List sayfasi acilmali");
         merchant_dashboard = new Merchant_Dashboard();
         ReusableMethods.merchantLogin();
@@ -31,7 +31,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
     }
 
     @Test
-    public void tc03209() {
+    public void tc03209_baslik() {
         extentTest = extentReports.createTest("noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton baslıkları ve simgeleri gorunurlugu testi",
                 "noBasligi, nameBasligi, actionsBasligi, searchBox, addNewButton baslıkları ve simgeleri gorunur olmali");
         merchant_dashboard = new Merchant_Dashboard();
@@ -52,7 +52,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
     }
 
     @Test
-    public void tc03210() {
+    public void tc03210_yeniUrunEklemeSilme() {
         extentTest = extentReports.createTest("Ingredients List yeni urun ekleme ve silme testi",
                 "Ingredients List yeni urun eklenebilmeli ve urun silinebilmeli");
         merchant_dashboard = new Merchant_Dashboard();
@@ -83,7 +83,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
 
 
     @Test
-    public void tc03211() {
+    public void tc03211_update() {
         extentTest = extentReports.createTest("Ingredients List sayfası update fonksiyon testi",
                 "Ingredients List sayfasinde urunleri update edebilmeli");
         faker=new Faker();
@@ -129,7 +129,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
     }
 
     @Test
-    public void tc03212() {
+    public void tc03212_urunIsimGirme() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Ingredients Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
                 "Ingredients Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
@@ -175,7 +175,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
 
 
     @Test
-    public void tc03213() {
+    public void tc03213_tekrarliIsim() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Ingredients Add bolumunde aynı isimli urunun tekrarlı kayıt yapılamama testi",
                 "Ingredients Add bolumunde aynı isimli urun tekrarli kayit yapilamamali");
@@ -219,7 +219,7 @@ public class US_032_B_Ingredients extends TestBaseRapor {
 
 
     @Test
-    public void tc03214() {
+    public void tc03214_searchBox() {
         softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Ingredients List sayfasinda search box testi",
                 "Ingredients List sayfasinda search box ta arama yapilmali");

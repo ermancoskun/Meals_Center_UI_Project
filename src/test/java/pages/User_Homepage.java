@@ -435,4 +435,8 @@ public User_Homepage(){
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
 
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
+    public WebElement passworgGosterButton;
+
 }
