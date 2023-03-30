@@ -449,7 +449,7 @@ public class Merchant_Dashboard {
 
     //merchant>dashboard>ordertype>delivery>savebutton
     @FindBy(xpath = "//input[@type='submit']")
-    public WebElement saveButon;
+    public WebElement saveButon1;
 
     //merchant>dashboard>ordertype>delivery>settingsSavedText
     @FindBy(xpath = "//div[@class='alert alert-success']")
@@ -669,6 +669,10 @@ public class Merchant_Dashboard {
     public WebElement DetailsBox;
 
 
+
+    //===mmeral===
+
+
     @FindBy(xpath="(//img[@src=\"https://qa.mealscenter.com/backoffice/../upload/6/e3ee0883-c0df-11ed-ac97-2cea7f508bb0@thumbnail.jpg\"])[1]")
      public WebElement UpdateFeaturedImage;
 
@@ -719,8 +723,9 @@ public class Merchant_Dashboard {
     public WebElement orderNoTamami;
 
         //===mmeral===
+
     //Merchant > Login > Dashboard/Food
-    @FindBy(xpath = "//*[text()='Food']")
+    @FindBy(xpath = "//li[@class='food']")
     public WebElement foodelement;
 
     //Merchant > Login > Dashboard/Food/Items
@@ -740,7 +745,7 @@ public class Merchant_Dashboard {
     public WebElement addnewdogrulama;
 
     //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname
-    @FindBy(xpath = "//input[@placeholder='<label for=\"AR_item_item_name\">Item Name</label>']")
+    @FindBy(xpath = "//input[@id='AR_item_item_name']")
     public WebElement itemname;
 
     //Merchant > Login > Dashboard/Food/Items/Addnew > Addnewıtems/ıtemname/categoryddm
@@ -795,6 +800,7 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "(//h5[@class='m-0'])[3]")
     public WebElement succesaccepted;
 
+
     //Merchant > Login > Dashboard/Orders/neworders
     @FindBy(xpath = "//*[text()='Reject']")
     public WebElement rejectbutton;
@@ -807,8 +813,24 @@ public class Merchant_Dashboard {
     @FindBy(xpath = "//*[text()='Reject order']")
     public WebElement rejectOrder;
 
+    @FindBy(xpath = "//i[@class='zmdi zmdi-plus mr-2']")
+    public WebElement newordersAddbutton;
+
+    @FindBy(xpath = "(//div[@class='col-7 text-center p-1'])[1]")
+    public WebElement addbuttonicerik;
+    @FindBy(xpath = "//input[@class='form-control']")
+    public WebElement addsearchbox;
+
+    @FindBy(xpath = "//*[text()='Add to order - ']")
+    public WebElement addorder;
+    @FindBy(xpath = "(//span[@aria-hidden='true'])[10]")
+    public WebElement addorderkapatma;
+
+
+
+
     //Merchant > Login > Dashboard/Orders/ordersprocessing
-    @FindBy(xpath = "(//*[text()='Orders Processing'])[2]")
+    @FindBy(xpath = "//li[@class='position-relative orders_processing']")
     public WebElement orderProcessing;
 
     //Merchant > Login > Dashboard/Orders/ordersprocessing
@@ -818,5 +840,27 @@ public class Merchant_Dashboard {
     //Merchant > Login > Dashboard/Orders/ordersprocessing
     @FindBy(xpath = "//*[text()='Ready for pickup']")
     public WebElement readyforpickupbutton;
+
+    //Merchant > Login > Dashboard/Orders/ordersprocessing
+    @FindBy(xpath = "//input[@class='form-control py-2 border-right-0 border']")
+    public WebElement searchbutton;
+
+    @FindBy(xpath = "(//p[@class='m-0'])[7]")
+    public WebElement searchdogrulama;
+
+
+
+
+
+    //Merchant > Login > Dashboard/orders/history
+    @FindBy(xpath = "//h5[text()='Summary']")
+    public WebElement summaryText;
+
+    //Merchant > Login > Dashboard/orders/history
+    @FindBy(xpath = "(//span[@class='el-radio-button__inner'])[1]")
+    public WebElement assignDriverMaps;
+
+
+
 
 }

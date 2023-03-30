@@ -67,7 +67,7 @@ public class US_033 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void createCouponAndDeleteTest(){
         extentTest=extentReports.createTest("create Coupon And Delete Test","As a restaurant owner, the user can create and delete coupons.");
         //1)bir browser ac.

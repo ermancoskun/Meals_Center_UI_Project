@@ -485,6 +485,4 @@ public class ReusableMethods {
         Driver.getDriver().switchTo().window(secondHandle);
     }
 
-
-
 }
