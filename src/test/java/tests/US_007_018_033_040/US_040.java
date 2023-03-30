@@ -117,7 +117,7 @@ public class US_040  {
         ad.promoMenu.click();
         ad.couponLink.click();
 
-        WebElement element=Driver.getDriver().findElement(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr/td/h6/text()"));
+
 
 
 
