@@ -1,4 +1,4 @@
-package tests.US_012_013_021_039_duygu;
+package tests.US_012_013_021_039;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class US_039_admin_earnings_merchant extends TestBaseRapor {
+public class US_039 extends TestBaseRapor {
     SoftAssert softAssert=new SoftAssert();
     Admin_Dashboard admin=new Admin_Dashboard();
     Actions actions=new Actions(Driver.getDriver());
     @Test
-    public void tc_3901_merchantEarningsSayfasiDogrulamaTesti(){
+    public void tc_3901(){
         softAssert=new SoftAssert();
         admin=new Admin_Dashboard();
 
@@ -47,7 +47,7 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
 
     }
     @Test
-    public void tc_3902_MerchantEarningsTotalBalanceTesti(){
+    public void tc_3902(){
 
         actions=new Actions(Driver.getDriver());
         softAssert=new SoftAssert();
@@ -100,7 +100,7 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
         softAssert.assertAll();
     }
     @Test
-    public void tc_3903_merchantKazancBilgileriSiralamaTesti(){
+    public void tc_3903(){
 
         softAssert=new SoftAssert();
         admin=new Admin_Dashboard();
@@ -161,7 +161,7 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
 
     }
     @Test
-    public void tc_3904_merchantDetayBilgileriTesti(){
+    public void tc_3904(){
 
         softAssert=new SoftAssert();
         admin=new Admin_Dashboard();
@@ -193,7 +193,7 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
 
     }
     @Test
-    public void tc_3905_merchantEarningSearchboxTesti(){
+    public void tc_3905(){
 
         softAssert=new SoftAssert();
         admin=new Admin_Dashboard();
