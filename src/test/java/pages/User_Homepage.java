@@ -299,8 +299,9 @@ public User_Homepage(){
     public WebElement deletePaymentButton;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > edit butonu
-    @FindBy(xpath = "//i[@class=\"zmdi zmdi-edit\"]")
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-edit'])[2]")
     public WebElement editPaymentButton;
+    // //i[@class='zmdi zmdi-edit']
 
     //  user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery
     @FindBy(xpath = "//i[@class='zmdi zmdi-money-box']")
@@ -327,34 +328,31 @@ public User_Homepage(){
     public WebElement addStripeButton;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > iframe
-    @FindBy(xpath = "//iframe[@frameborder='0']")
+    @FindBy(xpath = "//div//iframe")
     public WebElement iframe;
     //iframe[@frameborder='0']
     //div[@id='root']
     //iframe[@name='__privateStripeFrame89128']
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart no giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[1]")
+    @FindBy(xpath = "(//input[@class='InputElement is-empty Input Input--empty'])[1]")
     public WebElement cardNoBox;
-    // (//span[@class='CardField-number CardField-child'])[1]
-    // //span[@class='CardField-restWrapper']
-    //input[@name='cardnumber']
-    // (//span[@class='InputContainer'])[1]
 
     // kart kullanıcısı adı
     @FindBy(xpath = "//label[text()='Cardholder name']")
     public WebElement cardHolder;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart SKT giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[2]")
+    @FindBy(xpath = "//input[@name='exp-date']")
     public WebElement dateBox;
+    //input[@class='InputElement is-empty Input Input--empty']
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart CVC giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[3]")
+    @FindBy(xpath = "//input[@name='cvc']")
     public WebElement cvcBox;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > zip kodu giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[4]")
+    @FindBy(xpath = "//input[@name='postal']")
     public WebElement zipCodeBox;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > çarpı
@@ -436,5 +434,109 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+
+
+    //hamza
+
+    // homepage > sign in > href sign in
+    @FindBy (xpath = "//a[@class='btn btn-white p-0 font14']")
+    public WebElement signIn_in_signIn;
+
+    // homepage > sign in > href sign in > firstname textbox
+    @FindBy (xpath = "//*[@id='firstname']")
+    public WebElement signIn_in_signIn_firstname;
+
+    // homepage > kayıt ve girişten sonraki profil icon
+    @FindBy (xpath = "//*[@id=\"vue-cart-preview\"]/li[2]/div/button/img")
+    public WebElement profiliconimg;
+
+    // homepage > Terms and conditions
+    @FindBy (xpath = "//*[text()='Terms and conditions']")
+    public WebElement Termsandconditions;
+
+    // homepage > Terms and conditions > order and payment acıklaması
+    @FindBy (xpath = "/html/body/div[2]/div[1]/div/div[1]/div[2]/p[3]")
+    public WebElement Termsandconditionsaciklama1;
+
+    // homepage > Terms and conditions > order and payment acıklaması
+    @FindBy (xpath = "/html/body/div[2]/div[1]/div/div[1]/div[2]/p[4]")
+    public WebElement Termsandconditionsaciklama2;
+
+    // homepage > DropDown'dan  Manage my account kısmı
+    @FindBy (xpath = "//a[@class='dropdown-item with-icon-account']")
+    public WebElement dropDownManageMyAccount;
+
+    // homepage > DropDown'dan  Manage my account > Tel number textbox
+    @FindBy (xpath = "/html/body/div[2]/div/div[4]/div/div/div[2]/div/div/form/div[2]/div[2]/div[1]/input")
+    public WebElement dropDownManageMyAccountTelNumberTextbox;
+
+    // homepage > DropDown'dan  Manage my account > Address
+    @FindBy (xpath = "/html/body/nav/ul/li[3]/a")
+    public WebElement dropDownManageMyAccountAddress;
+
+    // homepage > DropDown'dan  Manage my account > Address > Address Ekleme Butonu
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[1]/div/div/div[4]/a")
+    public WebElement dropDownManageMyAccountAddButtonAddress;
+
+    // homepage > DropDown'dan  Manage my account > Address > Address Ekleme Butonu > Address Kodu textbox
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/input")
+    public WebElement dropDownManageMyAccountAddButtonAddress_AddressNumber_TextBox;
+
+    // homepage > DropDown'dan  Manage my account > Address > Address Ekleme Butonu > Address Kodu textbox > 10010
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[3]/div/div/div[1]/div[2]/ul/li[1]/a/p")
+    public WebElement dropDownManageMyAccountAddButtonAddress_AddressNumber_TextBox_VeriEkleme;
+
+    // homepage > DropDown'dan  Manage my account > Address > Address Ekleme Butonu > Address Kodu textbox > 10010 > Save Button
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[4]/div/div/div[2]/div[2]/button")
+    public WebElement dropDownManageMyAccountAddButtonAddress_AddressNumber_TextBox_VeriEkleme_SaveButton;
+
+    // homepage > DropDown'dan  Manage my account > Address > Edit
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[5]/div/div/div[2]/div[1]/a")
+    public WebElement dropDownManageMyAccountAddButtonAddress_Edit;
+
+    // homepage > DropDown'dan  Manage my account > Address > Edit > Work Button
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[4]/div/div/div[1]/div[3]/div[3]/label[2]")
+    public WebElement dropDownManageMyAccountAddButtonAddress_Edit_WorkButton;
+
+    // homepage > DropDown'dan  Manage my account > Address > Edit > Work Button > Accept Buttonu
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[4]/div/div/div[2]/div[2]/button")
+    public WebElement dropDownManageMyAccountAddButtonAddress_Edit_WorkButton_AcceptButton;
+
+    // homepage > DropDown'dan  Manage my account > Address > Delete
+    @FindBy (xpath = "/html/body/div[2]/div/div[1]/div[5]/div/div/div[2]/div[2]/a")
+    public WebElement dropDownManageMyAccountAddButtonAddress_Delete;
+
+    // homepage > DropDown'dan  Manage my account > Address > Delete >Accept
+    @FindBy (xpath = "/html/body/div[8]/div/div/div[3]/button[2]")
+    public WebElement dropDownManageMyAccountAddButtonAddress_Delete_Accept;
+
+    // homepage > Become Your Partner
+    @FindBy (xpath = "//*[text()='Become a Partner']")
+    public WebElement becomeyourpartner;
+
+    // homepage > Become Your Partner > Login here
+    @FindBy (xpath = "/html/body/div[2]/div[1]/div/div/div[1]/form/div[6]/a")
+    public WebElement becomeyourpartner_login;
+
+    // homepage > Become Your Partner > Login here > Forgot password
+    @FindBy (xpath = "//a [@class='dim underline']")
+    public WebElement becomeyourpartner_login_forgotpassword;
+
+    // homepage > Become Your Partner > Login here > Forgot password > Sayfa Başlığı Forgot Password
+    @FindBy (xpath = "//h6 [@class='mb-4']")
+    public WebElement becomeyourpartner_login_forgotpassword_header;
+
+    // homepage > Become Your Partner > Login here > Forgot password > Sayfa Açıklaması Forgot Password
+    @FindBy (xpath = "//p [@class='dim']")
+    public WebElement becomeyourpartner_login_forgotpassword_info;
+
+    // homepage > DropDown'dan  Manage my account > Profil Yazısı
+    @FindBy (xpath = "//*[@id=\"main-container\"]/div/div[1]/div/h6")
+    public WebElement managerprofiltext;
+
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
+    public WebElement passworgGosterButton;
+
 
 }

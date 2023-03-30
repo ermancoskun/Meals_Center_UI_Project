@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import pages.User_Homepage;
 import utilities.ConfigReader;
@@ -19,254 +20,229 @@ public class US_022 extends TestBaseRapor {
     Actions actions;
     Merchant_Dashboard merchant;
 
-    Merchant_Dashboard merchant_dashboard=new Merchant_Dashboard();
-   //-Tarayıcı açılır.
-    //
-    //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-    //- Doğru mail ve password ile hesabıma giriş yapılır.
-    //- Header bölümünde ismimin görünür olduğunu doğrulanır.
-    //- Tarayıcı kapatılır.
-   @Test
-   public void test01(){
-       extentTest=extentReports.createTest("namevisible","namevisible2");
+    Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
-       ReusableMethods.merchantLogin();
 
-       extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+    @Test
+    public void test01() {
 
+        merchant_dashboard = new Merchant_Dashboard();
 
+        extentTest = extentReports.createTest("namevisible", "namevisible2");
 
-       extentTest.info("Merchant_Dashboard sınıfından obje olusturuldu");
+        ReusableMethods.merchantLogin();
 
-       assertTrue(merchant_dashboard.merchantname.isDisplayed());
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
-       extentTest.pass("ismin görünür olduğu test edildi.");
 
+        extentTest.info("Merchant_Dashboard sınıfından obje olusturuldu");
 
+        assertTrue(merchant_dashboard.merchantname.isDisplayed());
 
+        extentTest.pass("ismin görünür olduğu test edildi.");
 
 
-   }
-   @Test
-    public void test02(){
-       //-Tarayıcı açılır.
-       //
-       //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-       //- Doğru mail ve password ile hesabıma giriş yapılır.
-       //- İsmimim tıklanabilir olduğunu doğrulanır.
-       //-İsmime tıklayıdığımda dropdown menüden yeni seçeneklerin açıldığı doğrulanır.
-       //- Tarayıcı kapatılır.
-       extentTest=extentReports.createTest("nameclickable","nameclickable2");
+    }
 
-       ReusableMethods.merchantLogin();
-       extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+    @Test
+    public void test02() {
 
-       ReusableMethods.waitForPageToLoad(5);
 
-       assertTrue(merchant_dashboard.merchantname.isEnabled());
+        merchant_dashboard = new Merchant_Dashboard();
 
-       extentTest.pass("ismin erişebilirliği test edildi.");
+        extentTest = extentReports.createTest("nameclickable", "nameclickable2");
 
-       merchant_dashboard.merchantname.click();
+        ReusableMethods.merchantLogin();
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
-       extentTest.info("İsme tıklanır");
+        ReusableMethods.waitForPageToLoad(5);
 
-       assertTrue(merchant_dashboard.profil.isDisplayed());
+        assertTrue(merchant_dashboard.merchantname.isEnabled());
 
-       extentTest.pass("profilin görünürlüğü test edildi.");
+        extentTest.pass("ismin erişebilirliği test edildi.");
 
+        merchant_dashboard.merchantname.click();
 
-   }
-   @Test
-    public void test03(){
+        extentTest.info("İsme tıklanır");
 
-       //-Tarayıcı açılır.
-       //
-       //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-       //- Doğru mail ve password ile hesabıma giriş yapılır.
-       //- İsmi tıklanıp dropdown menüden profil seçeneği tıklanır.
-       //-Kendi profilime gittiğim doğrulanır.
-       //- Tarayıcı kapatılır.
-       extentTest=extentReports.createTest("profilegitme","profilegitme2");
+        assertTrue(merchant_dashboard.profil.isDisplayed());
 
-       ReusableMethods.merchantLogin();
+        extentTest.pass("profilin görünürlüğü test edildi.");
 
-       extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
-       merchant_dashboard.merchantname.click();
+    }
 
-       extentTest.info("İsme tıklanır");
+    @Test
+    public void test03() {
 
-       merchant_dashboard.profil.click();
+        //-Tarayıcı açılır.
+        //
+        //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
+        //- Doğru mail ve password ile hesabıma giriş yapılır.
+        //- İsmi tıklanıp dropdown menüden profil seçeneği tıklanır.
+        //-Kendi profilime gittiğim doğrulanır.
+        //- Tarayıcı kapatılır.
+        merchant_dashboard = new Merchant_Dashboard();
 
-       extentTest.info("profile tıklanır");
+        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
-       ReusableMethods.waitForPageToLoad(5);
+        ReusableMethods.merchantLogin();
 
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
-       assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
+        merchant_dashboard.merchantname.click();
 
-       extentTest.pass("profil menüsüne gittiğim doğrulanır");
+        extentTest.info("İsme tıklanır");
 
+        merchant_dashboard.profil.click();
 
+        extentTest.info("profile tıklanır");
 
+        ReusableMethods.waitForPageToLoad(5);
 
-   }
-   @Test
-    public void test04(){
 
-       //-Tarayıcı açılır.
-       //
-       //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-       //- Doğru mail ve password ile hesabıma giriş yapılır.
-       //- İsmi tıklanıp dropdown menüden profil seçeneği tıklanır.
-       //- Basic Details boxının görünür olduğu doğrulanır.
-       //- Firstname boxının görünür ve clickable olduğu doğrulanır.
-       //-Lastname boxının görünür  ve clickable  olduğu doğrulanır.
-       //-Email address boxının görünür  ve clickable  olduğu doğrulanır.
-       //- Contact number boxının görünür  ve clickable  olduğu doğrulanır.
-       //- Username boxının görünür  ve clickable  olduğu doğrulanır.
-       //- Browse boxının görünür  ve clickable  olduğu doğrulanır.
-       //-Save boxının görünür  ve clickable  olduğu doğrulanır.
+        assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
 
+        extentTest.pass("profil menüsüne gittiğim doğrulanır");
 
-       extentTest=extentReports.createTest("profilegitme","profilegitme2");
 
-       ReusableMethods.merchantLogin();
+    }
 
-       extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+    @Test
+    public void test04() {
 
-       merchant_dashboard.merchantname.click();
 
-       extentTest.info("İsme tıklanır");
+        merchant_dashboard = new Merchant_Dashboard();
 
-       merchant_dashboard.profil.click();
+        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
-       extentTest.info("profile tıklanır");
+        ReusableMethods.merchantLogin();
 
-       assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
-       extentTest.pass("BasicDetails boxının görünür olduğu doğrulanır");
+        merchant_dashboard.merchantname.click();
 
-       assertTrue(merchant_dashboard.firstnamebox.isEnabled());
+        extentTest.info("İsme tıklanır");
 
-       extentTest.pass("Firstname boxının erişilebilir olduğu doğrulanır");
+        merchant_dashboard.profil.click();
 
-       assertTrue(merchant_dashboard.Lastnamebox.isEnabled());
+        extentTest.info("profile tıklanır");
 
-       extentTest.pass("Lastname boxının erişilebilir olduğu doğrulanır");
+        assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
 
-       assertTrue(merchant_dashboard.Emailbox.isEnabled());
+        extentTest.info("BasicDetails boxının görünür olduğu doğrulanır");
 
-       extentTest.pass("Email boxının erişilebilir olduğu doğrulanır");
+        ReusableMethods.waitForVisibility(merchant_dashboard.firstnamebox, 3);
 
-       assertTrue(merchant_dashboard.Contactnumber.isEnabled());
+        merchant_dashboard.firstnamebox.sendKeys("mehmet");
 
-       extentTest.pass("Contactnumber boxının erişilebilir olduğu doğrulanır");
+        extentTest.info("Firstname boxına isim yazıldı.");
 
-       assertTrue(merchant_dashboard.Username.isEnabled());
+        merchant_dashboard.Lastnamebox.sendKeys("DAĞ");
 
-       extentTest.pass("Username boxının erişilebilir olduğu doğrulanır");
+        extentTest.info("Lastname boxına soyisim yazıldı.");
 
-       merchant_dashboard.browseboxı.click();
+        merchant_dashboard.Emailbox.sendKeys("");
 
-       extentTest.info("browse boxına tıklanır");
+        extentTest.info("Email boxına mail yazıldı.");
 
-       assertTrue(merchant_dashboard.browseboxpicture.isEnabled());
+        merchant_dashboard.Contactnumber.sendKeys("1234567");
 
-      extentTest.pass("browse boxının açıldığı doğrulanır");
+        extentTest.info("ContactNumber boxına numara yazıldı.");
 
-      merchant_dashboard.browseboxpicture.click();
+        merchant_dashboard.Username.sendKeys("Efsane");
 
-       extentTest.info("browse boxındaki bir resme tıklanır");
+        extentTest.info("Username boxına isim yazıldı.");
 
-       merchant_dashboard.AddFilesbuton.click();
+        merchant_dashboard.Savebox1.click();
 
-       extentTest.info("AddFiles butonuna tıklanır");
+        extentTest.info("Save boxına tıklanır.");
 
-      assertTrue(merchant_dashboard.Savebox1.isEnabled());
+        assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
 
-      extentTest.pass("Save boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("profilimdeki değişikliğin başarıyla yapıldığı test edildi.");
 
-      merchant_dashboard.Savebox1.click();
 
-      assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
+    }
 
-      extentTest.pass("profilimdeki değişikliğin başarıyla yapıldığı test edildi.");
+    @Test
+    public void test05() {
+        //-Change Password butonuna tıkladığımda ilgili sayfaya gittiğim doğrulanır.
+        //-Old Password boxının görünür  ve clickable  olduğu doğrulanır.
+        //-New Password görünür  ve clickable  olduğu doğrulanır.
+        //-Confirm Password boxının görünür  ve clickable  olduğu doğrulanır.
+        //-Save boxının görünür  ve clickable  olduğu doğrulanır.
+        //- Tarayıcı kapatılır.
 
+        SoftAssert softAssert = new SoftAssert();
+        merchant_dashboard = new Merchant_Dashboard();
 
-      //-Change Password butonuna tıkladığımda ilgili sayfaya gittiğim doğrulanır.
-      //-Old Password boxının görünür  ve clickable  olduğu doğrulanır.
-      //-New Password görünür  ve clickable  olduğu doğrulanır.
-      //-Confirm Password boxının görünür  ve clickable  olduğu doğrulanır.
-      //-Save boxının görünür  ve clickable  olduğu doğrulanır.
-      //- Tarayıcı kapatılır.
+        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
+        ReusableMethods.merchantLogin();
 
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
 
+        merchant_dashboard.merchantname.click();
 
-   }
+        extentTest.info("İsme tıklanır");
 
-   @Test
-    public void test05(){
-       //-Change Password butonuna tıkladığımda ilgili sayfaya gittiğim doğrulanır.
-       //-Old Password boxının görünür  ve clickable  olduğu doğrulanır.
-       //-New Password görünür  ve clickable  olduğu doğrulanır.
-       //-Confirm Password boxının görünür  ve clickable  olduğu doğrulanır.
-       //-Save boxının görünür  ve clickable  olduğu doğrulanır.
-       //- Tarayıcı kapatılır.
+        merchant_dashboard.profil.click();
 
 
-       extentTest=extentReports.createTest("profilegitme","profilegitme2");
+        extentTest.info("profile tıklanır");
 
-       ReusableMethods.merchantLogin();
 
-       extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        merchant_dashboard.ChangePasswordlinki.click();
 
-       merchant_dashboard.merchantname.click();
+        extentTest.info("Change Password linkine tıklanır");
 
-       extentTest.info("İsme tıklanır");
+        assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
 
-       merchant_dashboard.profil.click();
+        extentTest.pass("Oldpassword boxının erişilebilir olduğu doğrulanır");
 
+        assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
 
-       extentTest.info("profile tıklanır");
+        extentTest.pass("Newpassword boxının erişilebilir olduğu doğrulanır");
 
+        assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
 
-       merchant_dashboard.ChangePasswordlinki.click();
+        extentTest.pass("Confirmpassword boxının erişilebilir olduğu doğrulanır");
 
-       extentTest.info("Change Password linkine tıklanır");
+        assertTrue(merchant_dashboard.Savebox2.isEnabled());
 
-       assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
+        extentTest.pass("Save boxının erişilebilir olduğu doğrulanır");
 
-       extentTest.pass("Oldpassword boxının erişilebilir olduğu doğrulanır");
+        merchant_dashboard.Oldpasswordbox.sendKeys("1234567");
 
-       assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
+        merchant_dashboard.Newpasswordbox.sendKeys("12345678");
 
-       extentTest.pass("Newpassword boxının erişilebilir olduğu doğrulanır");
+        merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
 
-       assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
+        ReusableMethods.wait(3);
 
-       extentTest.pass("Confirmpassword boxının erişilebilir olduğu doğrulanır");
+        try {
+            merchant_dashboard.Savebox2.click();
+        } catch (Exception e) {
+            softAssert.assertTrue(false, "SaveBox butonu çalışmıyor.");
+        }
 
-       assertTrue(merchant_dashboard.Savebox2.isEnabled());
 
-       extentTest.pass("Save boxının erişilebilir olduğu doğrulanır");
+        //Save boxında bug var çalışmıyor.
 
-       merchant_dashboard.Oldpasswordbox.sendKeys("1234567");
+        softAssert.assertAll();
 
-       merchant_dashboard.Newpasswordbox.sendKeys("12345678");
 
-       merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
+        merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
 
-       merchant_dashboard.Savebox2.click();
+        merchant_dashboard.Savebox2.click();
 
-       extentTest.info("Change Password sayfasının çalıştığı test edildi");
+        extentTest.info("Change Password sayfasının çalıştığı test edildi");
 
-       //Save boxında bug var çalışmıyor.
+        //Save boxında bug var çalışmıyor.
 
 
-   }
 
 
+    }
 }

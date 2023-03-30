@@ -1,15 +1,14 @@
 package tests.US_012_013_021_039_duygu;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.v85.network.model.DataReceived;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.ReusableMethods;
-import utilities.TestBaseRapor;
+import utilities.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +17,7 @@ import java.util.List;
 public class US_039_admin_earnings_merchant extends TestBaseRapor {
     SoftAssert softAssert=new SoftAssert();
     Admin_Dashboard admin=new Admin_Dashboard();
+    Actions actions=new Actions(Driver.getDriver());
     @Test
     public void tc_3901_merchantEarningsSayfasiDogrulamaTesti(){
         softAssert=new SoftAssert();
@@ -51,6 +51,7 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
     @Test
     public void tc_3902_MerchantEarningsTotalBalanceTesti(){
 
+        actions=new Actions(Driver.getDriver());
         softAssert=new SoftAssert();
         admin=new Admin_Dashboard();
 
@@ -69,12 +70,36 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
         softAssert.assertTrue(admin.earningsTotalBalanceBoxi.isDisplayed(),"Merchant total balance box'i gorunmuyor.");
         extentTest.info("Yüklenen sayfada Merchantların total kazanç bilgisinin gorunur oldugu doğrulanır.");
         //
+        String sayfadaYazanTotalBalanceMiktariSTR=admin.merchantEarningTotalBalanceMiktari.getText().replaceAll("\\D","");;
+        int sayfadaYazanTotalBalanceMiktariINT=Integer.parseInt(sayfadaYazanTotalBalanceMiktariSTR);
+        extentTest.info("Gorunen total balance miktari kaydedilir.");
+        //
+        List<WebElement> ListeSayfaSayisi=Driver.getDriver().findElements(By.xpath("//a[@class='page-link']"));
+        int toplamBalance=0;
+        for (int i = 0; i <ListeSayfaSayisi.size()-3 ; i++) {
+            List<WebElement> balansaGoreMerchantKazancListesi= Driver.getDriver().findElements(By.xpath("//tbody/tr/td/b"));
+            for (int j = 0; j <balansaGoreMerchantKazancListesi.size() ; j++) {
+                String balance=balansaGoreMerchantKazancListesi.get(j).getText().replaceAll("\\D","");
+                toplamBalance += Integer.parseInt(balance);
+            }
+            actions.sendKeys(Keys.END).perform();
+            ReusableMethods.wait(0.3);
+            admin.merchantEarningListNextButonu.click();
+            ReusableMethods.wait(1);
+        }
+        extentTest.info("Siralanis olan merchant balance listesindeki balancelar toplanir.");
+        //
+        softAssert.assertTrue(sayfadaYazanTotalBalanceMiktariINT==toplamBalance
+                ,"Sayfada yazan total balance miktari ile toplanan toplam balance miktari ayni degil");
+        extentTest.info("Sayfada yazan total balance miktari ile toplanan toplam balance miktarinin ayni oldugu dogrulanir");
+        System.out.println("Sayfadaki : "+sayfadaYazanTotalBalanceMiktariINT);
+        System.out.println("Toplanan : "+toplamBalance);
+        //
         extentTest.info("Tarayici kapatilir.");
         //
-        extentTest.pass("Merchant total kazanc bilgisi goruntulenebiliyor");
+        extentTest.fail("Merchant total kazanc bilgi kutusu'i dogru bilgi vermiyor");
         //
         softAssert.assertAll();
-
     }
     @Test
     public void tc_3903_merchantKazancBilgileriSiralamaTesti(){
@@ -105,7 +130,6 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
         for (int i = 0; i <ismeGoreMerchantKazancListesi.size() ; i++) {
             String merchant=ismeGoreMerchantKazancListesi.get(i).getText().toLowerCase();
             siraliMerchantList.add(merchant);
-            System.out.println(siraliMerchantList.get(i));
         }
         List<String> controlList1 = new ArrayList<>(siraliMerchantList);
         Collections.sort(controlList1);
@@ -124,7 +148,6 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
         for (int i = 0; i <balansaGoreMerchantKazancListesi.size() ; i++) {
             String balance=balansaGoreMerchantKazancListesi.get(i).getText().replaceAll("\\D","");
             siraliBalanceList.add(Integer.parseInt(balance));
-            System.out.println(balance);
         }
         List<Integer> controlList2 = new ArrayList<>(siraliBalanceList);
         Collections.sort(controlList2);
@@ -189,12 +212,21 @@ public class US_039_admin_earnings_merchant extends TestBaseRapor {
         admin.dasboardMerchantEarningsMenusu.click();
         extentTest.info("'Earnings' menusundeki 'Merchant Earnings' menusüne tıklanır.");
         //
-        softAssert.assertTrue(admin.merchantEarningsSearchbox.isEnabled(),"Merchant earnings sayfasindaki searchbox aktif degil");
-        extentTest.info("Merchant earnings sayfasindaki searchbox'in aktif aldugu dogrulanir.");
+        try {
+            admin.merchantEarningsSearchbox.sendKeys("Umi Sake House"+Keys.ENTER);
+            extentTest.info("Merchant earnings sayfasindaki searchbox'a restaurant ismi girilir.");
+            ReusableMethods.wait(5);
+        } catch (Exception e) {
+            softAssert.assertTrue(false,"Merchant earnings sayfasindaki searchbox aktif degil");
+        }
+        //
+        //softAssert.assertTrue(admin.merchantEarningsSearchbox.isEnabled(),"Merchant earnings sayfasindaki searchbox aktif degil");
+        //extentTest.info("Merchant earnings sayfasindaki searchbox'in aktif aldugu dogrulanir.");
         //
         extentTest.info("Tarayici kapatilir.");
         //
-        extentTest.fail("Merchant earnings sayfasindaki searchbox'in aktif degil");
+        extentTest.fail("Merchant earnings sayfasindaki searchbox manuel giriste aktif degil, otomasyonda aktif ??");
+        //extentTest.pass("Merchant earnings sayfasindaki searchbox aktif,dogru sonuc veriyor");
         //
         softAssert.assertAll();
 
