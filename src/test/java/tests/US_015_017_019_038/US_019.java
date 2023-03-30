@@ -30,7 +30,7 @@ public class US_019 extends TestBaseRapor {
         return userList;
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void merchantTest01() {
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
@@ -55,7 +55,7 @@ public class US_019 extends TestBaseRapor {
         softAssert.assertAll();
     }
 
-    @Test (dataProvider = "users")
+    @Test (groups = "smoke", dataProvider = "users")
     public void merchantTest02(String user,String password) {
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();

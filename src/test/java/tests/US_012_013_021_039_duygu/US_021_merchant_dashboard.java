@@ -3,7 +3,6 @@ package tests.US_012_013_021_039_duygu;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
-import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 

@@ -3,13 +3,11 @@ package tests.US_012_013_021_039_duygu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
 import utilities.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

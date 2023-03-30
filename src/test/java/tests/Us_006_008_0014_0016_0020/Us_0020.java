@@ -1,15 +1,11 @@
 package tests.Us_006_008_0014_0016_0020;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.Admin_Dashboard;
-import pages.Merchant_Dashboard;
 import pages.User_Homepage;
 import utilities.ConfigReader;
 import utilities.Driver;

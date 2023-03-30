@@ -1,8 +1,6 @@
 package tests.US_012_013_021_039_duygu;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
@@ -12,7 +10,6 @@ import pages.User_CheckoutPage;
 import pages.User_Homepage;
 import pages.User_RestaurantUmiSakeHouse;
 import utilities.*;
-
 import javax.print.attribute.standard.JobOriginatingUserName;
 import java.time.Duration;
 import java.util.List;
@@ -165,7 +162,7 @@ public class US_013_account_checkout extends TestBaseRapor {
 
     }
     ////////////***********   TEST 4 ************////////////////////////////////////////////////////////
-    @Test
+    @Test (groups = "smoke")
     public void tc_1304_gecersizAdresGecerliOdemeBilgisiIleSiparisTesti(){
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
