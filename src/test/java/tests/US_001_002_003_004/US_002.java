@@ -1,7 +1,5 @@
 package tests.US_001_002_003_004;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -10,7 +8,7 @@ import utilities.*;
 
 import java.io.IOException;
 
-public class US_002 extends TestBaseRapor{
+public class US_002 extends TestBaseRapor {
     User_Homepage user_homepage=new User_Homepage();
     SoftAssert softAssert = new SoftAssert();
     @Test

@@ -2,7 +2,6 @@ package tests.US_007_018_033_040;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
@@ -12,6 +11,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class US_007 extends TestBaseRapor {
+
 
     User_Homepage user_homepage;
     Actions actions;
