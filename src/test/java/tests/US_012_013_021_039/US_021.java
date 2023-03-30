@@ -1,4 +1,4 @@
-package tests.US_012_013_021_039_duygu;
+package tests.US_012_013_021_039;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -6,12 +6,12 @@ import pages.Merchant_Dashboard;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-public class US_021_merchant_dashboard extends TestBaseRapor {
+public class US_021 extends TestBaseRapor {
     SoftAssert softAssert = new SoftAssert();
     Merchant_Dashboard merchant = new Merchant_Dashboard();
 
     @Test
-    public void tc_2101_dasboardPaneliTesti() {
+    public void tc_2101() {
 
         softAssert = new SoftAssert();
         merchant = new Merchant_Dashboard();
@@ -34,16 +34,10 @@ public class US_021_merchant_dashboard extends TestBaseRapor {
         extentTest.pass("Merchant anasayfasinda dashboard paneli mevcut");
         softAssert.assertAll();
 
-        //Tarayici kapatılır.
-        //try {
-        //    softAssert.assertAll();
-        //} finally {
-        //    Driver.closeDriver();
-        //}
     }
 
     @Test
-    public void tc_2102_dasboardPaneliMenuleriTesti() {
+    public void tc_2102() {
         softAssert = new SoftAssert();
         merchant = new Merchant_Dashboard();
 
@@ -78,12 +72,5 @@ public class US_021_merchant_dashboard extends TestBaseRapor {
         extentTest.pass("Dashboard panelinde menuler mevcut");
         softAssert.assertAll();
 
-
-        //Tarayici kapatılır.
-        //try {
-        //    softAssert.assertAll();
-        //} finally {
-        //    Driver.closeDriver();
-        //}
     }
 }

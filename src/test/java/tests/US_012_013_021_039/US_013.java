@@ -1,20 +1,19 @@
-package tests.US_012_013_021_039_duygu;
+package tests.US_012_013_021_039;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_CheckoutPage;
 import pages.User_Homepage;
 import pages.User_RestaurantUmiSakeHouse;
 import utilities.*;
-import javax.print.attribute.standard.JobOriginatingUserName;
-import java.time.Duration;
-import java.util.List;
 
-public class US_013_account_checkout extends TestBaseRapor {
+import java.time.Duration;
+
+
+public class US_013 extends TestBaseRapor {
 
     User_Homepage homepage=new User_Homepage();
     SoftAssert softAssert=new SoftAssert();
@@ -24,7 +23,7 @@ public class US_013_account_checkout extends TestBaseRapor {
 
 ////////////***********   TEST 1 ************////////////////////////////////////////////////////////
     @Test
-    public void tc_1301_sepetFonksiyonTesti() {
+    public void tc_1301() {
 
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
@@ -33,15 +32,16 @@ public class US_013_account_checkout extends TestBaseRapor {
         extentTest = extentReports.createTest("TC_1301",
                 "Sepet fonksiyon testi");
         //
+        beforeMethod();
         sepeteUrunEklemeMethodu();
-        extentTest.info("Tarayici acilir, Url'e gidilir, login olunur, sepete restauranttaki ilk urun eklenir.");
+        extentTest.info("Launch browser, go to the URL, log in as an user , add the first item from the restaurant to the cart.");
         //
         homepage.mealscenterButton.click();
-        extentTest.info("Anasayfaya gelinir.");
+        extentTest.info("Go to homepage.");
         //
         restaurantUmiSakeHouse.cartButonu.click();
         ReusableMethods.wait(0.1);
-        extentTest.info("Kullanıcı anasayfasindaki 'Cart' butonu tıklanir.");
+        extentTest.info("Click the 'Cart' button on the user homepage.");
         //
         softAssert.assertTrue(homepage.sepetDogrulamaYazisi.isDisplayed(),"Kullanıcı anasayfasındaki Cart butonu ile sepet sayfasına erişilemiyor.");//sepetteki Your cart from yazisi
         extentTest.info("Sepet sayfasının erişilebilirliği doğrulanır.");
@@ -75,7 +75,7 @@ public class US_013_account_checkout extends TestBaseRapor {
     }
     ////////////***********   TEST 2 ************////////////////////////////////////////////////////////
     @Test
-    public void tc_1302_odemeSayfasiFonksiyonTesti(){
+    public void tc_1302(){
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
         checkoutPage=new User_CheckoutPage();
@@ -83,7 +83,9 @@ public class US_013_account_checkout extends TestBaseRapor {
 
         extentTest = extentReports.createTest("TC_1302",
                 "Odeme sayfasi fonksiyon testi");
-
+        //
+        beforeMethod();
+        //
         sepeteUrunEklemeMethodu();
         extentTest.info("Tarayici acilir, Url'e gidilir, login olunur, sepete restauranttaki ilk urun eklenir.");
         //
@@ -125,7 +127,7 @@ public class US_013_account_checkout extends TestBaseRapor {
     }
     ////////////***********   TEST 3 ************////////////////////////////////////////////////////////
     @Test
-    public void tc_1303_sepettekiUrunuDogrulamaTesti(){
+    public void tc_1303(){
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
@@ -133,8 +135,9 @@ public class US_013_account_checkout extends TestBaseRapor {
 
         extentTest = extentReports.createTest("TC_1303",
                 "Sepetteki urunu dogrulama testi");
-
-
+        //
+        beforeMethod();
+        //
         extentTest.info("Before method ile tarayici acilir, Url'e gidilir, login olunur.");
         //
         homepage.umiSakeHouseRestaurantButton.click();
@@ -164,7 +167,7 @@ public class US_013_account_checkout extends TestBaseRapor {
     }
     ////////////***********   TEST 4 ************////////////////////////////////////////////////////////
     @Test (groups = "smoke")
-    public void tc_1304_gecersizAdresGecerliOdemeBilgisiIleSiparisTesti(){
+    public void tc_1304(){
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
@@ -172,16 +175,17 @@ public class US_013_account_checkout extends TestBaseRapor {
         actions=new Actions(Driver.getDriver());
 
         extentTest = extentReports.createTest("TC_1304",
-                "Gecersiz adres gecerli odeme bilgisi ile siparis testi");
-
+                "Order test with invalid address valid payment information");
+        //
+        beforeMethod();
         sepeteUrunEklemeMethodu();
-        extentTest.info("Tarayici acilir, Url'e gidilir, login olunur, sepete restauranttaki ilk urun eklenir.");
+        extentTest.info("Launch browser, go to the URL, log in as an user , add the first item from the restaurant to the cart.");
         //
         restaurantUmiSakeHouse.checkoutButton.click();
-        extentTest.info("Sepetteki checkout butonu ile ödeme sayfasına gidilir.");
+        extentTest.info("Go to the checkout page with the checkout button in the cart.");
         //
         urunSatinAlmaBilgileriGitmeMethodu();
-        extentTest.info("Urun satin alma bilgileri girilir");
+        extentTest.info("Enter product purchase information.");
         //
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         //
@@ -195,31 +199,31 @@ public class US_013_account_checkout extends TestBaseRapor {
         select.selectByVisibleText("Leave it at my door");
         select.getFirstSelectedOption();
         checkoutPage.deliveryAdressSaveButton.click();
-        extentTest.info("Gecersiz adres bilgisi girilir.");
+        extentTest.info("Enter invalid address information.");
         //
         gecerliOdemeBilgileriGirmeMethodu();
-        extentTest.info("Geçerli odeme bilgisi girilir.");
+        extentTest.info("Enter the current payment information.");
         //
         checkoutPage.placeOrderButton.click();
-        extentTest.info("Siparisi onaylamak icin 'place order' butonuna tiklanir.");
+        extentTest.info("Click on the 'place order' button to confirm the order.");
         //
         try {
-            softAssert.assertFalse(checkoutPage.siparisOnayYazisi.isDisplayed(),"Eksik adres bilgileri ile siparis verildi!!");
+            softAssert.assertFalse(checkoutPage.siparisOnayYazisi.isDisplayed(),"The product was ordered with invalid address information!!");
         } catch (Exception e) {
             softAssert.assertFalse(false);
         }
-        extentTest.info("Siparis verilemediği doğrulanır.");
+        extentTest.info("It is verified that the product could not ordered");
         //
-        extentTest.info("Tarayici kapatilir.");
+        extentTest.info("Close the browser.");
         //
-        extentTest.fail("Gecersiz adres bilgileri ile siparis verilebilyor.");
+        extentTest.fail("Products can be ordered with invalid address information.");
         //
         softAssert.assertAll();
 
     }
     ////////////***********   TEST 5 ************////////////////////////////////////////////////////////
     @Test
-    public void tc_1305_gecersizOdemeGecerliAdresBilgisiIleSiparisTesti(){
+    public void tc_1305(){
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
@@ -228,7 +232,9 @@ public class US_013_account_checkout extends TestBaseRapor {
 
         extentTest = extentReports.createTest("TC_1305",
                 "Gecersiz odeme gecerli adres bilgisi ile siparis testi");
-
+        //
+        beforeMethod();
+        //
         sepeteUrunEklemeMethodu();
         extentTest.info("Tarayici acilir, Url'e gidilir, login olunur, sepete restauranttaki ilk urun eklenir.");
         //
@@ -289,7 +295,7 @@ public class US_013_account_checkout extends TestBaseRapor {
     }
     ////////////***********   TEST 6 ************////////////////////////////////////////////////////////
     @Test(groups = "smoke")
-    public void tc_1306_gecerliAdresGecerliOdemeBilgisiIleSiparisTesti(){
+    public void tc_1306(){
 
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
@@ -297,49 +303,50 @@ public class US_013_account_checkout extends TestBaseRapor {
         actions=new Actions(Driver.getDriver());
 
         extentTest = extentReports.createTest("TC_1306",
-                "Gecerli odeme gecerli adres bilgisi ile siparis testi");
-
+                "Order test with valid payment and valid address information.");
+        //
+        beforeMethod();
+        //
         sepeteUrunEklemeMethodu();
-        extentTest.info("Tarayici acilir, Url'e gidilir, login olunur, sepete restauranttaki ilk urun eklenir.");
+        extentTest.info("Launch browser, go to the URL, log in as an user , add the first item from the restaurant to the cart.");
         //
         restaurantUmiSakeHouse.checkoutButton.click();
-        extentTest.info("Sepetteki checkout butonu ile ödeme sayfasına gidilir.");
+        extentTest.info("Go to the checkout page with the checkout button in the cart.");
         //
         urunSatinAlmaBilgileriGitmeMethodu();
-        extentTest.info("Urun satin alma bilgileri girilir");
+        extentTest.info("Enter product purchase information");
         //
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         //
         gecerliAdresBilgileriGirmeMethodu();
-        extentTest.info("Gecerli adres bilgisi girilir");
+        extentTest.info("Enter valid address information");
         //
         gecerliOdemeBilgileriGirmeMethodu();
-        extentTest.info("Geçerli odeme bilgisi girilir.");
+        extentTest.info("Enter the current payment information.");
         //
         checkoutPage.placeOrderButton.click();
-        extentTest.info("Siparisi onaylamak icin 'place order' butonuna tiklanir.");
+        extentTest.info("Click on the 'place order' button to confirm the order.");
         //
         try {
             ReusableMethods.wait(1);
             softAssert.assertTrue(checkoutPage.siparisOnayYazisi
                     .isDisplayed());
         } catch (Exception e) {
-            softAssert.assertTrue(false,"Gecerli adres ve odeme bilgileri ile siparis verilemiyor.");
+            softAssert.assertTrue(false,"Unable to place order with valid address and payment information.");
         }
-        extentTest.info("Siparis verilebildiği doğrulanır.");
+        extentTest.info("It is verified that the product could be ordered");
         //
-        extentTest.info("Tarayici kapatilir.");
+        extentTest.info("Close the browser.");
         //
-        extentTest.pass("Gecerli adres ve odeme bilgileri ile siparis verilebilyor.");
+        extentTest.pass("The product can be ordered with valid address and payment information.");
         //
         softAssert.assertAll();
 
     }
 
-    @BeforeMethod
+
     public void beforeMethod(){
         homepage=new User_Homepage();
-        softAssert=new SoftAssert();
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         homepage.cookieAcceptButton.click();
