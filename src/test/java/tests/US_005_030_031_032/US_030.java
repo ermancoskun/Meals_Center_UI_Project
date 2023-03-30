@@ -168,26 +168,32 @@ public class US_030 extends TestBaseRapor {
         extentTest.pass("Reject buttonunun çalışması başarılı bir şekilde test edildi");
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void tc03007_assignDriverButton() {
-        extentTest = extentReports.createTest("Reject buttonu testi",
-                "Eklenen urun merchant tarfından reject edilmeli");
+        extentTest = extentReports.createTest("Reject button test",
+                "The added product must be rejected by the merchant");
         merchant_dashboard = new Merchant_Dashboard();
         softAssert=new SoftAssert();
         actions = new Actions(Driver.getDriver());
         scheuldedSiparisMethod();
-        extentTest.info("Test yapmak için yeni sipariş oluşturuldu.");
+        extentTest.info("New order created for testing.");
         ReusableMethods.merchantLogin();
-        extentTest.info("Merchant sayfası acıldi.");
+        extentTest.info("Merchant page is open.");
         merchant_dashboard.ordersLink.click();
-        extentTest.info("Orders linkine tiklandi.");
+        extentTest.info("Orders link clicked.");
         merchant_dashboard.scheduledLink.click();
-        extentTest.info("Scheduled linkine tiklanir.");
+        extentTest.info("Scheduled link clicked.");
         merchant_dashboard.assignDriverButton.click();
-        extentTest.info("assignDriverButton tiklanir.");
-        softAssert.assertTrue(merchant_dashboard.assignDriverMaps.isDisplayed());
+        extentTest.info("assignDriverButton clicked.");
+
+        try {
+            softAssert.assertTrue(merchant_dashboard.assignDriverMaps.isDisplayed());
+        } catch (Exception e) {
+            softAssert.assertTrue(false,"Assign Driver button not working.");
+        }
+
         softAssert.assertAll();
-        extentTest.pass("haritanın açıldığı doğrulanır.");
+        extentTest.pass("Verifies that the map is opened.");
     }
 
     private void scheuldedSiparisMethod() {

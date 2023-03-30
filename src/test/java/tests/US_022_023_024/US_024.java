@@ -1,8 +1,6 @@
 package tests.US_022_023_024;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -10,8 +8,6 @@ import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-
-import java.util.List;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
