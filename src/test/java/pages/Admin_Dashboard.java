@@ -57,7 +57,7 @@ public class Admin_Dashboard {
     public  List<WebElement> updatedMerchantInfo;
 
     //adminUrl>backoffice>login>merchant>list>editlink
-    @FindBy(xpath = "//a[@href='/backoffice/vendor/edit/id/126']")
+    @FindBy(xpath = "(//i[@class=\"zmdi zmdi-border-color\"])[1]")
     public WebElement editLink;
 
     //adminUrl>backoffice>login>merchant>list>editlink>restaurantbox
@@ -85,7 +85,7 @@ public class Admin_Dashboard {
 
     //adminUrl>backoffice>login>merchant>list>deletebutton
 
-    @FindBy(xpath ="(//a[@class='btn btn-light datatables_delete tool_tips'])[1]")
+    @FindBy(xpath ="(//i[@class=\"zmdi zmdi-delete\"])[1]")
     public WebElement deleteButton;
 
     // admin login > orders
@@ -193,6 +193,26 @@ public class Admin_Dashboard {
     // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
+
+
+    @FindBy(xpath = "//a[text()='Earnings']")
+    public WebElement dasboardEarningsMenusu;
+    @FindBy(xpath = "//a[text()='Merchant Earnings']")
+    public WebElement dasboardMerchantEarningsMenusu;
+    @FindBy(xpath = "(//th[@class='sorting'])[1]")
+    public WebElement earningsMerchantSiralamaButonu;
+    @FindBy(xpath = "(//th[@class='sorting'])[1]")
+    public WebElement earningsBalanceSiralamaButonu;
+    @FindBy(xpath = "(//div[@class='d-flex'])[32]")
+    public WebElement earningsTotalBalanceBoxi;
+    @FindBy(xpath = "//i[@class=\"zmdi zmdi-eye\"][1]")
+    public WebElement merchantDetayBilgisiButonu;
+    @FindBy(xpath = "//h6[text()='Merchant Info']")
+    public WebElement merchantDetayBilgisiYazisi;
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement merchantEarningsSearchbox;
+
+
     @FindBy(xpath = "//li[@class='promo']")
     public WebElement promoMenu;
     @FindBy(xpath = "//li/a[text()='Coupon']")
@@ -201,11 +221,11 @@ public class Admin_Dashboard {
     public WebElement addNewText;
     @FindBy(xpath = "//i[@class='zmdi zmdi-plus']")
     public WebElement plusLink;
-    @FindBy(xpath = "//label[@for='AR_voucher_voucher_name']")
+    @FindBy(xpath = "//input[@id='AR_voucher_voucher_name']")
     public WebElement couponNameTextBox;
     @FindBy(xpath = "//input[@readonly='readonly']")
     public WebElement expirationTextBox;
-    @FindBy(xpath = "(//tr/td)[32]")
+    @FindBy(xpath = "//tr/td[@class='active start-date active end-date available']")
     public WebElement selectedDay;
     @FindBy(id = "AR_voucher_used_once")
     public WebElement adminCouponOptionsDDM;
@@ -213,6 +233,19 @@ public class Admin_Dashboard {
     public WebElement adminCouponStatus;
     @FindBy(xpath = "//input[@value='Save']")
     public WebElement createCouponSaveButton;
+    @FindBy(xpath = "(//tr/th)[3]")
+    public WebElement afterMonthNextButton;
+    @FindBy(xpath = "(//span[@class='select2-selection select2-selection--multiple'])[2]")
+    public WebElement applicableToMerchantTextBox;
+    //aplicableToMerchantTextBox>click/umi sake house
+    @FindBy(xpath = "//span[text()='Umi Sake House']")
+    public WebElement selectedRestarountNameUmiSake;
+    @FindBy(xpath = "//i[@class='zmdi zmdi-border-color']")
+    public List<WebElement> updateButtonList;
+    @FindBy(xpath = "//td/h6")
+    public List<WebElement> couponNameList;
+    @FindBy(xpath ="//i[@class='zmdi zmdi-search']")
+    public WebElement couponSearchButton;
 
 
 }

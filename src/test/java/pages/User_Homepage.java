@@ -424,7 +424,7 @@ public User_Homepage(){
     public WebElement solAltMealscenterButonu;
 
     // homepage > facebook butonu
-    @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
+    @FindBy (xpath = "/html/body/div[5]/div/div[1]/div[2]/div/div[1]")
     public WebElement facebookButton;
 
     // homepage > aramakutusu > sendkeys yapinca cikan ilk javascript elementi
@@ -434,6 +434,13 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+    @FindBy(xpath = "//a[@id='dropdownMenuLink']")
+    public WebElement usernamePopupMenu;
+
+
+    // homepage > instagram button
+    @FindBy (xpath = "//a[@class='instagram']")
+    public WebElement instagramButton;
 
 
     //hamza
@@ -534,9 +541,28 @@ public User_Homepage(){
     @FindBy (xpath = "//*[@id=\"main-container\"]/div/div[1]/div/h6")
     public WebElement managerprofiltext;
 
+
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
     public WebElement passworgGosterButton;
 
+    // homepage > popularnearby
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[1]")
+    public WebElement popularNearBy;
 
+    // homepage > New Restaurant
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[2]")
+    public WebElement newRestaurant;
+
+    // homepage > join butonu
+    @FindBy (xpath = "//div[@class='btn-white-parent non-trasparent']")
+    public WebElement joinButton;
+
+    // homepage > mobileapp image
+    @FindBy (xpath = "(//img[@class='mobileapp'])[1]")
+    public WebElement mobileAppImage;
+
+    // homepage > first read button
+    @FindBy (xpath = "(//a[@class='btn btn-link readButton'])[1]")
+    public WebElement firstReadButton;
 }

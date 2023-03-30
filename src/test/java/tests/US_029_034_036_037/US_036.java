@@ -1,21 +1,19 @@
 package tests.US_029_034_036_037;
 
-import org.checkerframework.checker.index.qual.EnsuresLTLengthOfIf;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class US_036 extends TestBaseRapor {
 
-    @Test
+    @Test (groups = "smoke")
     public void TC_01() {
 
         extentTest = extentReports.createTest("Verified the page is logged in correct page.");
@@ -31,15 +29,18 @@ public class US_036 extends TestBaseRapor {
         String actualURL = Driver.getDriver().getCurrentUrl();
 
         extentTest.info("Verified the page is loggeg in requested page. ");
+        SoftAssert softAssert=new SoftAssert();
 
-        Assert.assertTrue(actualURL.contains(expectedcontent));
+        softAssert.assertTrue(actualURL.contains(expectedcontent));
+
+        softAssert.assertAll();
 
         //Close the browser
         Driver.closeDriver();
 
         extentTest.info("closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
     }
 
     @Test
@@ -69,10 +70,10 @@ public class US_036 extends TestBaseRapor {
 
         extentTest.info("page is closed");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void TC_03() {
 
         Admin_Dashboard admin_dashboard = new Admin_Dashboard();
@@ -117,7 +118,7 @@ public class US_036 extends TestBaseRapor {
 
         extentTest.info("closed the page");
 
-        extentTest.pass("pass");
+        extentTest.pass("passed");
 
     }
     @Test
@@ -145,6 +146,14 @@ public class US_036 extends TestBaseRapor {
             extentTest.info("Orders summary is displayed");
 
             extentTest.pass("pass");
+
+            //Close the browser
+            Driver.closeDriver();
+
+            extentTest.info("closed the page");
+
+            extentTest.pass("passed");
+
         }
 
     }

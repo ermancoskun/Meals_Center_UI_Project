@@ -1,6 +1,5 @@
 package tests.US_015_017_019_038;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -171,7 +170,7 @@ public class US_017 extends TestBaseRapor {
         userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
 }
 

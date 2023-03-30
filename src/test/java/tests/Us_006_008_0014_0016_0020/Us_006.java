@@ -1,16 +1,11 @@
 package tests.Us_006_008_0014_0016_0020;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.Merchant_Dashboard;
 import pages.User_Homepage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -18,14 +13,14 @@ import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Us_006 extends TestBaseRapor {
     static User_Homepage user_homepage=new User_Homepage();
     SoftAssert softAssert = new SoftAssert();
     @Test (groups = "smoke")
     public void test() throws IOException {
-
+        User_Homepage user_homepage=new User_Homepage();
+        SoftAssert softAssert = new SoftAssert();
         extentTest=extentReports.createTest("Us_006","terms-and-conditions");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul
