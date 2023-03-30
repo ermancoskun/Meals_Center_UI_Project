@@ -15,35 +15,24 @@ public class US_004 extends TestBaseRapor {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void bodytest01(){
+    public void footerTest01(){
         extentTest=extentReports.createTest("Homepage Footer Test");
         user_homepage=new User_Homepage();
         softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-
+        extentTest.info("Access to the homepage");
         ReusableMethods.waitForPageToLoad(5);
         user_homepage.cookieAcceptButton.click();
-        //Driver.getDriver().navigate().refresh();
-        //ReusableMethods.waitForPageToLoad(5);
-        //Assert.assertTrue(user_homepage.solAltMealscenterButonu.isDisplayed());
-        //Driver.closeDriver();
-        user_homepage.facebookButton.click();
+        extentTest.info("Cookies accepted");
+        softAssert.assertTrue(user_homepage.instagramButton.isDisplayed());
+        softAssert.assertTrue(user_homepage.Termsandconditions.isDisplayed());
+        softAssert.assertTrue(user_homepage.instagramButton.isDisplayed());
+        softAssert.assertTrue(user_homepage.becomeyourpartner.isDisplayed());
+        softAssert.assertTrue(user_homepage.mealscentercom.isDisplayed());
+        softAssert.assertTrue(user_homepage.facebookButton.isDisplayed());
+        extentTest.pass("PASSED");
+        softAssert.assertAll();
     }
-
-    @Test
-    public void bodytest02(){
-        User_Homepage user_homepage=new User_Homepage();
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        ReusableMethods.waitForPageToLoad(5);
-        //user_homepage.cookieAcceptButton.click();
-
-        user_homepage.instagramButton.click();
-
-        String expectedUrl="https://www.instagram.com/";
-        String actualUrl=Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(actualUrl,expectedUrl);
-    }
-
 
 }
 

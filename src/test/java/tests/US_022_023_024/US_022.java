@@ -1,17 +1,10 @@
 
 package tests.US_022_023_024;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
-import pages.User_Homepage;
-import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
@@ -181,7 +174,7 @@ public class US_022 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void test05() {
         //-Change Password butonuna tıkladığımda ilgili sayfaya gittiğim doğrulanır.
         //-Old Password boxının görünür  ve clickable  olduğu doğrulanır.

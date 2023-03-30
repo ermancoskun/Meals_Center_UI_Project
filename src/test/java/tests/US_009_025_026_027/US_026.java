@@ -1,17 +1,10 @@
 package tests.US_009_025_026_027;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Merchant_Dashboard;
-import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-
-import java.util.List;
 
 public class US_026 extends TestBaseRapor {
 

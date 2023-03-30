@@ -1,10 +1,8 @@
 package tests.US_029_034_036_037;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -111,7 +109,7 @@ public class US_037 extends TestBaseRapor {
         extentTest.info("List link is clicked");
 
         //Click the edit link in the body part
-        //JSUtilities.scrollToElement(Driver.getDriver(),admin_dashboard.editLink);
+
         admin_dashboard.editLink.click();
         //ReusableMethods.wait(0.1);
 
@@ -120,6 +118,15 @@ public class US_037 extends TestBaseRapor {
         //Fill out the requested boxes
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(admin_dashboard.restaurantnameBox).
+                sendKeys("mike").
+                sendKeys(Keys.TAB).
+                sendKeys("mary").
+                sendKeys(Keys.TAB).
+                sendKeys("sos").
+                sendKeys(Keys.TAB).
+                sendKeys("567890").
+                sendKeys(Keys.TAB).
+                sendKeys("reesd@gmail.com").
                 sendKeys("jake1vgfgu").
                 sendKeys(Keys.TAB).
                 sendKeys("jake02ghnbdfgy").
@@ -190,10 +197,13 @@ public class US_037 extends TestBaseRapor {
         //Click the delete link
 
         SoftAssert softAssert=new SoftAssert();
-        softAssert.assertTrue(admin_dashboard.deleteButton.isDisplayed());
+
+        softAssert.assertTrue(admin_dashboard.deleteButton.isEnabled());
         softAssert.assertAll();
 
+
         extentTest.info("Can't click the delete button");
+
 
         extentTest.fail("Delete button is not clickable");
 

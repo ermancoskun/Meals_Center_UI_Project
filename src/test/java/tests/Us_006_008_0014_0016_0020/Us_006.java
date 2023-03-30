@@ -1,33 +1,31 @@
 package tests.Us_006_008_0014_0016_0020;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.Merchant_Dashboard;
 import pages.User_Homepage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-
 import java.io.IOException;
-import java.util.List;
+
 
 public class Us_006 extends TestBaseRapor {
     static User_Homepage user_homepage=new User_Homepage();
     SoftAssert softAssert = new SoftAssert();
     @Test (groups = "smoke")
     public void test() throws IOException {
+
+
+        extentTest=extentReports.createTest("Us_006","Siteye Kayıt");
+
         User_Homepage user_homepage=new User_Homepage();
         SoftAssert softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Us_006","terms-and-conditions");
+
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul
         user_homepage.cookieAcceptButton.click();
@@ -46,6 +44,8 @@ public class Us_006 extends TestBaseRapor {
         String fakeEmailAdress=faker.internet().emailAddress();
         String fakerpassword=faker.internet().password()+"@";
         String fakername=faker.name().firstName();
+        Keys enter_key = Keys.ENTER;
+        System.out.println(enter_key);
         actions.click(isimKutusu)
                 .sendKeys(fakername)
                 .sendKeys(Keys.TAB)
@@ -60,7 +60,10 @@ public class Us_006 extends TestBaseRapor {
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(fakerpassword)
-                .sendKeys(Keys.ENTER).perform();
+                .sendKeys(enter_key).perform();
+        ReusableMethods.wait(0.5);
+        String name ="TC_006_01 ";
+        ReusableMethods.getScreenshot(name);
         extentTest.info("Girilen Mail Adresi :" +" "+ fakeEmailAdress);
         extentTest.info("Girilen Password :" + " "+fakerpassword);
         extentTest.info("Girile İsim :"+ " "+fakername);
@@ -69,17 +72,6 @@ public class Us_006 extends TestBaseRapor {
         //Assert.assertTrue(profil.isDisplayed());
         softAssert.assertTrue(profil.isDisplayed());
         extentTest.pass("Profil simgesinin görünüp görünmediği kontrolü :"+ " " +profil.isDisplayed());
-        if (profil.isDisplayed()==true)
-            {
-                extentTest.pass("Test Başarılı");
-            }
-        else
-            {
-                extentTest.fail("Test Hatalı");
-                // ScreenShot
-                String name ="TC_006 ";
-                ReusableMethods.getScreenshot(name);
-            }
         //Profil simgesinin görünüp görünmediği kontrol edildi
         WebElement profilsimge= user_homepage.profiliconimg;
         softAssert.assertTrue(profilsimge.isDisplayed());
@@ -115,8 +107,8 @@ public class Us_006 extends TestBaseRapor {
         }
         // ScreenShot
         ReusableMethods.waitFor(2);
-        String name ="TC_006 ";
-        ReusableMethods.getScreenshot(name);
+        String name2 ="TC_006_02 ";
+        ReusableMethods.getScreenshot(name2);
         Driver.closeDriver();
     }
 

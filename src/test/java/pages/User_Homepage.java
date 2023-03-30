@@ -434,6 +434,8 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+    @FindBy(xpath = "//a[@id='dropdownMenuLink']")
+    public WebElement usernamePopupMenu;
 
 
     // homepage > instagram button
@@ -563,4 +565,8 @@ public User_Homepage(){
     // homepage > first read button
     @FindBy (xpath = "(//a[@class='btn btn-link readButton'])[1]")
     public WebElement firstReadButton;
+
+    // homepage > end of the page > mealscenter.com
+    @FindBy (partialLinkText = "mealscenter.com")
+    public WebElement mealscentercom;
 }
