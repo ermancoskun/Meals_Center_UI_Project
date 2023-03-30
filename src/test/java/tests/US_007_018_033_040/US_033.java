@@ -13,11 +13,14 @@ import pages.Merchant_Dashboard;
 import utilities.Driver;
 import utilities.JSUtilities;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US_033 {
+public class US_033 extends TestBaseRapor {
     Merchant_Dashboard md;
+    SoftAssert softAssert;
     @Test
     public void promoLinkSeen(){
+        softAssert=new SoftAssert();
         md=new Merchant_Dashboard();
         //1)bir browser aç.
         //2)"https://qa.mealscenter.com/backoffice/auth/login" url uzerinden 'mealscenter tuccar giris sayfasina gider' sitesine gider.
@@ -29,13 +32,16 @@ public class US_033 {
         //9)sayfayi kapatir.
         ReusableMethods.goToMerchantHomePage();
         ReusableMethods.merchantLogin();
-        Assert.assertTrue(md.promoLink.isDisplayed());
-        Driver.closeDriver();
+        softAssert.assertTrue(md.promoLink.isDisplayed());
+        softAssert.assertAll();
+
 
     }
     @Test
     public void addCouponTest(){
         md=new Merchant_Dashboard();
+        softAssert=new SoftAssert();
+
         //1)bir browser aç
         //2)"https://qa.mealscenter.com/backoffice/auth/login" url uzerinden 'mealscenter tuccar giris sayfasina gider' sitesine gider.
         //3)Cookies kabul edilir.
@@ -52,16 +58,18 @@ public class US_033 {
         ReusableMethods.merchantLogin();
         md.promoLink.click();
         md.couponLink.click();
-        Assert.assertTrue(md.couponListText.isDisplayed());
+        softAssert.assertTrue(md.couponListText.isDisplayed());
         md.plusLink.click();
         String expectedIcerik="coupon_create";
         String actualUrl=Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualUrl.contains(expectedIcerik));
-        Driver.closeDriver();
+        softAssert.assertTrue(actualUrl.contains(expectedIcerik));
+        softAssert.assertAll();
+
     }
 
     @Test
     public void createCouponAndDeleteTest(){
+        extentTest=extentReports.createTest("create Coupon And Delete Test","As a restaurant owner, the user can create and delete coupons.");
         //1)bir browser ac.
         //2)"https://qa.mealscenter.com/backoffice/auth/login"
         //url uzerinden 'mealscenter tuccar giris sayfasina gider' sitesine gider.
@@ -97,9 +105,13 @@ public class US_033 {
         Actions actions=new Actions(Driver.getDriver());
         ReusableMethods.goToMerchantHomePage();
         ReusableMethods.merchantLogin();
+        extentTest.info("Logs into the site as the owner of the restaurant.");
         md.promoLink.click();
+        extentTest.info("Click on the promotion button under the dashboard.");
         md.couponLink.click();
+        extentTest.info("Click on the coupon menu.");
         md.plusLink.click();
+        extentTest.info("clicks the plus button next to the new add text");
         WebElement nameTextBox=Driver.getDriver().findElement(By.xpath("//label[@for='AR_voucher_voucher_name']"));
         actions.sendKeys(nameTextBox,"coupontest")
                 .sendKeys(Keys.TAB)
@@ -123,14 +135,17 @@ public class US_033 {
         WebElement status=Driver.getDriver().findElement(By.id("AR_voucher_status"));
         select=new Select(status);
         select.selectByVisibleText("Draft");
+        extentTest.info("coupon information filled");
         md.saveButton.click();
+        extentTest.info("click the save button.");
         WebElement newCoupon=Driver.getDriver().findElement(By.xpath("(//tr/td)[2]"));
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertTrue(newCoupon.isDisplayed(),"olusturulan coupon goruntulenemedi");
         softAssert.assertTrue(md.updateButton.isDisplayed(),"update button goruntulenemedi");
-
+        extentTest.info("coupon creation verified");
         WebElement couponDeleteButton=Driver.getDriver().findElement(By.xpath("//a[@data-original-title='Delete']"));
         couponDeleteButton.click();
+        extentTest.info("Click on delete link.");
         //Driver.getDriver().switchTo().alert();
         //WebElement alertDeleteButton=Driver.getDriver().findElement(By.xpath("//a[@class='btn btn-green item_delete']"));
         ReusableMethods.wait(2);
@@ -138,7 +153,8 @@ public class US_033 {
        // md.deleteConfirmationButton.click();
        WebElement noDataAveableText=Driver.getDriver().findElement(By.xpath("//td[@class='dataTables_empty']"));
        softAssert.assertTrue(noDataAveableText.isDisplayed());
-        softAssert.assertAll();
-        Driver.closeDriver();
+       softAssert.assertAll();
+       extentTest.pass("Coupon created and deleted successfully.");
+
     }
 }

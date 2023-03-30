@@ -436,5 +436,7 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+    @FindBy(xpath = "//a[@id='dropdownMenuLink']")
+    public WebElement usernamePopupMenu;
 
 }
