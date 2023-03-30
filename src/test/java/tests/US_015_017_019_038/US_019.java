@@ -81,20 +81,20 @@ public class US_019 extends TestBaseRapor {
     public void merchantTest03(){
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Restoran sahibinin Merchant panele geçerli bilgilerle giriş yapabilmesi testi");
+        extentTest=extentReports.createTest("Test that the restaurant owner can log in to the Merchant dashboard with valid information");
         Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-        extentTest.info("Merchant giriş sayfasına gidildi");
+        extentTest.info("Navigated to Merchant login page");
         ReusableMethods.wait(0.1);
         merchant.usernameBox.sendKeys(ConfigReader.getProperty("merchantUsername"));
-        extentTest.info("Username kutusuna geçerli username yazıldı");
+        extentTest.info("Valid username typed in the username box");
         merchant.passwordBox.sendKeys(ConfigReader.getProperty("merchantPassword"));
-        extentTest.info("Password kutusuna geçerli password yazıldı");
+        extentTest.info("Valid password typed in the Password box");
         merchant.signInButton.click();
-        extentTest.info("(Merchant)Sign in butonuna tıklandı");
+        extentTest.info("Merchant sign in button clicked");
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa.mealscenter.com/backoffice/merchant/dashboard";
         softAssert.assertEquals(actualUrl,expectedUrl);
-        extentTest.pass("Geçerli bilgilerle giriş yapıldığı doğrulandı");
+        extentTest.pass("Verified login with valid information");
         softAssert.assertAll();
     }
 
@@ -102,9 +102,9 @@ public class US_019 extends TestBaseRapor {
     public void before(){
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Merchant sayfasına erişim testi");
+        extentTest=extentReports.createTest("Access test to Merchant page");
         Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
-        extentTest.info("Merchant giriş sayfasına gidildi");
+        extentTest.info("Navigated to Merchant login page");
 
     }
 
