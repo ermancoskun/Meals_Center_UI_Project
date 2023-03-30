@@ -290,9 +290,9 @@ public class US_013_account_checkout extends TestBaseRapor {
 
     }
     ////////////***********   TEST 6 ************////////////////////////////////////////////////////////
-
-    @Test
+    @Test(groups = "smoke")
     public void tc_1306_gecerliAdresGecerliOdemeBilgisiIleSiparisTesti(){
+
         softAssert=new SoftAssert();
         restaurantUmiSakeHouse=new User_RestaurantUmiSakeHouse();
         checkoutPage=new User_CheckoutPage();

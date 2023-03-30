@@ -40,7 +40,7 @@ public class US_023 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void test02(){
 
         merchant_dashboard=new Merchant_Dashboard();
