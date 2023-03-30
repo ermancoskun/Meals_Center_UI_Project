@@ -23,7 +23,7 @@ public class Us_008 extends TestBaseRapor {
     @BeforeClass
     public static void beforeClass()
     {
-        extentTest=extentReports.createTest("Us_008","Yeni Kullanıcı İle Giris");
+        extentTest=extentReports.createTest("Us_008","Orders And Payment");
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul
