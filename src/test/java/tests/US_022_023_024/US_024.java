@@ -9,6 +9,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class US_024 extends TestBaseRapor {
@@ -20,14 +21,8 @@ public class US_024 extends TestBaseRapor {
 
     public void test01() {
         merchant_dashboard = new Merchant_Dashboard();
-        actions = new Actions(Driver.getDriver());
 
-        //-Tarayıcı açılır.
-        //
-        //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-        //- Doğru mail ve password ile hesabıma giriş yapılır.
-        //-Food dropdownın altında category seçeneğinin görünür  olduğu doğrulanır.
-        //- Tarayıcı kapatılır.
+        actions = new Actions(Driver.getDriver());
 
         extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
@@ -56,13 +51,6 @@ public class US_024 extends TestBaseRapor {
         merchant_dashboard = new Merchant_Dashboard();
 
         actions = new Actions(Driver.getDriver());
-        //-Tarayıcı açılır.
-        //
-        //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-        //- Doğru mail ve password ile hesabıma giriş yapılır.
-        //-Food dropdownın altında category seçeneğine tıkladığımda category list sayfasına yönlendirildiğim doğrulanmalı.
-        //- Category list sayfasındaki ögelerin görünür olduğu doğrulanmalı.
-        //- Tarayıcı kapatılır.
 
         extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
@@ -102,11 +90,12 @@ public class US_024 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void test03() {
         merchant_dashboard = new Merchant_Dashboard();
 
         actions = new Actions(Driver.getDriver());
+
         extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
         ReusableMethods.merchantLogin();
@@ -151,115 +140,6 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("AddFiles butonuna tıklandı");
 
-         ReusableMethods.wait(3);
-
-         merchant_dashboard.Browsebox2.click();
-
-              extentTest.info("browse2 boxına tıklandı");
-
-              ReusableMethods.waitForVisibility(merchant_dashboard.IconImage, 5);
-
-              merchant_dashboard.IconImage.click();
-               extentTest.info("IconImage için bir resim seçildi.");
-
-              merchant_dashboard.AddFiles2.click();
-
-              extentTest.info("AddFiles2 butonuna tıklandı");
-
-              ReusableMethods.waitForVisibility(merchant_dashboard.DishBox, 3);
-
-              actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-              ReusableMethods.wait(2);
-
-              merchant_dashboard.DishBox.click();
-
-                actions.sendKeys(Keys.ENTER).perform();
-
-
-              extentTest.info("Dish Boxı için Meal seçeneği seçildi.");
-
-              Select select = new Select(merchant_dashboard.StatusBox);
-
-              select.selectByVisibleText("Draft");
-
-
-               extentTest.info("Status boxı için seçim yapıldı.");
-               actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-              ReusableMethods.wait(1);
-
-              merchant_dashboard.Savebox.click();
-
-              extentTest.info("Yapılan değişiklikler kaydedildi.");
-
-          assertTrue(merchant_dashboard.SuccesfullyCreatedYazısı.isDisplayed());
-
-             extentTest.pass("Değişikliklerin başarıyla yapıldığı test edildi.");
-
-
-    }
-
-    @Test
-    public void test04() {
-
-
-    }
-
-    @Test
-    public void test05() {
-        merchant_dashboard = new Merchant_Dashboard();
-
-
-        actions = new Actions(Driver.getDriver());
-
-        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
-
-        ReusableMethods.merchantLogin();
-
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
-
-
-        merchant_dashboard.FoodButonu.click();
-
-        extentTest.info("Food Butonuna basıldı.");
-
-        merchant_dashboard.CategoryButonu.click();
-
-        extentTest.info("Category Butonuna basıldı.");
-
-
-        merchant_dashboard.UpdateButonu.click();
-        extentTest.info("Update butonuna basıldı.");
-
-
-        assertTrue(merchant_dashboard.DetailsBox.isDisplayed());
-        extentTest.pass("Details butonu görünür olduğu doğrulanır.");
-
-        merchant_dashboard.NameBox.sendKeys("mehmet");
-
-        extentTest.info("Name boxına isim yazıldı.Böylece erişebilirliğide test edildi.");
-
-        merchant_dashboard.Descriptionbox.sendKeys("Bu menü çok lezzetlidir.");
-
-        extentTest.info("Description boxına tanım yazıldı.Böylece erişebilirliğide test edildi.");
-
-        merchant_dashboard.Browsebox1.click();
-
-        extentTest.info("Browse1 boxına tıklanır.");
-
-        ReusableMethods.waitForPageToLoad(5);
-
-        merchant_dashboard.FeaturedImage.click();
-
-        extentTest.info("FeaturedImage için bir resim seçildi.");
-
-        ReusableMethods.wait(2);
-
-        merchant_dashboard.AddFilesButonu.click();
-
-        extentTest.info("AddFiles butonuna tıklandı");
-
         ReusableMethods.wait(3);
 
         merchant_dashboard.Browsebox2.click();
@@ -269,6 +149,7 @@ public class US_024 extends TestBaseRapor {
         ReusableMethods.waitForVisibility(merchant_dashboard.IconImage, 5);
 
         merchant_dashboard.IconImage.click();
+
         extentTest.info("IconImage için bir resim seçildi.");
 
         merchant_dashboard.AddFiles2.click();
@@ -307,27 +188,88 @@ public class US_024 extends TestBaseRapor {
         extentTest.pass("Değişikliklerin başarıyla yapıldığı test edildi.");
 
 
+    }
+
+    @Test
+    public void test04() {
+        merchant_dashboard = new Merchant_Dashboard();
 
 
+        actions = new Actions(Driver.getDriver());
 
+        extentTest = extentReports.createTest("update", "update2");
+
+        ReusableMethods.merchantLogin();
+
+        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+
+        merchant_dashboard.FoodButonu.click();
+
+        extentTest.info("Food Butonuna basıldı.");
+
+        merchant_dashboard.CategoryButonu.click();
+
+        extentTest.info("Category Butonuna basıldı.");
+
+        merchant_dashboard.UpdateButonu.click();
+
+        extentTest.info("Update butonuna basıldı.");
+
+
+        assertTrue(merchant_dashboard.DetailsBox.isDisplayed());
+
+        extentTest.pass("Update sayfasında olduğum doğrulandı.");
+
+        merchant_dashboard.NameBox.sendKeys("mehmet2");
+
+        extentTest.info("Name boxına isim yazıldı.Böylece erişebilirliğide test edildi.");
+
+        merchant_dashboard.Descriptionbox.sendKeys("  Bu menü çok lezzetlidir.");
+
+        extentTest.info("Description boxına tanım yazıldı.Böylece erişebilirliğide test edildi.");
+
+        merchant_dashboard.Browsebox1.click();
+
+        extentTest.info("Browse1 boxına tıklanır.");
+
+        ReusableMethods.waitForPageToLoad(5);
+
+        merchant_dashboard.UpdateFeaturedImage.click();
+
+        extentTest.info(" Update FeaturedImage için bir resim seçildi.");
+
+        ReusableMethods.wait(2);
+
+        merchant_dashboard.AddFilesButonu.click();
+
+        extentTest.info("AddFiles butonuna tıklandı");
+
+
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        ReusableMethods.wait(3);
+
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        ReusableMethods.wait(3);
+
+        merchant_dashboard.Savebox.click();
+
+        extentTest.info("Yapılan değişiklikler kaydedildi.");
+
+        assertTrue(merchant_dashboard.UpdatedYazısı.isDisplayed());
+
+        extentTest.pass("Değişikliklerin başarıyla yapıldığı test edildi.");
 
 
     }
 
-    @Test
-    public void test06() {
 
-        //-Tarayıcı açılır.
-        //
-        //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
-        //- Doğru mail ve password ile hesabıma giriş yapılır.
-        //-Food dropdownın altında category seçeneğine tıklanır.
-        //-Delete butonuna tıklanır.
-        //- Çıkan alertte delete butonunun görünür ve active olduğu doğrulanır.
-        //- Çıkan alertte cancel butonunun görünür ve active olduğu doğrulanır.
-        //-Çıkan alertte delete butonuna basılır.
-        //- Ürünün silindiği test edilir
-        //- Tarayıcı kapatılır.
+    @Test
+    public void test05() {
+
+        merchant_dashboard = new Merchant_Dashboard();
+
         extentTest = extentReports.createTest("profilegitme", "profilegitme2");
 
         ReusableMethods.merchantLogin();
@@ -343,6 +285,8 @@ public class US_024 extends TestBaseRapor {
 
         extentTest.info("Category Butonuna basıldı.");
 
+        String SilinmedenÖnce=merchant_dashboard.EntryYazısı.getText();
+
         merchant_dashboard.DeleteButonu.click();
 
         extentTest.info("Delete Butonuna Basıldı.");
@@ -350,6 +294,17 @@ public class US_024 extends TestBaseRapor {
         merchant_dashboard.DeleteConfirmation.click();
 
         extentTest.info("Delete işlemi Doğrulandı.");
+
+///asdfghj
+
+
+        String SilindiktenSonra=merchant_dashboard.EntryYazısı.getText();
+
+        System.out.println(SilinmedenÖnce);
+
+        System.out.println(SilindiktenSonra);
+
+
 
 
 

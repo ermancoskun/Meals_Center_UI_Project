@@ -20,7 +20,12 @@ public class Us_006 extends TestBaseRapor {
     @Test (groups = "smoke")
     public void test() throws IOException {
 
+
         extentTest=extentReports.createTest("Us_006","Siteye Kayıt");
+
+        User_Homepage user_homepage=new User_Homepage();
+        SoftAssert softAssert = new SoftAssert();
+
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul
         user_homepage.cookieAcceptButton.click();

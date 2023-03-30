@@ -1,13 +1,12 @@
 package tests.US_029_034_036_037;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Admin_Dashboard;
 import utilities.Driver;
 import utilities.JSUtilities;
@@ -112,29 +111,39 @@ public class US_037 extends TestBaseRapor {
         //Click the edit link in the body part
 
         admin_dashboard.editLink.click();
+        //ReusableMethods.wait(0.1);
 
         extentTest.info("edit link is clicked");
 
         //Fill out the requested boxes
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(admin_dashboard.restaurantnameBox).
-                sendKeys("jake").
+                sendKeys("mike").
                 sendKeys(Keys.TAB).
-                sendKeys("jake01").
+                sendKeys("mary").
                 sendKeys(Keys.TAB).
-                sendKeys("abcd").
+                sendKeys("sos").
                 sendKeys(Keys.TAB).
-                sendKeys("3456767676").
+                sendKeys("567890").
                 sendKeys(Keys.TAB).
-                sendKeys("ersnerm@gmail.com").
+                sendKeys("reesd@gmail.com").
+                sendKeys("jake1vgfgu").
+                sendKeys(Keys.TAB).
+                sendKeys("jake02ghnbdfgy").
+                sendKeys(Keys.TAB).
+                sendKeys("abcd2ghbndfg8uıyh").
+                sendKeys(Keys.TAB).
+                sendKeys("345676456465445").
+                sendKeys(Keys.TAB).
+                sendKeys("janedoe@gmail.com").
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).
-                sendKeys("American").
+                sendKeys("American").sendKeys(Keys.ENTER).
                 sendKeys(Keys.TAB).
-                sendKeys("Dinein").perform();
+                sendKeys("Dinein").sendKeys(Keys.ENTER).perform();
         ReusableMethods.wait(1);
         Select select = new Select(admin_dashboard.statusboxDdm);
         select.selectByVisibleText("Pending for approval");
@@ -187,9 +196,14 @@ public class US_037 extends TestBaseRapor {
 
         //Click the delete link
 
-        admin_dashboard.deleteButton.click();
+        SoftAssert softAssert=new SoftAssert();
+
+        softAssert.assertTrue(admin_dashboard.deleteButton.isEnabled());
+        softAssert.assertAll();
+
 
         extentTest.info("Can't click the delete button");
+
 
         extentTest.fail("Delete button is not clickable");
 

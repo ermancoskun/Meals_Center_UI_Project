@@ -2,7 +2,6 @@ package tests.US_015_017_019_038;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
@@ -39,39 +38,40 @@ public class US_015 extends TestBaseRapor {
 
     @Test
     public void myOrdersTest02(){
-        extentTest = extentReports.createTest("My orders sayfasındaki elemanların görünürlük testi");
+        extentTest = extentReports.createTest("Visibility test of elements on the My orders page");
         userHomepage=new User_Homepage();
         softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        extentTest.info("Url’e gidildi");
+        extentTest.info("Url has been travelled to");
         userHomepage.cookieAcceptButton.click();
-        extentTest.info("Cookie kabul edildi");
+        extentTest.info("Cookie accepted");
         ReusableMethods.userLoginMethod("betulUserEmail","betulUserPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
-        extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
+        extentTest.info("Clicked on the username on the page that opens");
         userHomepage.myOrdersSection.click();
-        extentTest.info("My orders'a erişilebildiği doğrulandı");
+        extentTest.info("Confirmed access to My orders");
 
         softAssert.assertTrue(userHomepage.orderQuantity.isDisplayed());
-        extentTest.info("Bulunulan sayfada sipariş miktarının görünür olduğu doğrulandı");
+        extentTest.info("Verified that the order quantity is visible on the current page");
         softAssert.assertTrue(userHomepage.totalAmount.isDisplayed());
-        extentTest.info("Total amount’un görünür olduğu doğrulandı");
+        extentTest.info("Total amount verified to be visible");
         softAssert.assertTrue(userHomepage.bagImage.isDisplayed());
-        extentTest.info("Alışveriş çantasının görünür olduğu doğrulandı");
+        extentTest.info("Confirmed that the shopping bag is visible");
         softAssert.assertTrue(userHomepage.searchOrderBox.isEnabled());
-        extentTest.info("Sipariş arama kutusunun görünür olduğunu doğrulandı");
+        extentTest.info("Verified that the order search box is visible");
         JSUtilities.scrollToBottom(Driver.getDriver());
-        extentTest.info("Sayfanın altına inildi");
+        extentTest.info("Scrolled to the bottom of the page");
         softAssert.assertTrue(userHomepage.endOfResult.isDisplayed());
-        extentTest.info("Sipariş listesinin altındaki 'end of result' yazısı görüldü");
+        extentTest.info("'End of result' at the bottom of the order list");
         List<WebElement> orderList = userHomepage.orderList;
         for (WebElement eachSiparis: orderList
              ) {
             softAssert.assertTrue(eachSiparis.isDisplayed());
         }
-        extentTest.info("Sipariş listesindeki bilgilerin görünür olduğu doğrulandı");
-        extentTest.pass("My orders sayfasındaki elemanların görünürlüğü doğrulandı");
+        extentTest.info("Verified that the information in the order list is visible");
+        extentTest.pass("Visibility of elements on My orders page verified");
+        softAssert.assertAll();
     }
 
     @Test
@@ -98,6 +98,7 @@ public class US_015 extends TestBaseRapor {
         String expectedNo = userHomepage.visibleOrderNo.getText().replaceAll("\\D","");
         softAssert.assertEquals(actualNo,expectedNo);
         extentTest.info("Görüntülenen siparişin sipariş numarasının arama kutusundaki ile aynı olduğu doğrulandı");
+        softAssert.assertAll();
     }
 
     @Test
@@ -200,6 +201,7 @@ public class US_015 extends TestBaseRapor {
         softAssert.assertTrue(userHomepage.orderTrack.isDisplayed());
         extentTest.info("Açılan sayfanın sipariş durumu sayfası olduğu doğrulandı");
         extentTest.pass("Siparişler üzerinde işlem yapılabildiği dogrulandı");
+        softAssert.assertAll();
     }
 
     @AfterMethod

@@ -135,10 +135,22 @@ public class User_CheckoutPage {
     public  WebElement krediKartiPostaKoduTextBox;
 
     ////////////////////////
-    @FindBy(xpath = "(//p[@class=\"m-0\"])[25]")
+    @FindBy(xpath = "//div[@class=\"alert alert-warning mb-2\"]")
     public WebElement krediKartinizGecersizYazisi;
     @FindBy(xpath = "//p[text()='Please select valid payment method']")
     public WebElement gecerliOdemeBilgileriGirYazisi;
+
+
+    @FindBy(xpath = "(//*[@class='btn'])[1]")
+    public WebElement  scheduleForLaterButton;
+
+
+    @FindBy(xpath = "//div[@class='schedule-section']")
+    public WebElement  scheduleDayDdm;
+
+
+    @FindBy(xpath = "//select[@id='delivery_time']")
+    public WebElement  scheduleDayTime;
 
 
 }

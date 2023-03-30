@@ -1,6 +1,5 @@
 package tests.US_015_017_019_038;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -16,15 +15,15 @@ public class US_017 extends TestBaseRapor {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void paymentsTest01(){
+    public void paymentsTest01() {
         userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Kullanıcının Payments sayfasına erişebilmesi testi");
+        extentTest = extentReports.createTest("Kullanıcının Payments sayfasına erişebilmesi testi");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         extentTest.info("Url’e gidildi");
         userHomepage.cookieAcceptButton.click();
         extentTest.info("Cookie kabul edildi");
-        ReusableMethods.userLoginMethod("betulUserEmail","betulUserPassword");
+        ReusableMethods.userLoginMethod("betulUserEmail", "betulUserPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
@@ -32,21 +31,21 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("Açılan menüden “Payments option” yazısına tıklandı");
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = ConfigReader.getProperty("paymentUrl");
-        softAssert.assertEquals(actualUrl,expectedUrl);
+        softAssert.assertEquals(actualUrl, expectedUrl);
         extentTest.pass("My orders'a erişilebildiği doğrulandı");
         softAssert.assertAll();
     }
 
     @Test
-    public void paymentsTest02(){
+    public void paymentsTest02() {
         userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest(" Kullanıcının Payments sayfasındaki içeriği görüntülemesi testi");
+        extentTest = extentReports.createTest(" Kullanıcının Payments sayfasındaki içeriği görüntülemesi testi");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         extentTest.info("Url’e gidildi");
         userHomepage.cookieAcceptButton.click();
         extentTest.info("Cookie kabul edildi");
-        ReusableMethods.userLoginMethod("betulUserEmail","betulUserPassword");
+        ReusableMethods.userLoginMethod("betulUserEmail", "betulUserPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
@@ -57,8 +56,8 @@ public class US_017 extends TestBaseRapor {
         softAssert.assertTrue(userHomepage.addPaymentButton.isEnabled());
         extentTest.info("‘Add new payment butonu’nun erişilebilir olduğu doğrulandı");
         List<WebElement> paymentList = userHomepage.paymentMethods;
-        for (WebElement eachPayment:paymentList
-             ) {
+        for (WebElement eachPayment : paymentList
+        ) {
             softAssert.assertTrue(eachPayment.isDisplayed());
         }
         extentTest.pass(" Kullanıcının Payments sayfasındaki içeriği görüntülediği doğrulandı");
@@ -66,15 +65,15 @@ public class US_017 extends TestBaseRapor {
     }
 
     @Test
-    public void paymentTest03(){
+    public void paymentTest03() {
         userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Kullanıcının ödeme bilgisi eklemesi testi");
+        extentTest = extentReports.createTest("Kullanıcının ödeme bilgisi eklemesi testi");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         extentTest.info("Url’e gidildi");
         userHomepage.cookieAcceptButton.click();
         extentTest.info("Cookie kabul edildi");
-        ReusableMethods.userLoginMethod("betulUserEmail","betulUserPassword");
+        ReusableMethods.userLoginMethod("betulUserEmail", "betulUserPassword");
         ReusableMethods.waitFor(1);
         userHomepage.nameButton.click();
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
@@ -94,10 +93,8 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("‘Stripe’ yazısına tıklandı");
         ReusableMethods.wait(1);
 
-        /*
-        userHomepage.cardHolder.click();
         Driver.getDriver().switchTo().frame(userHomepage.iframe);
-        userHomepage.cardNoBox.click();
+        ReusableMethods.wait(1);
         userHomepage.cardNoBox.sendKeys("4242424242424242");
         extentTest.info("Kart numarasi girilir");
         userHomepage.dateBox.sendKeys("0424");
@@ -106,7 +103,7 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("Güvenlik kodu girilir");
         userHomepage.zipCodeBox.sendKeys("10001");
         Driver.getDriver().switchTo().defaultContent();
-         */
+
         userHomepage.addStripeButton.click();
         extentTest.info("Açılan pencerede ‘Add Stripe’ butonuna tıklandı");
         userHomepage.closeAddStripe.click();
@@ -118,6 +115,7 @@ public class US_017 extends TestBaseRapor {
         softAssert.assertAll();
 
     }
+
     @Test
     public void paymentTest04() {
         userHomepage = new User_Homepage();
@@ -136,7 +134,7 @@ public class US_017 extends TestBaseRapor {
         userHomepage.deletePaymentButton.click();
         extentTest.info("Kayıtlı ödeme yönteminin üzerindeki delete butonuna tıklandı");
         List<WebElement> paymentList = userHomepage.paymentMethods;
-        for (WebElement eachPayment:paymentList
+        for (WebElement eachPayment : paymentList
         ) {
             softAssert.assertTrue(eachPayment.isDisplayed());
         }
@@ -144,8 +142,9 @@ public class US_017 extends TestBaseRapor {
         softAssert.assertAll();
 
     }
+
     @Test
-    public void paymentTest05() {
+    public void paymentTest05() { //****************************
         userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
         extentTest = extentReports.createTest(" Kullanıcının ödeme bilgisini düzenleyebilmesi testi");
@@ -159,20 +158,20 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
         userHomepage.paymentSection.click();
         extentTest.info("Açılan menüden “Payments option” yazısına tıklandı");
-       // userHomepage.editPaymentButton.click();
+        softAssert.assertTrue(userHomepage.editPaymentButton.isDisplayed()); ///***********
         extentTest.info("Kayıtlı ödeme yönteminin üzerindeki edit butonuna tıklanamadı");
         extentTest.fail("Ödeme yönteminin düzenlenemediği doğrulandı");
         softAssert.assertAll();
     }
 
 
-
     @AfterMethod
-    public void tearDown(){
-        userHomepage=new User_Homepage();
+    public void tearDown() {
+        userHomepage = new User_Homepage();
         softAssert = new SoftAssert();
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
-
 }
+
+

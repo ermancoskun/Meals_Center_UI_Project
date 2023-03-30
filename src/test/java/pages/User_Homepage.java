@@ -299,8 +299,9 @@ public User_Homepage(){
     public WebElement deletePaymentButton;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > edit butonu
-    @FindBy(xpath = "//i[@class=\"zmdi zmdi-edit\"]")
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-edit'])[2]")
     public WebElement editPaymentButton;
+    // //i[@class='zmdi zmdi-edit']
 
     //  user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > cash on delivery
     @FindBy(xpath = "//i[@class='zmdi zmdi-money-box']")
@@ -327,34 +328,31 @@ public User_Homepage(){
     public WebElement addStripeButton;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > iframe
-    @FindBy(xpath = "//iframe[@frameborder='0']")
+    @FindBy(xpath = "//div//iframe")
     public WebElement iframe;
     //iframe[@frameborder='0']
     //div[@id='root']
     //iframe[@name='__privateStripeFrame89128']
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart no giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[1]")
+    @FindBy(xpath = "(//input[@class='InputElement is-empty Input Input--empty'])[1]")
     public WebElement cardNoBox;
-    // (//span[@class='CardField-number CardField-child'])[1]
-    // //span[@class='CardField-restWrapper']
-    //input[@name='cardnumber']
-    // (//span[@class='InputContainer'])[1]
 
     // kart kullanıcısı adı
     @FindBy(xpath = "//label[text()='Cardholder name']")
     public WebElement cardHolder;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart SKT giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[2]")
+    @FindBy(xpath = "//input[@name='exp-date']")
     public WebElement dateBox;
+    //input[@class='InputElement is-empty Input Input--empty']
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > kart CVC giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[3]")
+    @FindBy(xpath = "//input[@name='cvc']")
     public WebElement cvcBox;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > add stripe > zip kodu giriş box
-    @FindBy(xpath = "(//span[@class='InputContainer'])[4]")
+    @FindBy(xpath = "//input[@name='postal']")
     public WebElement zipCodeBox;
 
     // user login > Sağ üstteki kullanıcı adı > Payments option > add new payment button > stripe yazısı > çarpı
@@ -426,7 +424,7 @@ public User_Homepage(){
     public WebElement solAltMealscenterButonu;
 
     // homepage > facebook butonu
-    @FindBy (xpath = "(//a[@href='http://www.facebook.com'])[1]")
+    @FindBy (xpath = "/html/body/div[5]/div/div[1]/div[2]/div/div[1]")
     public WebElement facebookButton;
 
     // homepage > aramakutusu > sendkeys yapinca cikan ilk javascript elementi
@@ -436,6 +434,14 @@ public User_Homepage(){
     // homepage > restaurants > safya alt adres satiri
     @FindBy (xpath = "(//h1[@class='mb-4'])[1]")
     public WebElement restaurantsAdresSatiri;
+    @FindBy(xpath = "//a[@id='dropdownMenuLink']")
+    public WebElement usernamePopupMenu;
+
+
+    // homepage > instagram button
+    @FindBy (xpath = "//a[@class='instagram']")
+    public WebElement instagramButton;
+
 
     //hamza
 
@@ -535,4 +541,32 @@ public User_Homepage(){
     @FindBy (xpath = "//*[@id=\"main-container\"]/div/div[1]/div/h6")
     public WebElement managerprofiltext;
 
+
+    // homepage > restaurants > safya alt adres satiri
+    @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
+    public WebElement passworgGosterButton;
+
+    // homepage > popularnearby
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[1]")
+    public WebElement popularNearBy;
+
+    // homepage > New Restaurant
+    @FindBy (xpath = "(//h5[@class='m-0 section-title'])[2]")
+    public WebElement newRestaurant;
+
+    // homepage > join butonu
+    @FindBy (xpath = "//div[@class='btn-white-parent non-trasparent']")
+    public WebElement joinButton;
+
+    // homepage > mobileapp image
+    @FindBy (xpath = "(//img[@class='mobileapp'])[1]")
+    public WebElement mobileAppImage;
+
+    // homepage > first read button
+    @FindBy (xpath = "(//a[@class='btn btn-link readButton'])[1]")
+    public WebElement firstReadButton;
+
+    // homepage > end of the page > mealscenter.com
+    @FindBy (partialLinkText = "mealscenter.com")
+    public WebElement mealscentercom;
 }

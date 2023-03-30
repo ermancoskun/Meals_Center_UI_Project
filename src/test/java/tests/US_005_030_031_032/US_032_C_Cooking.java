@@ -2,45 +2,43 @@ package tests.US_005_030_031_032;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
+import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBaseRaporClass;
+import utilities.TestBaseRapor;
 
-public class US_032_C_Cooking extends TestBaseRaporClass {
+public class US_032_C_Cooking extends TestBaseRapor {
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
     SoftAssert softAssert = new SoftAssert();
+    Faker faker=new Faker();
 
-    @BeforeClass
-    public void setUp() {
-        extentTest = extentReports.createTest("Merchant sayfasının acilmasi",
-                "Merchant sayfasi acilmali");
+    @Test
+    public void tc03215_cookingReferenceListSayfasi() {
+        extentTest = extentReports.createTest("Cooking Reference List sayfasi testi", "Cooking Reference List sayfasi acilmali");
         merchant_dashboard = new Merchant_Dashboard();
         ReusableMethods.merchantLogin();
+        ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
         merchant_dashboard.attributesLinki.click();
-        extentTest.info("Attributesi linkine tiklandi.");
         merchant_dashboard.cookingReferenceLinki.click();
-        extentTest.pass("Cooking Reference linkine tiklandi.");
-
+        extentTest.info("Merchant sayfasına girildi.");
+        softAssert.assertTrue(merchant_dashboard.sizeSayfasiBasligi.isDisplayed(), "Cooking Referenc List sayfasi acilmadi");
+        softAssert.assertAll();
+        extentTest.pass("Cooking Referenc List sayfasi basarili bir sekilde acildi.");
     }
 
     @Test
-    public void tc03201() {
-        extentTest = extentReports.createTest("Cooking Reference Listt sayfasi testi", "Cooking Reference List sayfasi acilmali");
-        merchant_dashboard = new Merchant_Dashboard();
-        Assert.assertTrue(merchant_dashboard.sizeSayfasiBasligi.isDisplayed(), "Cooking Reference List sayfasi acilmadi");
-        extentTest.pass("Cooking Reference List sayfasi basarili bir sekilde acildi.");
-    }
-
-    @Test
-    public void tc03202() {
+    public void tc03216_baslik() {
         extentTest = extentReports.createTest("noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton baslıkları ve simgeleri gorunurlugu testi",
-                "noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton baslıkları ve simgeleri gorunur olmali");
+                "noBasligi, nameBasligi, actionsBasligi, searchBox, addNewButton baslıkları ve simgeleri gorunur olmali");
         merchant_dashboard = new Merchant_Dashboard();
         softAssert = new SoftAssert();
+        ReusableMethods.merchantLogin();
+        ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
         softAssert.assertTrue(merchant_dashboard.noBasligi.isDisplayed(), "noBasligi gorulmedi");
         softAssert.assertTrue(merchant_dashboard.nameBasligi.isDisplayed(), "nameBasligi gorulmedi");
         softAssert.assertTrue(merchant_dashboard.actionsBasligi.isDisplayed(), "actionsBasligi gorulmedi");
@@ -48,141 +46,207 @@ public class US_032_C_Cooking extends TestBaseRaporClass {
         softAssert.assertTrue(merchant_dashboard.addNewButton.isDisplayed(), "addNewButton gorulmedi");
         softAssert.assertTrue(merchant_dashboard.noBasligi.isDisplayed(), "size sayfasi acilmadi");
         softAssert.assertAll();
-        extentTest.pass("Cooking Reference List sayfasi noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton basliklari ve simgeleri goruldu.");
+        extentTest.pass("Cooking Referenc sayfasi noBasligi, nameBasligi, actionsBasligi, searchSizeBox, addNewButton basliklari ve simgeleri goruldu.");
     }
 
     @Test
-    public void tc03203() {
-        extentTest = extentReports.createTest("Cooking Reference List yeni urun ekleme ve silme testi",
-                "Cooking Reference List yeni urun eklenebilmeli ve urun silinebilmeli");
+    public void tc03217_yeniUrunEklemeSilme() {
+        extentTest = extentReports.createTest("Cooking Referenc List yeni urun ekleme ve silme testi",
+                "Cooking Referenc List yeni urun eklenebilmeli ve urun silinebilmeli");
         merchant_dashboard = new Merchant_Dashboard();
+        faker=new Faker();
+        ReusableMethods.merchantLogin();
+        ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
+        String addNameStr=faker.name().name();
         merchant_dashboard.addNewButton.click();
-        String addNameStr="Big Battal";
+        extentTest.info("Add New buttonuna tiklandi.");
+        //String addNameStr="Big Battal";
         merchant_dashboard.sizeNameBox.sendKeys(addNameStr);
+        extentTest.info("Name box a isim girildi.");
         merchant_dashboard.saveButton.click();
+        extentTest.info("Save buttonuna tiklandi.");
         String eklenenName=merchant_dashboard.listIlkName.getText();
-        Assert.assertEquals(addNameStr+" Publish",eklenenName);
+        softAssert.assertEquals(addNameStr+" Publish",eklenenName);
         merchant_dashboard.deleteButtonSizeAll.click();
         ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
         merchant_dashboard.deleteConfirmationButton.click();
-        extentTest.pass("Cooking Reference liste urun ekleme ve silme basariyla gerceklesti");
-/*
-        List<WebElement> listName = Driver.getDriver().findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody//td[2]"));
-        for (WebElement element : listName) {
-            System.out.println(element.getText());
-        }
- */
-    }
-
-    @Test
-    public void tc03204() {
-        extentTest = extentReports.createTest("Cooking Reference Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
-                "Cooking Reference Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
-        merchant_dashboard = new Merchant_Dashboard();
-        merchant_dashboard.addNewButton.click();
-        String addSizeNameOzelKarakter=",;*+-";
-        merchant_dashboard.sizeNameBox.sendKeys(addSizeNameOzelKarakter);
-        merchant_dashboard.saveButton.click();
-        String eklenenNameOzelKarakter=merchant_dashboard.listIlkName.getText();
-        softAssert.assertNotEquals(addSizeNameOzelKarakter+" Publish",eklenenNameOzelKarakter,"Cooking Reference Liste sadece ozel karekterli isim eklendi");
-        merchant_dashboard.deleteButtonSizeAll.click();
-        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
-        merchant_dashboard.deleteConfirmationButton.click();
-
-        merchant_dashboard.addNewButton.click();
-        String addSizeNameRakam="0123456987";
-        merchant_dashboard.sizeNameBox.sendKeys(addSizeNameRakam);
-        merchant_dashboard.saveButton.click();
-        String eklenenNameRakam=merchant_dashboard.listIlkName.getText();
-        softAssert.assertNotEquals(addSizeNameRakam+" Publish",eklenenNameRakam,"Cooking Reference Liste sadece rakamlardan olusan isim eklendi");
-        merchant_dashboard.deleteButtonSizeAll.click();
-        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
-        merchant_dashboard.deleteConfirmationButton.click();
+        extentTest.info("Eklenen urun silindi.");
         softAssert.assertAll();
-
-        extentTest.pass("Cooking Reference Liste sadece ozel karekter ya da rakamlardan olusan isim girilmedi");
+        extentTest.pass("Size liste urun ekleme ve silme basariyla gerceklesti");
+        Driver.closeDriver();
     }
 
+
     @Test
-    public void tc03205() {
-        extentTest = extentReports.createTest("Cooking Reference List sayfası update fonksiyon testi",
-                "Cooking Reference List sayfasinde urunleri update edebilmeli");
-        Faker faker=new Faker();
+    public void tc03218_update() {
+        extentTest = extentReports.createTest("Size List sayfası update fonksiyon testi",
+                "Size List sayfasinde urunleri update edebilmeli");
+        faker=new Faker();
+        merchant_dashboard = new Merchant_Dashboard();
+        ReusableMethods.merchantLogin();
+        //ReusableMethods.wait(1);
+        //ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
         String ilkName=faker.name().name();
+        ReusableMethods.wait(1);
         String updateName=faker.name().nameWithMiddle();
         merchant_dashboard = new Merchant_Dashboard();
         merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
+        ReusableMethods.wait(1);
         merchant_dashboard.sizeNameBox.sendKeys(ilkName);
+        extentTest.info("Name box a isim girildi.");
         merchant_dashboard.saveButton.click();
-
+        extentTest.info("Save buttonuna tiklandi.");
+        ReusableMethods.wait(1);
         merchant_dashboard.updateButton.click();
+        extentTest.info("Update buttonuna tiklandi.");
         merchant_dashboard.sizeNameBox.clear();
         merchant_dashboard.sizeNameBox.sendKeys(updateName);
+        extentTest.info("Name box taki eski isim silinip guncel isim girildi");
         merchant_dashboard.saveButton.click();
-
+        extentTest.info("Save buttonuna tiklandi.");
+        ReusableMethods.wait(1);
         softAssert.assertTrue(merchant_dashboard.succesfullyUpdatedYazisi.isDisplayed(), "update basarisiz");
         merchant_dashboard.cookingReferenceLinkiActive.click();
+        extentTest.info("Liste sayfasina donuldu");
         String eklenenName=merchant_dashboard.listIlkName.getText();
         softAssert.assertEquals(updateName+" Publish",eklenenName);
+        extentTest.info("Update edilen urun kontrol edildi.");
         merchant_dashboard.deleteButtonSizeAll.click();
+        ReusableMethods.wait(1);
         ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
         merchant_dashboard.deleteConfirmationButton.click();
         softAssert.assertAll();
-        extentTest.pass("Cooking Reference List sayfasinde urun basariyla update edildi.");
+        extentTest.pass("Cooking Referenc List sayfasinde urun basariyla update edildi.");
+    }
+
+    @Test
+    public void tc03219_urunIsimGirme() {
+        softAssert=new SoftAssert();
+        extentTest = extentReports.createTest("Cooking Referenc Liste sadece ozel karekter ya da rakamlardan olusan isim girme testi",
+                "Cooking Referenc Liste sadece ozel karekter ya da rakamlardan olusan isim girilmemeli");
+        merchant_dashboard = new Merchant_Dashboard();
+        ReusableMethods.merchantLogin();
+        //ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
+        merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
+        String addSizeNameOzelKarakter=",;*+-";
+        merchant_dashboard.sizeNameBox.sendKeys(addSizeNameOzelKarakter);
+        extentTest.info("Name box sadece ozel karakterlerden olusan isim girildi.");
+        merchant_dashboard.saveButton.click();
+        extentTest.info("Save buttonuna tiklandi.");
+        String eklenenNameOzelKarakter=merchant_dashboard.listIlkName.getText();
+        softAssert.assertNotEquals(addSizeNameOzelKarakter+" Publish",eklenenNameOzelKarakter,"Cooking Referenc Liste sadece ozel karekterli isim eklendi");
+        extentTest.info("Sadece ozel karakterlerden olusan urunun eklenebildiği test edildi.");
+        merchant_dashboard.deleteButtonSizeAll.click();
+        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
+        merchant_dashboard.deleteConfirmationButton.click();
+        extentTest.info("Eklenen urun silindi.");
+
+        merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
+        String addSizeNameRakam="0123456987";
+        merchant_dashboard.sizeNameBox.sendKeys(addSizeNameRakam);
+        extentTest.info("Name box a sadece rakamlardan olusan isim girildi.");
+        merchant_dashboard.saveButton.click();
+        extentTest.info("Save buttonuna tiklandi.");
+        String eklenenNameRakam=merchant_dashboard.listIlkName.getText();
+        softAssert.assertNotEquals(addSizeNameRakam+" Publish",eklenenNameRakam,"Size Liste sadece rakamlardan olusan isim eklendi");
+        extentTest.info("Sadece rakamlardan olusan urunun eklenebildiği test edildi.");
+        merchant_dashboard.deleteButtonSizeAll.click();
+        ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
+        merchant_dashboard.deleteConfirmationButton.click();
+        extentTest.info("Eklenen urun silindi.");
+        softAssert.assertAll();
+
+        extentTest.pass("Cooking Referenc Liste sadece ozel karekter ya da rakamlardan olusan isim girilmedi");
     }
 
 
     @Test
-    public void tc03206() {
-        extentTest = extentReports.createTest("Cooking Reference Add bolumunde aynı isimli urunun tekrarlı kayıt yapılamama testi",
-                "Size Add bolumunde aynı isimli urun tekrarli kayit yapilamamali");
+    public void tc03220_tekrarliIsim() {
+        softAssert=new SoftAssert();
+        extentTest = extentReports.createTest("Cooking Referenc Add bolumunde aynı isimli urunun tekrarlı kayıt yapılamama testi",
+                "Cooking Referenc Add bolumunde aynı isimli urun tekrarli kayit yapilamamali");
         Faker faker=new Faker();
         String addNameStrFkr=faker.name().name();
         merchant_dashboard = new Merchant_Dashboard();
+        ReusableMethods.merchantLogin();
+        ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
         merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
         merchant_dashboard.sizeNameBox.sendKeys(addNameStrFkr);
+        extentTest.info("Name box yenı urun ismi yazildi.");
         merchant_dashboard.saveButton.click();
+        extentTest.info("Save buttonuna tiklandi.");
         String eklenenName1=merchant_dashboard.listIlkName.getText();
 
         merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
         merchant_dashboard.sizeNameBox.sendKeys(addNameStrFkr);
+        extentTest.info("Name box a ayni isimli urun tekrar yazildi.");
         merchant_dashboard.saveButton.click();
         String eklenenName2=merchant_dashboard.listIlkName.getText();
+        extentTest.info("Save buttonuna tiklandi.");
 
-        softAssert.assertNotEquals(eklenenName1,eklenenName2,"Ayni urun tekrarli eklenebiliyor");
-
+        softAssert.assertNotEquals(eklenenName1,eklenenName2);
 
         merchant_dashboard.deleteButtonSizeAll.click();
+
         ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
         merchant_dashboard.deleteConfirmationButton.click();
 
         merchant_dashboard.deleteButtonSizeAll.click();
         ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
         merchant_dashboard.deleteConfirmationButton.click();
-
-        extentTest.pass("Cooking Reference Add bolumunde aynı isimli urunun kayıt yapılmadigi test edildi");
         softAssert.assertAll();
+        extentTest.pass("Cooking Referenc Add bolumunde aynı isimli urunun kayıt yapılmadigi test edildi");
     }
 
 
     @Test
-    public void tc03207() {
-        extentTest = extentReports.createTest("Cooking Reference List sayfasinda search box testi",
-                "Cooking Reference List sayfasinda search box ta arama yapilmali");
+    public void tc03221_searchBox() {
+        softAssert=new SoftAssert();
+        extentTest = extentReports.createTest("Cooking Referenc List sayfasinda search box testi",
+                "Cooking Referenc List sayfasinda search box ta arama yapilmali");
         Faker faker=new Faker();
         String addNameStrFkr=faker.name().name();
         merchant_dashboard = new Merchant_Dashboard();
+        ReusableMethods.merchantLogin();
+        //ReusableMethods.wait(1);
+        //ReusableMethods.waitForClickablility(merchant_dashboard.attributesLinki,2);
+        merchant_dashboard.attributesLinki.click();
+        merchant_dashboard.cookingReferenceLinki.click();
+        extentTest.info("Merchant sayfasına girildi.");
+
+        merchant_dashboard = new Merchant_Dashboard();
         merchant_dashboard.addNewButton.click();
+        extentTest.info("Add New buttonuna tiklandi.");
         merchant_dashboard.sizeNameBox.sendKeys(addNameStrFkr);
+        extentTest.info("Name box yeni urunun ismi yazildi.");
         merchant_dashboard.saveButton.click();
+        extentTest.info("Save buttonuna tiklandi.");
         String eklenenName=merchant_dashboard.listIlkName.getText();
         merchant_dashboard.searchSizeBox.sendKeys(addNameStrFkr, Keys.ENTER);
+        extentTest.info("Search box a eklenen urunun ismi yazilip enter a basildi.");
         String arananName=merchant_dashboard.listIlkName.getText();
-        Assert.assertEquals(eklenenName,arananName);
+        softAssert.assertEquals(eklenenName,arananName);
         merchant_dashboard.deleteButtonSizeAll.click();
         ReusableMethods.waitForVisibility(merchant_dashboard.deleteConfirmationButton,2);
         merchant_dashboard.deleteConfirmationButton.click();
-        extentTest.pass("Cooking Reference List sayfasinda search box ta arama basariyla yapildi.");
+        softAssert.assertAll();
+        extentTest.pass("Cooking Referenc List sayfasinda search box ta arama basariyla yapildi.");
     }
-
 }

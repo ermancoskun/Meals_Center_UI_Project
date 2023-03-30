@@ -40,7 +40,7 @@ public class US_023 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void test02(){
 
         merchant_dashboard=new Merchant_Dashboard();
@@ -117,7 +117,7 @@ public class US_023 extends TestBaseRapor {
     }
 
 
-    @Test
+    @Test(groups = "smoke")
     public void test03(){
 
         merchant_dashboard=new Merchant_Dashboard();
@@ -159,7 +159,7 @@ public class US_023 extends TestBaseRapor {
         assertTrue(merchant_dashboard.PopularItems.isDisplayed());
 
         extentTest.pass("PopularItems grafiğinin görünür olduğu test edildi.");
-
+///asdfghj
 
 
 
