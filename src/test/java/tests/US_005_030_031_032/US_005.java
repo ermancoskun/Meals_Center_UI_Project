@@ -29,21 +29,21 @@ public class US_005 extends TestBaseRapor {
 
     @Test (groups = "smoke")
     public void tc00502_loginTestDogruMailYanlisPassword(){
-        extentTest=extentReports.createTest("Dogru Mail, Yanlis Password testi","Login olunmamali");
+        extentTest=extentReports.createTest("Correct Mail, Wrong Password test","Should not be logged in");
         userHomepage=new User_Homepage();
         ReusableMethods.goTouserHomePage();
-        extentTest.info("Homepage acildi");
+        extentTest.info("Homepage opened");
         userHomepage.signInButton.click();
-        extentTest.info("Sign in linkine tıklandı");
+        extentTest.info("Sign in link clicked");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameEmailVht"));
-        extentTest.info("Dogru mail girildi.");
+        extentTest.info("Correct mail entered.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("yanlisPasswordUserVht"));
-        extentTest.info("Yanlis password girildi.");
+        extentTest.info("Wrong password entered.");
         userHomepage.loginSigninButton.click();
-        extentTest.info("Signin buttonuna tiklandi.");
+        extentTest.info("Sign in button clicked.");
         ReusableMethods.waitForVisibility(userHomepage.loginOlunamadiUyarisi,2);
         Assert.assertTrue(userHomepage.loginOlunamadiUyarisi.isDisplayed());
-        extentTest.pass("Test basarili, login olunmadi.");
+        extentTest.pass("Test successful, not logged in.");
     }
 
     @Test
@@ -53,13 +53,13 @@ public class US_005 extends TestBaseRapor {
         ReusableMethods.goTouserHomePage();
         extentTest.info("Homepage acildi");
         userHomepage.signInButton.click();
-        extentTest.info("Sign in linkine tıklandı");
+        extentTest.info("Sign in link clicked");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("yanlisUsernameEmailVht"));
         extentTest.info("Yanlis mail girildi.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
         extentTest.info("Dogru password girildi.");
         userHomepage.loginSigninButton.click();
-        extentTest.info("Signin buttonuna tiklandi.");
+        extentTest.info("Sign in button clicked.");
         ReusableMethods.waitForVisibility(userHomepage.loginOlunamadiUyarisi,2);
         Assert.assertTrue(userHomepage.loginOlunamadiUyarisi.isDisplayed());
         extentTest.pass("Test basarili, login olunmadi.");
@@ -67,21 +67,21 @@ public class US_005 extends TestBaseRapor {
 
     @Test (groups = "smoke")
     public void tc00504_loginTestDogruMailDogruPassword(){
-        extentTest=extentReports.createTest("Dogru Mail, Dogru Password testi","Login olunmali");
+        extentTest=extentReports.createTest("Correct Mail, Correct Password test","Must be logged in");
         userHomepage=new User_Homepage();
         ReusableMethods.goTouserHomePage();
-        extentTest.info("Homepage acildi");
+        extentTest.info("Homepage opened");
         userHomepage.signInButton.click();
         extentTest.info("Sign in linkine tıklandı");
         userHomepage.usernameBox.sendKeys(ConfigReader.getProperty("usernameEmailVht"));
-        extentTest.info("Dogru mail girildi.");
+        extentTest.info("Correct mail entered.");
         userHomepage.passwordBox.sendKeys(ConfigReader.getProperty("passwordUserVht"));
-        extentTest.info("Dogru password girildi.");
+        extentTest.info("Correct password entered.");
         userHomepage.loginSigninButton.click();
         extentTest.info("Signin buttonuna tiklandi.");
         ReusableMethods.waitForVisibility(userHomepage.loginOlunduSimgesi,2);
         Assert.assertTrue(userHomepage.loginOlunduSimgesi.isDisplayed());
-        extentTest.pass("Test basarili, login olundu.");
+        extentTest.pass("Test successful, logged in.");
     }
 
     @Test
