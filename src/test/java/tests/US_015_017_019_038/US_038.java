@@ -105,39 +105,43 @@ public class US_038 extends TestBaseRapor {
         JSUtilities.scrollToBottom(Driver.getDriver());
         extentTest.info("Went to the end of the page");
         ReusableMethods.wait(1);
-        admin.lastPageButton.click();
+        admin.lastPageButton1.click();
         ReusableMethods.wait(1);
+        admin.lastPageButton2.click();
+        ReusableMethods.wait(0.1);
         String dateStringLast7Last = admin.last7daysDate2.getText().replaceAll("\\D","");
         String sonOrderIlkIkiRakam = dateStringLast7Last.substring(0,2);
         softAssert.assertEquals((Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1),7);
         extentTest.info("Verified that the orders are sorts from the last 7 days");
-        System.out.println(ilkIkiRakam); //29
-        System.out.println(sonOrderIlkIkiRakam);  //29
+        System.out.println(ilkIkiRakam); //30
+        System.out.println(sonOrderIlkIkiRakam);  //24
 
         JSUtilities.scrollToTop(Driver.getDriver());
-        //- Back to the top of the page
+        extentTest.info("Back to the top of the page");
         ReusableMethods.wait(2);
         admin.dateSearchBox.click();
         extentTest.info("Clicked on the date box");
         admin.last30days.click();
-        //-  Clicked on last 30 days from the drop-down menu
+        extentTest.info("Clicked on last 30 days from the drop-down menu");
         String dateStringLast30First = admin.last30daysDate1.getText().replaceAll("\\D","");
         ilkIkiRakam = dateStringLast30First.substring(0, 2);
-        ReusableMethods.wait(2);
+        ReusableMethods.wait(1);
         JSUtilities.scrollToBottom(Driver.getDriver());
-        //- Went to the end of the page
+        extentTest.info("Went to the end of the page");
         ReusableMethods.wait(1);
-        admin.lastPageButton.click();
+        admin.lastPageButton1.click();
         ReusableMethods.wait(1);
-        // son sayfaya gitmek için butona basıldı
+        admin.lastPageButton2.click();
+        ReusableMethods.wait(1);
+        extentTest.info("Button pressed to go to last page");
         String dateStringLast30Last = admin.last30daysDate2.getText().replaceAll("\\D","");
         sonOrderIlkIkiRakam = dateStringLast30Last.substring(0,2);
         softAssert.assertEquals(Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1,18);
         // burdaki 18, cuma günü 20 olmalı
-        //extentTest.info("Verified that the orders are sorts from the last 30 days");
-       // extentTest.pass("Admin can filter by a certain date range");
-        System.out.println(ilkIkiRakam); // 23
-        System.out.println(sonOrderIlkIkiRakam); // 29
+        extentTest.info("Verified that the orders are sorts from the last 30 days");
+        extentTest.pass("Admin can filter by a certain date range");
+        System.out.println(ilkIkiRakam); // 24
+        System.out.println(sonOrderIlkIkiRakam); // 16
 
         softAssert.assertAll();
 
