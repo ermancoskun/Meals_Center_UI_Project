@@ -1,8 +1,7 @@
-package tests.US_012_013_021_039_duygu;
+package tests.US_012_013_021_039;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
@@ -13,19 +12,19 @@ import utilities.TestBaseRapor;
 
 import java.util.List;
 
-public class US_012_cuisine extends TestBaseRapor {
+public class US_012 extends TestBaseRapor {
 
     User_Homepage homepage=new User_Homepage();
     SoftAssert softAssert=new SoftAssert();
 
     @Test
-    public void tc_1201_farkliYerelCuisineTesti() {
+    public void tc_1201() {
         softAssert=new SoftAssert();
 
         extentTest = extentReports.createTest("TC_1201",
                        "Sayfada farklı yerel mutfaklara ait restauranlar olmalı");
 
-
+        beforeMethod();
         extentTest.info("Before method ile tarayici acilir, login olunur, adres girilir, restaurants sayfasina gidilir.");
 
 
@@ -50,11 +49,10 @@ public class US_012_cuisine extends TestBaseRapor {
 
         extentTest.pass("Kullanici anasayfasinda farklı yerel mutfaklara ait restaurantlar mevcut");
         softAssert.assertAll();
-
     }
 
     @Test
-    public void tc_1202_cuisineFiltrelemeCheckBoxTesti() {
+    public void tc_1202() {
         homepage=new User_Homepage();
         softAssert=new SoftAssert();
 
@@ -62,6 +60,7 @@ public class US_012_cuisine extends TestBaseRapor {
                 "Sayfada farklı yerel mutfaklara ait restauranlar olmalı" +
                         "Kullanici anasayfasinda farklı yerel mutfaklari getiren filtreleme kutularının calismasi ve doğru sonuç getirmesi");
 
+        beforeMethod();
         extentTest.info("Before method ile tarayici acilir, login olunur, adres girilir, restaurants sayfasina gidilir.");
 
         homepage.cuisinesShowMoreButton.click();
@@ -93,16 +92,8 @@ public class US_012_cuisine extends TestBaseRapor {
 
         extentTest.fail("Burger checkbox'i aktif değil");
         softAssert.assertAll();
-
-        //Tarayici kapatılır.
-        //try {
-        //    softAssert.assertAll();
-        //} finally {
-        //    Driver.closeDriver();
-        //}
-
     }
-    @BeforeMethod
+
     public void beforeMethod(){
         homepage=new User_Homepage();
 
@@ -121,6 +112,5 @@ public class US_012_cuisine extends TestBaseRapor {
 
         // Ilk satırdakı 10001 posta koduna tıklanır.
         homepage.adres10001.click();
-
     }
 }
