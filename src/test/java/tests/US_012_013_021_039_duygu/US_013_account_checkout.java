@@ -134,6 +134,7 @@ public class US_013_account_checkout extends TestBaseRapor {
         extentTest = extentReports.createTest("TC_1303",
                 "Sepetteki urunu dogrulama testi");
 
+
         extentTest.info("Before method ile tarayici acilir, Url'e gidilir, login olunur.");
         //
         homepage.umiSakeHouseRestaurantButton.click();
