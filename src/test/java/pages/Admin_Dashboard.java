@@ -190,8 +190,6 @@ public class Admin_Dashboard {
     // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
-
-
     @FindBy(xpath = "//a[text()='Earnings']")
     public WebElement dasboardEarningsMenusu;
     @FindBy(xpath = "//a[text()='Merchant Earnings']")
@@ -208,8 +206,6 @@ public class Admin_Dashboard {
     public WebElement merchantDetayBilgisiYazisi;
     @FindBy(xpath = "//input[@type='search']")
     public WebElement merchantEarningsSearchbox;
-
-
     @FindBy(xpath = "//li[@class='promo']")
     public WebElement promoMenu;
     @FindBy(xpath = "//li/a[text()='Coupon']")
@@ -243,6 +239,9 @@ public class Admin_Dashboard {
     public List<WebElement> couponNameList;
     @FindBy(xpath ="//i[@class='zmdi zmdi-search']")
     public WebElement couponSearchButton;
-
+    @FindBy(xpath = "(//a[@class='page-link'])[5]")
+    public WebElement merchantEarningListNextButonu;
+    @FindBy(xpath = "(//h5[@class=\"m-0\"])[2]")
+    public WebElement merchantEarningTotalBalanceMiktari;
 
 }
