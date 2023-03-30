@@ -565,4 +565,8 @@ public User_Homepage(){
     // homepage > first read button
     @FindBy (xpath = "(//a[@class='btn btn-link readButton'])[1]")
     public WebElement firstReadButton;
+
+    // homepage > end of the page > mealscenter.com
+    @FindBy (partialLinkText = "mealscenter.com")
+    public WebElement mealscentercom;
 }
