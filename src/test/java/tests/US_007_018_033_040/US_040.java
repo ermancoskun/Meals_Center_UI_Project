@@ -13,10 +13,9 @@ import pages.Admin_Dashboard;
 import utilities.*;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class US_040  {
+public class US_040 extends TestBaseRapor  {
     Admin_Dashboard ad;
     Actions actions ;
     @Test
@@ -107,7 +106,7 @@ public class US_040  {
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertTrue(actualCouponName.contains(expectedCouponName));
         softAssert.assertAll();
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
     @Test
     public void couponSortingTestByName(){
@@ -116,25 +115,78 @@ public class US_040  {
         ad=new Admin_Dashboard();
         ad.promoMenu.click();
         ad.couponLink.click();
+        List<WebElement> couponNameList=Driver.getDriver().findElements(By.xpath("//tbody/tr/td/h6"));
+        List<String> couponNameListString=new ArrayList<>();
+        String couponName;
+        for (WebElement each:couponNameList
+             ) {
+            if (each.getText().contains("Publish")){
+              couponName= each.getText().substring(0,each.getText().indexOf("Publish"));
+                couponNameListString.add(couponName);
+            } else if (each.getText().contains("Pending for review")) {
+                couponName=each.getText().substring(0,each.getText().indexOf("Pending for review"));
+                couponNameListString.add(couponName);
+            } else if (each.getText().contains("Draft")) {
+                couponName=each.getText().substring(0,each.getText().indexOf("Draft"));
+                couponNameListString.add(couponName);
+            }
+        }
+        /*
+        for (int i = 0; i <couponNameListString.size() ; i++) {
+            System.out.println(couponNameListString.get(i));
+        }
 
+         */
 
+        WebElement nameSortButton=Driver.getDriver().findElement(By.xpath("//tr/th[2]"));
+        nameSortButton.click();
+        ReusableMethods.wait(3);
+        List<WebElement> couponNameListSiralama=Driver.getDriver().findElements(By.xpath("//tbody/tr/td/h6"));
+        List<String> siralanmisList=new ArrayList<>();
+        for (WebElement each:couponNameListSiralama
+        ) {
+            if (each.getText().contains("Publish")){
+                couponName= each.getText().substring(0,each.getText().indexOf("Publish"));
+                siralanmisList.add(couponName);
+            } else if (each.getText().contains("Pending for review")) {
+                couponName=each.getText().substring(0,each.getText().indexOf("Pending for review"));
+                siralanmisList.add(couponName);
+            } else if (each.getText().contains("Draft")) {
+                couponName=each.getText().substring(0,each.getText().indexOf("Draft"));
+                siralanmisList.add(couponName);
+            }
+        }
+        /*for (int i = 0; i <siralanmisList.size() ; i++) {
+            System.out.println(siralanmisList.get(i));
+        }
 
-
+         */
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertFalse(couponNameListString.equals(siralanmisList));
+        softAssert.assertAll();
 
     }
     @Test
     public void couponSearchTest(){
+        extentTest=extentReports.createTest("coupon Search Test","Search by typing the coupon name into the search box.");
         ReusableMethods.goToAdminHomePage();
         ReusableMethods.adminLogin(ConfigReader.getProperty("betulAdminName"),ConfigReader.getProperty("betulAdminPassword"));
+        extentTest.info("The user logs in as the site administrator.");
         ad=new Admin_Dashboard();
         ad.promoMenu.click();
+        extentTest.info("Click on the promotion button under the dashboard.");
         ad.couponLink.click();
+        extentTest.info("Click on the coupon menu.");
         List<WebElement> couponNameList=ad.couponNameList;
         String couponNameToSearch=couponNameList.get(3).getText();
         int boslukIndex=couponNameToSearch.indexOf(" ");
         couponNameToSearch=couponNameToSearch.substring(0,boslukIndex);
         System.out.println(couponNameToSearch);
         ad.searchBox.sendKeys(couponNameToSearch);
+        extentTest.info("The name of the 3rd place coupons is written in the search box.");
         ad.couponSearchButton.click();
+        extentTest.info("hits the search button");
+        extentTest.info("The site did not give any response.");
+        extentTest.fail("Could not search by typing coupon name.");
     }
 }

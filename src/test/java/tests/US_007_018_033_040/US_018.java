@@ -114,7 +114,7 @@ public class US_018 extends TestBaseRapor {
         //11)Acilan menuden Saved Stores linkine tiklar
         //12)Acilan sayfada begenilen restoranin cıktıgını dogrular.
         //13)sayfayi kapatir.
-        extentTest=extentReports.createTest("add Favorite Restaurant Test");
+        extentTest=extentReports.createTest("add Favorite Restaurant Test","should be able to see the registered restaurants on the page.");
         ReusableMethods.goTouserHomePage();
         ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
         extentTest.info("I went to the main page and logged in with the user information.");
