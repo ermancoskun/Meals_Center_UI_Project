@@ -174,7 +174,7 @@ public class US_013 extends TestBaseRapor {
         checkoutPage=new User_CheckoutPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("TC_1304",
+        extentTest = extentReports.createTest("Order test with invalid address.",
                 "Order test with invalid address valid payment information");
         //
         beforeMethod();
@@ -302,7 +302,7 @@ public class US_013 extends TestBaseRapor {
         checkoutPage=new User_CheckoutPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("TC_1306",
+        extentTest = extentReports.createTest("Order with valid address and payment information",
                 "Order test with valid payment and valid address information.");
         //
         beforeMethod();
@@ -324,6 +324,7 @@ public class US_013 extends TestBaseRapor {
         gecerliOdemeBilgileriGirmeMethodu();
         extentTest.info("Enter the current payment information.");
         //
+        ReusableMethods.wait(2);
         checkoutPage.placeOrderButton.click();
         extentTest.info("Click on the 'place order' button to confirm the order.");
         //
@@ -407,7 +408,7 @@ public class US_013 extends TestBaseRapor {
         ReusableMethods.wait(0.5);
         checkoutPage.deliveryAdress.click();
         JSUtilities.scrollToElement(Driver.getDriver(),checkoutPage.deliveryAdressEditButton);
-        ReusableMethods.wait(0.5);
+        ReusableMethods.wait(1);
         checkoutPage.deliveryAdressApartmentFloorBox.clear();
         checkoutPage.deliveryAdressApartmentFloorBox.sendKeys(ConfigReader.getProperty("GecerliAdres"));
         checkoutPage.deliveryAdressSaveButton.click();
