@@ -546,6 +546,13 @@ public User_Homepage(){
     @FindBy (xpath = "//i[@class='zmdi zmdi-eye']")
     public WebElement passworgGosterButton;
 
+    // homepage >footer/privacy policy
+    @FindBy(xpath = "//*[text()='Privacy policy']")
+    public WebElement privacypolicy;
+
+    @FindBy(xpath = "//div[@class='text-center mb-4']")
+    public WebElement privacypolicydogrulama;
+
     // homepage > popularnearby
     @FindBy (xpath = "(//h5[@class='m-0 section-title'])[1]")
     public WebElement popularNearBy;
