@@ -136,7 +136,7 @@ public class US_017 extends TestBaseRapor {
         List<WebElement> paymentList = userHomepage.paymentMethods;
         for (WebElement eachPayment : paymentList
         ) {
-            softAssert.assertTrue(eachPayment.isDisplayed());
+            softAssert.assertTrue(eachPayment.isDisplayed(),"Kayıtlı ödeme yöntemi silinmedi");
         }
         extentTest.fail("Kayıtlı ödeme yönteminin silinemediği doğrulandı");
         softAssert.assertAll();
@@ -158,7 +158,7 @@ public class US_017 extends TestBaseRapor {
         extentTest.info("Açılan sayfada kullanıcı adının üzerine tıklandı");
         userHomepage.paymentSection.click();
         extentTest.info("Açılan menüden “Payments option” yazısına tıklandı");
-        softAssert.assertTrue(userHomepage.editPaymentButton.isDisplayed()); ///***********
+        softAssert.assertTrue(userHomepage.editPaymentButton.isDisplayed()); ///*******sonuc true olmamalıydı
         extentTest.info("Kayıtlı ödeme yönteminin üzerindeki edit butonuna tıklanamadı");
         extentTest.fail("Ödeme yönteminin düzenlenemediği doğrulandı");
         softAssert.assertAll();
