@@ -113,8 +113,8 @@ public class US_038 extends TestBaseRapor {
         String sonOrderIlkIkiRakam = dateStringLast7Last.substring(0,2);
         softAssert.assertEquals((Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1),7);
         extentTest.info("Verified that the orders are sorts from the last 7 days");
-        System.out.println(ilkIkiRakam); //30
-        System.out.println(sonOrderIlkIkiRakam);  //24
+        System.out.println(ilkIkiRakam); //31
+        System.out.println(sonOrderIlkIkiRakam);  //25
 
         JSUtilities.scrollToTop(Driver.getDriver());
         extentTest.info("Back to the top of the page");
@@ -125,7 +125,7 @@ public class US_038 extends TestBaseRapor {
         extentTest.info("Clicked on last 30 days from the drop-down menu");
         String dateStringLast30First = admin.last30daysDate1.getText().replaceAll("\\D","");
         ilkIkiRakam = dateStringLast30First.substring(0, 2);
-        ReusableMethods.wait(1);
+        ReusableMethods.wait(2);
         JSUtilities.scrollToBottom(Driver.getDriver());
         extentTest.info("Went to the end of the page");
         ReusableMethods.wait(1);
@@ -134,14 +134,14 @@ public class US_038 extends TestBaseRapor {
         admin.lastPageButton2.click();
         ReusableMethods.wait(1);
         extentTest.info("Button pressed to go to last page");
+        ReusableMethods.wait(1);
         String dateStringLast30Last = admin.last30daysDate2.getText().replaceAll("\\D","");
         sonOrderIlkIkiRakam = dateStringLast30Last.substring(0,2);
-        softAssert.assertEquals(Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1,18);
-        // burdaki 18, cuma günü 20 olmalı
+        softAssert.assertEquals(Integer.parseInt(ilkIkiRakam)-Integer.parseInt(sonOrderIlkIkiRakam)+1,30);
         extentTest.info("Verified that the orders are sorts from the last 30 days");
         extentTest.pass("Admin can filter by a certain date range");
-        System.out.println(ilkIkiRakam); // 24
-        System.out.println(sonOrderIlkIkiRakam); // 16
+        System.out.println(ilkIkiRakam); //31***
+        System.out.println(sonOrderIlkIkiRakam); //13
 
         softAssert.assertAll();
 
