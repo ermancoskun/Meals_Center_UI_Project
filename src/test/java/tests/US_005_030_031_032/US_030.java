@@ -170,7 +170,7 @@ public class US_030 extends TestBaseRapor {
 
     @Test(groups = "smoke")
     public void tc03007_assignDriverButton() {
-        extentTest = extentReports.createTest("Reject button test",
+        extentTest = extentReports.createTest("Assign Driver button test",
                 "The added product must be rejected by the merchant");
         merchant_dashboard = new Merchant_Dashboard();
         softAssert=new SoftAssert();
