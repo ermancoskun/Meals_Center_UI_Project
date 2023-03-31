@@ -30,49 +30,54 @@ public class US_019 extends TestBaseRapor {
         return userList;
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void merchantTest01() {
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Restoran sahibinin Merchant panele erişebilmesi testi");
+        extentTest=extentReports.createTest("Test that the restaurant owner can access the Merchant panel");
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        extentTest.info("Navigated to Merchant login page");
+        ReusableMethods.wait(0.1);
         softAssert.assertTrue(merchant.loginImage.isDisplayed());
-        extentTest.info("Açılan sayfadaki resmin görünür olduğu doğrulandı");
+        extentTest.info("Verified that the image is visible on the landing page");
         softAssert.assertTrue(merchant.textMerchantLogin.isDisplayed());
-        extentTest.info("Merchant login yazısının görünürlüğü doğrulandı");
+        extentTest.info("Verified visibility of merchant login text");
         softAssert.assertTrue(merchant.amblem.isDisplayed());
-        extentTest.info("Meals center logosunun görünür olduğu doğrulandı");
+        extentTest.info("Meals centre logo confirmed to be visible");
         softAssert.assertTrue(merchant.usernameBox.isEnabled());
-        extentTest.info("Username kutusunun erişilebilir olduğu doğrulandı");
+        extentTest.info("Verified that the Username box is accessible");
         softAssert.assertTrue(merchant.passwordBox.isEnabled());
-        extentTest.info("Password kutusunun erişilebilir olduğu doğrulandı");
+        extentTest.info("Verified that the Password box is accessible");
         softAssert.assertTrue(merchant.rememberMeKutucuk.isEnabled());
-        extentTest.info("Remember me yazısının yanındaki kutucuğun tıklanabilir olduğu doğrulandı");
+        extentTest.info("Confirmed that the box next to Remember me is clickable");
         softAssert.assertTrue(merchant.playStoreLink.isDisplayed());
-        extentTest.info("Application download (play store) butonunun görünürlüğü doğrulandı");
+        extentTest.info("Visibility of Application download (play store) button verified");
         softAssert.assertTrue(merchant.appStoreLink.isDisplayed());
-        extentTest.info("Application download (app store) butonunun görünürlüğü doğrulandı");
-        extentTest.pass("Restoran sahibinin Merchant panele erişebildiği doğrulandı");
+        extentTest.info("Visibility of Application download (app store) button verified");
+        extentTest.pass("Confirmed that the restaurant owner has access to the Merchant dashboard");
         softAssert.assertAll();
     }
 
-    @Test (dataProvider = "users")
+    @Test (groups = "smoke", dataProvider = "users")
     public void merchantTest02(String user,String password) {
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Restoran sahibinin Merchant panele geçersiz bilgilerle giriş yapamaması testi");
-        extentTest.info("Merchant giriş sayfasına gidildi");
+        extentTest=extentReports.createTest("Test that the restaurant owner cannot log in to the Merchant dashboard with invalid information");
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        extentTest.info("Navigated to Merchant login page");
+        ReusableMethods.wait(0.1);
         merchant.usernameBox.sendKeys(user + Keys.TAB);
-        //extentTest.info("Username kutusuna geçersiz username yazıldı");
+        //extentTest.info("Invalid username typed in username box");
         merchant.passwordBox.sendKeys(password + Keys.ENTER);
-        //extentTest.info("Password kutusuna geçersiz password yazıldı ve Sign in butonuna basıldı");
+        //extentTest.info("Invalid password was typed in the Password box and Sign in button was pressed");
         softAssert.assertTrue(merchant.requiredText.isDisplayed());
-        extentTest.info("Kutucukların altında 'değer girilmelidir' yazısı göründü");
+        extentTest.info("'Value must be entered' appeared under the tiles");
         softAssert.assertTrue(merchant.incorrectText.isDisplayed());
-        extentTest.info("Kutucukların altında 'yanlış kullanıcı adı ya da şifre' yazısı göründü");
+        extentTest.info("'Incorrect username or password' appeared under the tiles");
         String actualUrl = ConfigReader.getProperty("merchantUrl");
         String expectedUrl = Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualUrl,expectedUrl);
-        extentTest.pass("Geçersiz bilgilerle giriş yapılamadığı doğrulandı");
+        extentTest.pass("Verified inability to log in with invalid information");
         softAssert.assertAll();
 
     }
@@ -98,7 +103,7 @@ public class US_019 extends TestBaseRapor {
         softAssert.assertAll();
     }
 
-    @BeforeMethod
+   /* @BeforeMethod
     public void before(){
         merchant=new Merchant_Dashboard();
         softAssert = new SoftAssert();
@@ -106,7 +111,7 @@ public class US_019 extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
         extentTest.info("Navigated to Merchant login page");
 
-    }
+    }*/
 
     @AfterMethod
     public void tearDown(){

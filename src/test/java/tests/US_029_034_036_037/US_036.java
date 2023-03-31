@@ -1,7 +1,5 @@
 package tests.US_029_034_036_037;
 
-import org.checkerframework.checker.index.qual.EnsuresLTLengthOfIf;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +9,6 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class US_036 extends TestBaseRapor {

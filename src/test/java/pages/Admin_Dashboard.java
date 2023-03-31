@@ -149,14 +149,13 @@ public class Admin_Dashboard {
     // admin login > orders > all order > tarih filtreleme kutusu > Last 7 days
     @FindBy(xpath = "//li[text()='Last 7 Days']")
     public WebElement last7days;
-    //li[@class='active']
 
     // admin login > orders > all order > tarih filtreleme kutusu > last 7 days > ilk siparişin tarihi
     @FindBy(xpath = "(//p[@class='dim m-0'])[4]")
     public WebElement last7daysDate1;
 
     // admin login > orders > all order > tarih filtreleme kutusu > last 7 days > son siparişin tarihi
-    @FindBy(xpath = "(//p[@class='dim m-0'])[36]")
+    @FindBy(xpath = "(//p[@class='dim m-0'])[40]")
     public WebElement last7daysDate2;
 
     //  admin login > orders > all order > tarih filtreleme kutusu > last 7 days > son sayfa linki
@@ -165,7 +164,11 @@ public class Admin_Dashboard {
 
     //  admin login > orders > all order > tarih filtreleme kutusu > last 30 days > son sayfa linki
     @FindBy(xpath = "(//li[@class='paginate_button page-item '])[5]")
-    public WebElement lastPageButton;
+    public WebElement lastPageButton1;
+
+    //  admin login > orders > all order > tarih filtreleme kutusu > last 30 days > son sayfadan bir önceki sayfa linki
+    @FindBy(xpath = "(//li[@class='paginate_button page-item '])[5]")
+    public WebElement lastPageButton2;
 
     // admin login > orders > all order > tarih filtreleme kutusu > Last 30 days
     @FindBy(xpath = "//li[text()='Last 30 Days']")
@@ -176,7 +179,7 @@ public class Admin_Dashboard {
     public WebElement last30daysDate1;
 
     // admin login > orders > all order > tarih filtreleme kutusu > last 30 days > son siparişin tarihi
-    @FindBy(xpath = "(//p[@class='dim m-0'])[20]")
+    @FindBy(xpath = "(//p[@class='dim m-0'])[40]")
     public WebElement last30daysDate2;
 
     // admin login > orders > all order > siparişin yanındaki göz imgesi
@@ -190,8 +193,6 @@ public class Admin_Dashboard {
     // admin  login > orders > all order > siparişin yanındaki göz imgesi > summary başlığı
     @FindBy(xpath = "//h5[text()='Summary']")
     public WebElement summary;
-
-
     @FindBy(xpath = "//a[text()='Earnings']")
     public WebElement dasboardEarningsMenusu;
     @FindBy(xpath = "//a[text()='Merchant Earnings']")
@@ -208,8 +209,6 @@ public class Admin_Dashboard {
     public WebElement merchantDetayBilgisiYazisi;
     @FindBy(xpath = "//input[@type='search']")
     public WebElement merchantEarningsSearchbox;
-
-
     @FindBy(xpath = "//li[@class='promo']")
     public WebElement promoMenu;
     @FindBy(xpath = "//li/a[text()='Coupon']")
@@ -243,6 +242,9 @@ public class Admin_Dashboard {
     public List<WebElement> couponNameList;
     @FindBy(xpath ="//i[@class='zmdi zmdi-search']")
     public WebElement couponSearchButton;
-
+    @FindBy(xpath = "(//a[@class='page-link'])[5]")
+    public WebElement merchantEarningListNextButonu;
+    @FindBy(xpath = "(//h5[@class=\"m-0\"])[2]")
+    public WebElement merchantEarningTotalBalanceMiktari;
 
 }

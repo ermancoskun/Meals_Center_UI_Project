@@ -1,6 +1,5 @@
 package tests.US_001_002_003_004;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.User_Homepage;
