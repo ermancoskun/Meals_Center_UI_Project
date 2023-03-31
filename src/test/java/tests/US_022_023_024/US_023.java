@@ -1,6 +1,7 @@
 package tests.US_022_023_024;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
@@ -13,9 +14,16 @@ public class US_023 extends TestBaseRapor {
 
 
 
+
+    SoftAssert softAssert=new SoftAssert();
+
+
+
     @Test
     public void test01(){
         merchant_dashboard=new Merchant_Dashboard();
+
+        softAssert=new SoftAssert();
 
         //-Tarayıcı açılır.
         //
@@ -24,15 +32,17 @@ public class US_023 extends TestBaseRapor {
         //- Soldaki panelde Dashboard yazısının seçili olduğu doğrulanır.
         //- Tarayıcı kapatılır.
 
-        extentTest=extentReports.createTest("profilegitme","profilegitme2");
+        extentTest=extentReports.createTest("profilegitme","go to profile2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
-        assertTrue(merchant_dashboard.Dashboardyazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.Dashboardyazısı.isDisplayed());
 
-        extentTest.pass("Dashboard panelinde olduğum doğrulandı.");
+        extentTest.pass("Confirmed that I am in the Dashboard panel.\n");
+
+        softAssert.assertAll();
 
 
 
@@ -40,10 +50,12 @@ public class US_023 extends TestBaseRapor {
 
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void test02(){
 
         merchant_dashboard=new Merchant_Dashboard();
+
+        softAssert=new SoftAssert();
 
         //-Tarayıcı açılır.
         //
@@ -63,64 +75,66 @@ public class US_023 extends TestBaseRapor {
         //- Today refund yazısının ve değerinin görünür olduğu doğrulanır.
         //- Tarayıcı kapatılır.
 
-        extentTest=extentReports.createTest("bilgilerimingözükmesi","bilgilerimingözükmesi2");
+        extentTest=extentReports.createTest("disintegration of your information\n","disintegration of your information\n2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.\n");
 
-        assertTrue(merchant_dashboard.TotalOrders.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TotalOrders.isDisplayed());
 
-        extentTest.pass("Total Orders bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that Total Orders information is visible.\n");
 
-        assertTrue(merchant_dashboard.TotalCancel.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TotalCancel.isDisplayed());
 
-        extentTest.pass("Total Cancel bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that Total Cancel information is visible.\n");
 
-        assertTrue(merchant_dashboard.TotalRefund.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TotalRefund.isDisplayed());
 
-        extentTest.pass("Total Refund bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that Total Refund information is visible.\n");
 
-        assertTrue(merchant_dashboard.TotalSales.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TotalSales.isDisplayed());
 
-        extentTest.pass("Total Sales bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that Total Sales information is visible.\n");
 
-        assertTrue(merchant_dashboard.SalesThisWeek.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.SalesThisWeek.isDisplayed());
 
-        extentTest.pass("SalesThisWeek bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that SalesThisWeek information is visible.\n");
 
-        assertTrue(merchant_dashboard.EarningThisWeek.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.EarningThisWeek.isDisplayed());
 
-        extentTest.pass("EarningThisWeek bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that EarningThisWeek information is visible.\n");
 
-        assertTrue(merchant_dashboard.YourBalance.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.YourBalance.isDisplayed());
 
-        extentTest.pass("YourBalance bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that YourBalance information is visible.\n");
 
-        assertTrue(merchant_dashboard.OrderReceived.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.OrderReceived.isDisplayed());
 
-        extentTest.pass("OrderReceived bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the OrderReceived information is visible.\n");
 
-        assertTrue(merchant_dashboard.TodayDelivered.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TodayDelivered.isDisplayed());
 
-        extentTest.pass("TodayDelivered bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that TodayDelivered information is visible.\n");
 
-        assertTrue(merchant_dashboard.TodaySales.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TodaySales.isDisplayed());
 
-        extentTest.pass("TodaySales bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that TodaySales information is visible.");
 
-        assertTrue(merchant_dashboard.TotalRefund.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TotalRefund.isDisplayed());
 
-        extentTest.pass("TodayRefund bilgisinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that TodayRefund information is visible.\n");
 
-
+    softAssert.assertAll();
     }
 
 
-    @Test
+    @Test(groups = "smoke")
     public void test03(){
 
         merchant_dashboard=new Merchant_Dashboard();
+
+        softAssert=new SoftAssert();
         //-Tarayıcı açılır.
         //
         //-"https://qa.mealscenter.com/backoffice/merchant/dashboard" adresine gidilir.
@@ -134,32 +148,34 @@ public class US_023 extends TestBaseRapor {
         //-Popular items grafiğinin görünür olduğu doğrulanır.
         //- Tarayıcı kapatılır.
 
-        extentTest=extentReports.createTest("grafikleringözükmesi","grafikleringözükmesi2");
+        extentTest=extentReports.createTest("graphics show up","graphics show up2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
-        assertTrue(merchant_dashboard.SalesOverview.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.SalesOverview.isDisplayed());
 
-        extentTest.pass("SalesOverview grafiğinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the SalesOverview chart is visible.");
 
-        assertTrue(merchant_dashboard.OverviewOfReview.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.OverviewOfReview.isDisplayed());
 
-        extentTest.pass("OverviewOfReview grafiğinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the OverviewOfReview graphic is visible.");
 
-        assertTrue(merchant_dashboard.TopCustomers.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.TopCustomers.isDisplayed());
 
-        extentTest.pass("TopCustomers grafiğinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the TopCustomers graph is visible.");
 
-        assertTrue(merchant_dashboard.LastOrders.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.LastOrders.isDisplayed());
 
-        extentTest.pass("LastOrders grafiğinin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the LastOrders graph is visible.");
 
-        assertTrue(merchant_dashboard.PopularItems.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.PopularItems.isDisplayed());
 
-        extentTest.pass("PopularItems grafiğinin görünür olduğu test edildi.");
-///asdfghj
+        extentTest.pass("Tested that the LastOrders graph is visible.");
+
+        softAssert.assertAll();
+
 
 
 

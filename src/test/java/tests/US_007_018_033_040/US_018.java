@@ -10,77 +10,50 @@ import pages.Admin_Dashboard;
 import pages.Merchant_Dashboard;
 import pages.User_Homepage;
 import pages.User_RestaurantUmiSakeHouse;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.ReusableMethods;
+import utilities.*;
 
 import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class US_018 {
-    Admin_Dashboard ad;
-    Merchant_Dashboard md;
+public class US_018 extends TestBaseRapor {
     User_Homepage uh;
     
     @Test
     public void userSuccessfulLogin(){
         uh=new User_Homepage();
-
-        //1)bir browser aç.
-        //2)"https://qa.mealscenter.com/" url uzerinden 'mealscenter' sitesine gider.
-        //3)Cookies kabul edilir.
-       /* ReusableMethods.goTouserHomePage();
-        //4)Sign in butonuna basar.
-        ud.signInButton.click();
-        WebElement emailbox= Driver.getDriver().findElement(By.xpath("//label[@for='username']"));
-        actions.sendKeys(emailbox,"merden25@gmail.com")
-                .sendKeys(Keys.TAB)
-                .sendKeys("M123456789")
-                .click(Driver.getDriver().findElement(By.xpath("//span[text()='Sign in']"))).perform();
-
-        */
-
-        //5)geccerli emailini email kutusuna yazar.
-
-        //6)gecerli sifresini sifre kutusuna yazar.
-        //7)Sign in butonuna basar.
-        //ReusableMethods.wait(2);
+        extentTest=extentReports.createTest("user Successful Login");
         ReusableMethods.goTouserHomePage();
         ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
-        //8)basarili giris yapıldı yazisinin cıktıgını dogrular.
-        //9)giris yapildıktan sonra kendi isminin sayfanın sag ust kosesinde gorundugunu kontrol eder
+        extentTest.info("I went to the main page and logged in with the user information.");
         ReusableMethods.waitForClickablility(By.xpath("//a[@id='dropdownMenuLink']"),5);
         WebElement userName=Driver.getDriver().findElement(By.xpath("//a[@id='dropdownMenuLink']"));
         assertTrue(userName.isEnabled());
-        //9)sayfayi kapatir
-
-        Driver.closeDriver();
+        extentTest.info("It is verified that the name appears as the user.");
+        extentTest.info("the browser closes.");
+        extentTest.pass("succesfully the user can login.");
     }
     @Test
     public void likeSaveButtonSeenTest(){
         uh=new User_Homepage();
-        //1)bir browser aç
-        //2)"https://qa.mealscenter.com/" url uzerinden 'mealscenter' sitesine gider.
-        //3)Cookies kabul edilir.
-        //4)Sign in butonuna basar.
-        //5)geccerli emailini email kutusuna yazar.
-        //6)gecerli sifresini sifre kutusuna yazar.
-        //7)Sign in butonuna basar.
-        //8)isminin yazdigi acılır menuye tıklar.
-        //9)Saved Stores linkinin gorunur oldugunu dogrular.
-        //10)Saved Sores linkine tıklar Saved Store sayfasina gidildigini test eder.
-        //10)sayfayi kapatir
+        extentTest=extentReports.createTest("like Save Button Seen Test");
+
         ReusableMethods.goTouserHomePage();
         ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
+        extentTest.info("I went to the main page and logged in with the user information.");
         ReusableMethods.waitForClickablility(By.xpath("//a[@id='dropdownMenuLink']"),5);
         uh.nameDropDownMenu.click();
+        extentTest.info("The pop-up menu with the user name is clicked.");
         assertTrue(uh.saveAdStoreLink.isEnabled());
+        extentTest.info("The saved restaourant link is verified to be visible.");
         uh.saveAdStoreLink.click();
+        extentTest.info("the saved restaurant link is clicked.");
         assertTrue(uh.userFavouritesSavedStores.isDisplayed());
-        Driver.closeDriver();
+        extentTest.info("It is verified that the saved restaourant page has been accessed.");
+        extentTest.info("the browser closes.");
+        extentTest.pass("The saved restaurant page has been accessed successfully.");
+
 
     }
     @Test
@@ -121,7 +94,7 @@ public class US_018 {
        String actualTextLikeAfter= ur.savedText.getText();
        String expectedTextLike="Saved";
        assertTrue(actualTextLikeAfter.equals(expectedTextLike));
-       Driver.closeDriver();
+
 
 
     }
@@ -141,21 +114,31 @@ public class US_018 {
         //11)Acilan menuden Saved Stores linkine tiklar
         //12)Acilan sayfada begenilen restoranin cıktıgını dogrular.
         //13)sayfayi kapatir.
+        extentTest=extentReports.createTest("add Favorite Restaurant Test");
         ReusableMethods.goTouserHomePage();
         ReusableMethods.userLoginMethod("duyguUserName","duyguUserPassword");
+        extentTest.info("I went to the main page and logged in with the user information.");
         uh=new User_Homepage();
         uh.adresButton.sendKeys(ConfigReader.getProperty("adres"));
+        extentTest.info("writes an address in the address search box");
         uh.adres10001.click();
+        extentTest.info("The address written is selected from the drop-down menu.");
 
 
        
                 JSUtilities.clickWithJS(Driver.getDriver(),uh.likeButtonList.get(2));
+                extentTest.info("Click on the restaurant like and save button.");
         uh.nameDropDownMenu.click();
+        extentTest.info("The pop-up menu with the user name is clicked.");
         uh.saveAdStoreLink.click();
+        extentTest.info("the saved restaurant link is clicked.");
        String actualFavoriteRestaurant= uh.favoritesRestourantName.getText();
        String expectedFavoriRestaurant=uh.restaurantsNameList.get(0).getText();
        assertTrue(expectedFavoriRestaurant.equals(actualFavoriteRestaurant));
-       Driver.closeDriver();
+       extentTest.info("The saved restaourant is verified to have been added successfully.");
+       extentTest.info("the browser closes.");
+       extentTest.pass("The saved restaourant  have been added successfully.");
+
 
     }
 
@@ -172,6 +155,6 @@ public class US_018 {
         String actualText=uh.dontHaveAnyStores.getText();
         String expectedText="You don't have any save stores here!";
         assertEquals(expectedText,actualText);
-        Driver.closeDriver();
+
     }
 }

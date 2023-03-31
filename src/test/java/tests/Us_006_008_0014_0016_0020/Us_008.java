@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,7 +22,7 @@ public class Us_008 extends TestBaseRapor {
     @BeforeClass
     public static void beforeClass()
     {
-        extentTest=extentReports.createTest("Us_008","Yeni Kullanıcı İle Giris");
+        extentTest=extentReports.createTest("Us_008","Orders And Payment");
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         //Cookie Kabul

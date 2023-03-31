@@ -1,16 +1,10 @@
+
 package tests.US_022_023_024;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
-import pages.User_Homepage;
-import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
@@ -22,9 +16,12 @@ public class US_022 extends TestBaseRapor {
 
     Merchant_Dashboard merchant_dashboard = new Merchant_Dashboard();
 
+    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01() {
+        softAssert=new SoftAssert();
 
         merchant_dashboard = new Merchant_Dashboard();
 
@@ -32,14 +29,16 @@ public class US_022 extends TestBaseRapor {
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
 
-        extentTest.info("Merchant_Dashboard sınıfından obje olusturuldu");
+        extentTest.info("Object created from Merchant_Dashboard class");
 
-        assertTrue(merchant_dashboard.merchantname.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.merchantname.isDisplayed());
 
-        extentTest.pass("ismin görünür olduğu test edildi.");
+        extentTest.pass("Tested that the name is visible.");
+
+        softAssert.assertAll();
 
 
     }
@@ -47,27 +46,31 @@ public class US_022 extends TestBaseRapor {
     @Test
     public void test02() {
 
+        softAssert=new SoftAssert();
 
         merchant_dashboard = new Merchant_Dashboard();
 
         extentTest = extentReports.createTest("nameclickable", "nameclickable2");
 
         ReusableMethods.merchantLogin();
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+
+        extentTest.info("Login with username and password");
 
         ReusableMethods.waitForPageToLoad(5);
 
-        assertTrue(merchant_dashboard.merchantname.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.merchantname.isEnabled());
 
-        extentTest.pass("ismin erişebilirliği test edildi.");
+        extentTest.pass("The accessibility of the name has been tested");
 
         merchant_dashboard.merchantname.click();
 
-        extentTest.info("İsme tıklanır");
+        extentTest.info("Click on name\n");
 
-        assertTrue(merchant_dashboard.profil.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.profil.isDisplayed());
 
-        extentTest.pass("profilin görünürlüğü test edildi.");
+        extentTest.pass("The visibility of the profile has been tested.\n");
+
+        softAssert.assertAll();
 
 
     }
@@ -84,26 +87,30 @@ public class US_022 extends TestBaseRapor {
         //- Tarayıcı kapatılır.
         merchant_dashboard = new Merchant_Dashboard();
 
-        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
+        softAssert=new SoftAssert();
+
+        extentTest = extentReports.createTest("go to profile", "go to profile2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
         merchant_dashboard.merchantname.click();
 
-        extentTest.info("İsme tıklanır");
+        extentTest.info("Click on name");
 
         merchant_dashboard.profil.click();
 
-        extentTest.info("profile tıklanır");
+        extentTest.info("click on profile");
 
         ReusableMethods.waitForPageToLoad(5);
 
 
-        assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.firstnamebox.isDisplayed());
 
-        extentTest.pass("profil menüsüne gittiğim doğrulanır");
+        extentTest.pass("it is verified that i go to profile menu");
+
+        softAssert.assertAll();
 
 
     }
@@ -114,58 +121,60 @@ public class US_022 extends TestBaseRapor {
 
         merchant_dashboard = new Merchant_Dashboard();
 
-        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
+        extentTest = extentReports.createTest("go to profile", "go to profile2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.\n");
 
         merchant_dashboard.merchantname.click();
 
-        extentTest.info("İsme tıklanır");
+        extentTest.info("Click on name\n");
 
         merchant_dashboard.profil.click();
 
-        extentTest.info("profile tıklanır");
+        extentTest.info("click on profile");
 
-        assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.BasicDetailsbox.isDisplayed());
 
-        extentTest.info("BasicDetails boxının görünür olduğu doğrulanır");
+        extentTest.info("Verifies that the BasicDetails box is visible");
 
         ReusableMethods.waitForVisibility(merchant_dashboard.firstnamebox, 3);
 
         merchant_dashboard.firstnamebox.sendKeys("mehmet");
 
-        extentTest.info("Firstname boxına isim yazıldı.");
+        extentTest.info("The name is written in the firstname box.\n");
 
         merchant_dashboard.Lastnamebox.sendKeys("DAĞ");
 
-        extentTest.info("Lastname boxına soyisim yazıldı.");
+        extentTest.info("Lastname is written in the Lastname box.\n");
 
         merchant_dashboard.Emailbox.sendKeys("");
 
-        extentTest.info("Email boxına mail yazıldı.");
+        extentTest.info("An e-mail has been written to the e-mail box");
 
         merchant_dashboard.Contactnumber.sendKeys("1234567");
 
-        extentTest.info("ContactNumber boxına numara yazıldı.");
+        extentTest.info("The number is entered in the ContactNumber box.");
 
         merchant_dashboard.Username.sendKeys("Efsane");
 
-        extentTest.info("Username boxına isim yazıldı.");
+        extentTest.info("The name is written in the Username box.\n");
 
         merchant_dashboard.Savebox1.click();
 
-        extentTest.info("Save boxına tıklanır.");
+        extentTest.info("Click the Save box.");
 
-        assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
+        softAssert.assertTrue(merchant_dashboard.Updateyazısı.isDisplayed());
 
-        extentTest.pass("profilimdeki değişikliğin başarıyla yapıldığı test edildi.");
+        extentTest.pass("Tested that the change to my profile was made successfully.");
+
+        softAssert.assertAll();
 
 
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void test05() {
         //-Change Password butonuna tıkladığımda ilgili sayfaya gittiğim doğrulanır.
         //-Old Password boxının görünür  ve clickable  olduğu doğrulanır.
@@ -177,41 +186,41 @@ public class US_022 extends TestBaseRapor {
         SoftAssert softAssert = new SoftAssert();
         merchant_dashboard = new Merchant_Dashboard();
 
-        extentTest = extentReports.createTest("profilegitme", "profilegitme2");
+        extentTest = extentReports.createTest("change Password", "change Password 2");
 
         ReusableMethods.merchantLogin();
 
-        extentTest.info("kullanıcı adı ve şifre ile giriş yapıldı.");
+        extentTest.info("Login with username and password.");
 
         merchant_dashboard.merchantname.click();
 
-        extentTest.info("İsme tıklanır");
+        extentTest.info("Click on name");
 
         merchant_dashboard.profil.click();
 
 
-        extentTest.info("profile tıklanır");
+        extentTest.info("click on profile");
 
 
         merchant_dashboard.ChangePasswordlinki.click();
 
-        extentTest.info("Change Password linkine tıklanır");
+        extentTest.info("Click the Change Password link");
 
-        assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Oldpasswordbox.isEnabled());
 
-        extentTest.pass("Oldpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the oldpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Newpasswordbox.isEnabled());
 
-        extentTest.pass("Newpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the Newpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Confirmpasswordbox.isEnabled());
 
-        extentTest.pass("Confirmpassword boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the Confirmpassword box is accessible");
 
-        assertTrue(merchant_dashboard.Savebox2.isEnabled());
+        softAssert.assertTrue(merchant_dashboard.Savebox2.isEnabled());
 
-        extentTest.pass("Save boxının erişilebilir olduğu doğrulanır");
+        extentTest.pass("Verify that the save box is accessible");
 
         merchant_dashboard.Oldpasswordbox.sendKeys("1234567");
 
@@ -224,7 +233,7 @@ public class US_022 extends TestBaseRapor {
         try {
             merchant_dashboard.Savebox2.click();
         } catch (Exception e) {
-            softAssert.assertTrue(false, "SaveBox butonu çalışmıyor.");
+            softAssert.assertTrue(false, "SaveBox button is not working.");
         }
 
 
@@ -233,16 +242,11 @@ public class US_022 extends TestBaseRapor {
         softAssert.assertAll();
 
 
-        merchant_dashboard.Confirmpasswordbox.sendKeys("12345678");
-
-        merchant_dashboard.Savebox2.click();
-
-        extentTest.info("Change Password sayfasının çalıştığı test edildi");
-
-        //Save boxında bug var çalışmıyor.
-
-
-
-
     }
+
+
 }
+
+
+
+

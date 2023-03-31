@@ -2,8 +2,6 @@ package tests.US_005_030_031_032;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Merchant_Dashboard;
