@@ -371,7 +371,7 @@ public class ReusableMethods {
 //    Driver.selectByVisibleText(dropdown element, "CHECKING-91303-116.98$")
     public static void selectByVisibleText(WebElement element, String text) {
         Select objSelect = new Select(element);
-        objSelect.selectByVisibleText(text);
+        objSelect.selectByVisibleText("Dermatologists");
     }
 
 
